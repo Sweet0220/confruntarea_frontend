@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  USERS_ROOT: 'http://localhost:8080/api/users',
+  CHAMPIONS_ROOT: 'http://localhost:8080/api/champions',
+  MONSTERS_ROOT: 'http://localhost:8080/api/monsters',
+  ITEMS_ROOT: 'http://localhost:8080/api/items',
+  ABILITIES_ROOT: 'http://localhost:8080/api/abilities',
+  CHAMPION_O_ROOT: 'http://localhost:8080/api/champion-ownerships',
+  ITEM_O_ROOT: 'http://localhost:8080/api/item-ownerships',
+  LOGIN: 'http://localhost:8080/login'
 };
 
 /*

@@ -1,0 +1,9 @@
+<div class="armour_preview" id="tunica" *ngFor="let armour of armour" (click)="toggleChampionPreview(armour)">
+  <img src="../../assets/sprites/items/{{armour.picture}}" class="armour_picture">
+  <p class="armour_preview_name" style="color: {{armour.nameColor}}">{{armour.name}}</p>
+  <div class="funds">
+    <img src="../../assets/icons/orbs.png" title="ORBS" class="energy_shards">
+    <p [ngClass]="user.funds >= armour.price ? 'price' : 'not_enough'">{{armour.price}}</p>
+  </div>
+  <p class="owned_count">Owned: {{getItemCount(armour)}}</p>
+</div>

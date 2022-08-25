@@ -1,0 +1,27 @@
+<div class="back_button" (click)="toggleMainMenu()"><img src="../../../../assets/icons/arrow-back.svg"></div>
+<br><br><br>
+<p class="add_title" style="color: {{champion.nameColor}}; text-decoration: underline {{champion.nameColor}}">{{champion.name}}</p>
+<div class="inputs">
+  <label for="hp_input" class="hp_label">Hp: </label>
+  <input type="number" class="hp_input" id="hp_input" value="{{champion.hp}}">
+  <label for="damage_input" class="damage_label">Damage: </label>
+  <input type="number" class="damage_input" id="damage_input" value="{{champion.baseDamage}}">
+  <br>
+  <label for="price_input" class="price_label">Price: </label>
+  <input type="number" class="price_input" id="price_input" value="{{champion.price}}">
+  <label for="mana_input" class="mana_label">Mana: </label>
+  <input type="number" class="mana_input" id="mana_input" value="{{champion.mana}}">
+  <br>
+  <label for="picture_input" class="picture_label">Picture: </label>
+  <input type="text" class="picture_input" id="picture_input" value="{{champion.picture}}">
+  <label for="nameColor_input" class="nameColor_label">Name_Color: </label>
+  <input type="text" class="nameColor_input" id="nameColor_input" value="{{champion.nameColor}}">
+  <div class="save_button">
+    <div class="delete_champion" (click)="deleteChampion()">
+      <p class="delete_text">DELETE_CHAMPION</p>
+    </div>
+    <div class="save_champion" (click)="updateChampion()">
+      <p class="save_text">SAVE_CHAMPION</p>
+    </div>
+  </div>
+</div>

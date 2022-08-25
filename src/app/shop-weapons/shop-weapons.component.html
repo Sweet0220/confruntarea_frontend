@@ -1,0 +1,9 @@
+<div class="weapon_preview" id="mazga" *ngFor="let weapon of weapons" (click)="toggleChampionPreview(weapon)">
+  <img src="../../assets/sprites/items/{{weapon.picture}}" class="weapon_picture">
+  <p class="weapon_preview_name" style="color: {{weapon.nameColor}}">{{weapon.name}}</p>
+  <div class="funds">
+    <img src="../../assets/icons/orbs.png" title="ORBS" class="energy_shards">
+    <p [ngClass]="user.funds >= weapon.price ? 'price' : 'not_enough'">{{weapon.price}}</p>
+  </div>
+  <p class="owned_count">Owned: {{getItemCount(weapon)}}</p>
+</div>

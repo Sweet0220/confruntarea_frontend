@@ -1,0 +1,59 @@
+.topbar {
+  width: 100%;
+  height: 2em;
+  background: rgba(21, 21, 21, 0.6);
+}
+.toptext {
+  margin-top: 0.3em;
+  font-size: 1.3em;
+  color: white;
+}
+
+.main_title {
+  margin: 0;
+  padding: 0.2em 0 0 0;
+  color: #FFFFFF;
+  font-size: 1.3em;
+  text-align: center;
+}
+
+.title {
+  margin: 3em 0 0 0;
+  color: #fbff00;
+  font-size: 2em;
+  padding: 0;
+}
+
+.input_label {
+  font-family: Pixel, serif;
+  font-size: 2em;
+  text-align: left;
+}
+
+.input {
+  margin: 0;
+
+  width: 100%;
+}
+
+.form_content {
+  width: 40%;
+  height: 50%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.loading {
+  height: 10%;
+  margin: 2em 0 0 0;
+}
+
+.info {
+  margin: 2em 0 0 0;
+  color: white;
+  font-size: 1.5em;
+}

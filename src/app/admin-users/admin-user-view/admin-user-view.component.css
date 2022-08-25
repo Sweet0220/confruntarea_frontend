@@ -1,0 +1,306 @@
+.profile_picture {
+  height: 11em;
+  width: 11em;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.profile_picture:hover {
+  opacity: 0.5;
+}
+
+.profile_main {
+  width: 100%;
+  height: auto;
+  clear: both;
+}
+
+.profile_username {
+  color: #d501ff;
+  font-size: 2em;
+  text-align: center;
+  margin: 0.5em 0 0 0;
+}
+
+.back_button {
+  width: auto;
+  height: auto;
+  margin: 2em 0 0 2em;
+  background: none;
+  border: none;
+  cursor: pointer;
+  float: left;
+}
+
+.inputs {
+  position: absolute;
+  text-align: center;
+  bottom: 1em;
+  width: 100%;
+  height: 50%;
+}
+
+.email_input {
+  width: 25%;
+  height: 1em;
+  background: none;
+  outline: none;
+  border: 0 solid #00eeff;
+  border-bottom-width: 0.05em;
+  font-family: Pixel, serif;
+  color: #00eeff;
+  font-size: 1.6em;
+  padding: 0;
+  margin: 0;
+}
+
+.email_label {
+  font-family: Pixel, serif;
+  color: #00eeff;
+  font-size: 1.5em;
+}
+
+.password_input {
+  width: 25%;
+  height: 1em;
+  background: none;
+  outline: none;
+  border: 0 solid #f02f22;
+  border-bottom-width: 0.05em;
+  font-family: Pixel, serif;
+  color: #f02f22;
+  font-size: 1.6em;
+  padding: 0;
+  margin: 0;
+}
+
+.password_label {
+  font-family: Pixel, serif;
+  color: #f02f22;
+  font-size: 1.5em;
+  margin-left: 2em;
+}
+
+.funds_input {
+  width: 25%;
+  height: 1em;
+  background: none;
+  outline: none;
+  border: 0 solid #11e039;
+  border-bottom-width: 0.05em;
+  font-family: Pixel, serif;
+  color: #11e039;
+  font-size: 1.6em;
+  padding: 0;
+  margin: 1em 0 0 0;
+  clear: both;
+}
+
+.funds_label {
+  font-family: Pixel, serif;
+  color: #11e039;
+  font-size: 1.5em;
+  margin: 1em 0 0 0;
+}
+
+.level_input {
+  width: 25%;
+  height: 1em;
+  background: none;
+  outline: none;
+  border: 0 solid #fbff00;
+  border-bottom-width: 0.05em;
+  font-family: Pixel, serif;
+  color: #fbff00;
+  font-size: 1.6em;
+  padding: 0;
+  margin: 1em 0 0 0;
+  clear: both;
+}
+
+.level_label {
+  font-family: Pixel, serif;
+  color: #fbff00;
+  font-size: 1.5em;
+  margin: 1em 0 0 2em;
+}
+
+.exp_input {
+  width: 25%;
+  height: 1em;
+  background: none;
+  outline: none;
+  border: 0 solid #1100ff;
+  border-bottom-width: 0.05em;
+  font-family: Pixel, serif;
+  color: #1100ff;
+  font-size: 1.6em;
+  padding: 0;
+  margin: 1em 0 0 0;
+  clear: both;
+}
+
+.exp_label {
+  font-family: Pixel, serif;
+  color: #1100ff;
+  font-size: 1.5em;
+  margin: 1em 0 0 0;
+}
+
+.buttons {
+  width: 100%;
+  height: 10%;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+}
+
+.save_user {
+  flex-grow: 1;
+  height: 100%;
+  color: #11e039;
+  outline: none;
+  box-shadow: none;
+  background: rgba(17,224,57,0.1);
+  border: none;
+  font-family: Pixel, serif;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.delete_user {
+  flex-grow: 1;
+  height: 100%;
+  color: #f02f22;
+  background: rgba(240, 47, 34, 0.1);
+  outline: none;
+  box-shadow: none;
+  border: none;
+  font-family: Pixel, serif;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.picture_table {
+  width: 100%;
+  height: 30em;
+}
+
+.p1 {
+  width: 11em;
+  height: 11em;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0.5;
+  float: left;
+  margin-left: 10em;
+  margin-bottom: 5em;
+}
+
+.p2 {
+  height: 11em;
+  width: 11em;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0.5;
+  float: left;
+  margin-left: 10em;
+  margin-bottom: 5em;
+}
+
+.p3 {
+  height: 11em;
+  width: 11em;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0.5;
+  float: left;
+  margin-left: 10em;
+  margin-bottom: 5em;
+}
+
+.p4 {
+  height: 11em;
+  width: 11em;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0.5;
+  float: left;
+  margin-left: 10em;
+  margin-bottom: 5em;
+}
+
+.p5 {
+  height: 11em;
+  width: 11em;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0.5;
+  float: left;
+  margin-left: 10em;
+  margin-bottom: 5em;
+}
+
+.p6 {
+  height: 11em;
+  width: 11em;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0.5;
+  float: left;
+  margin-left: 10em;
+  margin-bottom: 5em;
+}
+
+.p1:hover {
+  opacity: 1;
+}
+
+.p2:hover {
+  opacity: 1;
+}
+
+.p3:hover {
+  opacity: 1;
+}
+
+.p4:hover {
+  opacity: 1;
+}
+
+.p5:hover {
+  opacity: 1;
+}
+
+.p6:hover {
+  opacity: 1;
+}
+
+.new_picture {
+  height: 11em;
+  width: 11em;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.save_user:hover {
+  background: rgba(17,224,57,0.2);
+}
+
+.delete_user:hover {
+  background: rgba(240, 47, 34, 0.2);
+}
+
+.save_user:active {
+  background: rgba(17,224,57,0.3);
+}
+
+.delete_user:active {
+  background: rgba(240, 47, 34, 0.3);
+}
+
+.choose {
+  color: white;
+  font-size: 3em;
+}
+

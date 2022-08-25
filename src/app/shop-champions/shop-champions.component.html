@@ -1,0 +1,12 @@
+<div class="champion_preview" id="boner" *ngFor="let champion of champions" (click)="toggleChampionPreview(champion)">
+  <img src="../../assets/sprites/champions/{{champion.picture}}" class="champion_picture">
+  <p class="champion_preview_name" style="color: {{champion.nameColor}}">{{champion.name}}</p>
+  <div class="funds" *ngIf="!isOwned(champion)">
+    <img src="../../assets/icons/orbs.png" class="energy_shards" title="ORBS">
+    <p [ngClass]="user.funds >= champion.price ? 'price' : 'not_enough'">{{champion.price}}</p>
+  </div>
+  <div class="insufficient" *ngIf="isOwned(champion)">
+    <p class="insufficient_text">OWNED</p>
+  </div>
+</div>
+

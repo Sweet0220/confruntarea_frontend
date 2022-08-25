@@ -1,0 +1,23 @@
+<div class="topbar">
+  <p class="toptext" style="float: left; margin-left: 0.2em; opacity: 1">mirceanealcos_</p>
+  <p class="toptext" style="float: right; margin-right: 0.2em">v1.0</p>
+  <p class="main_title" style="float: top;">ADMIN TOOLS</p>
+</div>
+<div class="content">
+  <div class="sidebar">
+    <button class="sidebar_button" (click)="toggleUsers()" [ngClass]="getUsersToggle ? 'sidebar_button_pressed' : 'sidebar_button'">- USERS -</button>
+    <button class="sidebar_button" (click)="toggleChampions()" [ngClass]="getChampionsToggle ? 'sidebar_button_pressed' : 'sidebar_button'">- CHAMPIONS -</button>
+    <button class="sidebar_button" (click)="toggleItems()" [ngClass]="getItemsToggle ? 'sidebar_button_pressed' : 'sidebar_button'">- ITEMS -</button>
+    <button class="sidebar_button" (click)="toggleAbilities()" [ngClass]="getAbilitiesToggle ? 'sidebar_button_pressed' : 'sidebar_button'">- ABILITIES -</button>
+    <button class="sidebar_button" (click)="toggleMonsters()" [ngClass]="getMonstersToggle ? 'sidebar_button_pressed' : 'sidebar_button'">- MONSTERS -</button>
+  </div>
+  <app-admin-users class="component" *ngIf="getUsersToggle"></app-admin-users>
+  <app-admin-champions class="component" *ngIf="getChampionsToggle"></app-admin-champions>
+  <app-admin-items class="component" *ngIf="getItemsToggle"></app-admin-items>
+  <app-admin-abilities class="component" *ngIf="getAbilitiesToggle"></app-admin-abilities>
+  <app-admin-monsters class="component" *ngIf="getMonstersToggle"></app-admin-monsters>
+</div>
+<div class="bottom_bar" *ngIf="getBottomBar">
+  <p class="console">></p>
+  <input type="text" id="other_input" class="other_input" [placeholder]="getUsernamePlaceholder ? 'enter_username' : 'enter_email'" (keydown.enter)="searchByUsername()">
+</div>

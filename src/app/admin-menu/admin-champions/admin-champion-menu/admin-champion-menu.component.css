@@ -1,0 +1,50 @@
+.champion_preview {
+  height: 20.95em;
+  width: 15.95em;
+  background-color: rgba(21,21,21,0.5);
+  margin: 0;
+  cursor: pointer;
+}
+
+.champion_preview:hover {
+  background-color: rgba(21,21,21,0.8);
+}
+
+.champion_preview:active {
+  background-color: rgba(21,21,21,1);
+}
+
+.profilepic {
+  user-select: none;
+  height: 60%;
+  margin: 0.8em 0 0 0;
+}
+
+.name {
+  margin: 0.2em 0 0 0;
+  font-size: 1.2em;
+}
+
+.price {
+  margin: 0.2em 0 0 0;
+  font-size: 1.1em;
+  color: #11e039;
+}
+
+.hp {
+  margin: 0.2em 0 0 0;
+  font-size: 1.1em;
+  color: #f02f22;
+}
+
+.damage {
+  margin: 0.2em 0 0 0;
+  font-size: 1.1em;
+  color: #fbff00;
+}
+
+.mana {
+  margin: 0.2em 0 0 0;
+  font-size: 1.1em;
+  color: #1100ff;
+}

@@ -1,0 +1,8 @@
+<div class="champion_preview" *ngFor="let monster of monsters" (click)="toggleViewMenu(monster.name)">
+  <img src="../../../../assets/sprites/monsters/{{monster.picture}}" class="profilepic">
+  <p class="name" style="color: {{monster.nameColor}}; text-decoration: underline {{monster.nameColor}}">{{monster.name}}</p>
+  <p class="price">Level: {{monster.level}}</p>
+  <p class="hp">Hp: {{monster.hp}}</p>
+  <p class="damage">Damage: {{monster.baseDamage}}</p>
+  <p class="mana">Money_Reward: {{monster.moneyReward}}</p>
+</div>

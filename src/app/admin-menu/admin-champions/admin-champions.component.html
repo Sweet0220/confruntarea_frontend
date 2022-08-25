@@ -1,0 +1,8 @@
+<div class="bottom_bar" *ngIf="getChampionMenuToggle">
+  <button class="search_by_button">search_all</button>
+  <button class="search_by_button">search_by_name</button>
+  <button class="add_champ_button" (click)="toggleAddNewChampion()">+ ADD_NEW_CHAMPION</button>
+</div>
+<app-admin-champion-menu class="champion_menu" *ngIf="getChampionMenuToggle"></app-admin-champion-menu>
+<app-admin-champion-add class="champion_add" *ngIf="getChampionAddToggle"></app-admin-champion-add>
+<app-admin-champion-view class="champion_add" *ngIf="getChampionViewToggle"></app-admin-champion-view>

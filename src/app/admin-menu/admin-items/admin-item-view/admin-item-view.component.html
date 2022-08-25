@@ -1,0 +1,27 @@
+<div class="back_button" (click)="toggleItemMenu()"><img src="../../../../assets/icons/arrow-back.svg"></div>
+<br><br><br>
+<p class="add_title" style="color: {{item.nameColor}}; text-decoration: underline {{item.nameColor}}">{{item.name}}</p>
+<div class="inputs">
+  <label for="hp_input" class="hp_label">Bonus_Hp: </label>
+  <input type="number" class="hp_input" id="hp_input" value="{{item.bonusHp}}">
+  <label for="damage_input" class="damage_label">Bonus_Damage: </label>
+  <input type="number" class="damage_input" id="damage_input" value="{{item.bonusDamage}}">
+  <br>
+  <label for="price_input" class="price_label">Price: </label>
+  <input type="number" class="price_input" id="price_input" value="{{item.price}}">
+  <label for="type_input" class="mana_label">Type: </label>
+  <input type="text" class="mana_input" id="type_input" value="{{item.type}}">
+  <br>
+  <label for="picture_input" class="picture_label">Picture: </label>
+  <input type="text" class="picture_input" id="picture_input" value="{{item.picture}}">
+  <label for="nameColor_input" class="nameColor_label">Name_Color: </label>
+  <input type="text" class="nameColor_input" id="nameColor_input" value="{{item.nameColor}}">
+  <div class="save_button">
+    <div class="delete_champion" (click)="deleteItem()">
+      <p class="delete_text">DELETE_ITEM</p>
+    </div>
+    <div class="save_champion" (click)="updateItem()">
+      <p class="save_text">SAVE_ITEM</p>
+    </div>
+  </div>
+</div>

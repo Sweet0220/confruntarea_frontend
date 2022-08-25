@@ -1,0 +1,8 @@
+<div class="champion_preview" *ngFor="let champion of champions" (click)="toggleChampionView(champion.name)">
+  <img src="../../../../assets/sprites/champions/{{champion.picture}}" class="profilepic">
+  <p class="name" style="color: {{champion.nameColor}}; text-decoration: underline {{champion.nameColor}}">{{champion.name}}</p>
+  <p class="price">Price: {{champion.price}}</p>
+  <p class="hp">Hp: {{champion.hp}}</p>
+  <p class="damage">Damage: {{champion.baseDamage}}</p>
+  <p class="mana">Mana: {{champion.mana}}</p>
+</div>

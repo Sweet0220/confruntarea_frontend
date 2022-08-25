@@ -1,0 +1,196 @@
+.back_button {
+  width: auto;
+  height: auto;
+  margin: 2em 0 0 2em;
+  background: none;
+  border: none;
+  cursor: pointer;
+  float: left;
+}
+
+.add_title {
+  text-align: center;
+  color: white;
+  font-size: 2em;
+}
+
+.inputs {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  height: 75%;
+}
+
+.name_input {
+  width: 25%;
+  height: 1em;
+  background: none;
+  outline: none;
+  border: 0 solid darkorange;
+  border-bottom-width: 0.05em;
+  font-family: Pixel, serif;
+  color: darkorange;
+  font-size: 1.6em;
+  padding: 0;
+  margin: 0;
+}
+
+.name_label {
+  font-family: Pixel, serif;
+  color: darkorange;
+  font-size: 1.5em;
+}
+
+.hp_input {
+  width: 25%;
+  height: 1em;
+  background: none;
+  outline: none;
+  border: 0 solid red;
+  border-bottom-width: 0.05em;
+  font-family: Pixel, serif;
+  color: red;
+  font-size: 1.6em;
+  padding: 0;
+  margin: 0;
+}
+
+.hp_label {
+  font-family: Pixel, serif;
+  color: red;
+  font-size: 1.5em;
+  margin: 0 0 0 2em;
+}
+
+.damage_input {
+  width: 25%;
+  height: 1em;
+  background: none;
+  outline: none;
+  border: 0 solid #fbff00;
+  border-bottom-width: 0.05em;
+  font-family: Pixel, serif;
+  color: #fbff00;
+  font-size: 1.6em;
+  padding: 0;
+  margin: 2em 0 0 0;
+}
+
+.damage_label {
+  font-family: Pixel, serif;
+  color: #fbff00;
+  font-size: 1.5em;
+  margin: 2em 0 0 0;
+}
+
+.price_input {
+  width: 25%;
+  height: 1em;
+  background: none;
+  outline: none;
+  border: 0 solid #11e039;
+  border-bottom-width: 0.05em;
+  font-family: Pixel, serif;
+  color: #11e039;
+  font-size: 1.6em;
+  padding: 0;
+  margin: 2em 0 0 0;
+}
+
+.price_label {
+  font-family: Pixel, serif;
+  color: #11e039;
+  font-size: 1.5em;
+  margin: 2em 0 0 2em;
+}
+
+.type_input {
+  width: 25%;
+  height: 1em;
+  background: none;
+  outline: none;
+  border: 0 solid #1100ff;
+  border-bottom-width: 0.05em;
+  font-family: Pixel, serif;
+  color: #1100ff;
+  font-size: 1.6em;
+  padding: 0;
+  margin: 2em 0 0 0;
+}
+
+.type_label {
+  font-family: Pixel, serif;
+  color: #1100ff;
+  font-size: 1.5em;
+  margin: 2em 0 0 0;
+}
+
+.picture_input {
+  width: 25%;
+  height: 1em;
+  background: none;
+  outline: none;
+  border: 0 solid #00eeff;
+  border-bottom-width: 0.05em;
+  font-family: Pixel, serif;
+  color: #00eeff;
+  font-size: 1.6em;
+  padding: 0;
+  margin: 2em 0 0 0;
+}
+
+.picture_label {
+  font-family: Pixel, serif;
+  color: #00eeff;
+  font-size: 1.5em;
+  margin: 2em 0 0 2em;
+}
+
+.nameColor_input {
+  width: 25%;
+  height: 1em;
+  background: none;
+  outline: none;
+  border: 0 solid #d501ff;
+  border-bottom-width: 0.05em;
+  font-family: Pixel, serif;
+  color: #d501ff;
+  font-size: 1.6em;
+  padding: 0;
+  margin: 2em 0 0 0;
+}
+
+.nameColor_label {
+  font-family: Pixel, serif;
+  color: #d501ff;
+  font-size: 1.5em;
+  margin: 2em 0 0 0;
+}
+
+.save_button {
+  width: 100%;
+  height: 10%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  background: rgba(17,224,57,0.1);
+  cursor: pointer;
+}
+
+.save_button:hover {
+  background: rgba(17,224,57,0.2);
+}
+
+.save_button:active {
+  background: rgba(17,224,57,0.3);
+}
+
+.save_text {
+  color: #11e039;
+  font-size: 2em;
+  text-align: center;
+  margin: 0;
+}

@@ -1,0 +1,7 @@
+<div class="user_preview" *ngFor="let user of users" (click)="toggleUserView(user.username)">
+  <img src="../../../assets/icons/{{user.picture}}" class="profilepic">
+  <p class="username">{{user.username}}</p>
+  <p class="email">{{user.email}}</p>
+  <p class="level">Level: {{user.level}}</p>
+  <p class="funds">Funds: {{user.funds}}</p>
+</div>

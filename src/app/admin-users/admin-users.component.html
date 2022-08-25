@@ -1,0 +1,7 @@
+<div class="search_by_button_bar" *ngIf="getUserMenuToggle">
+  <button class="search_by_button" (click)="getAllUsers()" >search_all</button>
+  <button class="search_by_button" (click)="toggleSearchByUsername()">search_by_username</button>
+  <button class="search_by_button">search_by_email</button>
+</div>
+<app-admin-user-menu class="user_menu" *ngIf="getUserMenuToggle"></app-admin-user-menu>
+<app-admin-user-view class="user_view" *ngIf="getUserViewToggle"></app-admin-user-view>

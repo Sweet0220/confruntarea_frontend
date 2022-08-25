@@ -1,0 +1,22 @@
+<h1 class="shoptitle">$ SHOP $</h1>
+<div class="funds">
+  <img src="../../assets/icons/orbs.png" class="energy_shards" title="ORBS">
+  <p class="shop_funds">{{this.shopService.user.funds}}</p>
+</div>
+
+<div class="shop_content">
+  <div class="shop_sidebar" *ngIf="!championPreview && !itemPreview">
+    <button (click)="toggleChampions()" [ngClass]="championsToggle ? 'shop_sidebar_button_pressed' : 'shop_sidebar_button'">Champions</button>
+    <button [ngClass]="weaponsToggle ? 'shop_sidebar_button_pressed' : 'shop_sidebar_button'" (click)="toggleWeapons()">Weapons</button>
+    <button [ngClass]="armourToggle ? 'shop_sidebar_button_pressed' : 'shop_sidebar_button'" (click)="toggleArmour()">Armour</button>
+    <button [ngClass]="throwablesToggle ? 'shop_sidebar_button_pressed' : 'shop_sidebar_button'" (click)="toggleThrowables()">Throwables</button>
+    <button [ngClass]="potionsToggle ? 'shop_sidebar_button_pressed' : 'shop_sidebar_button'" (click)="togglePotions()">Potions</button>
+  </div>
+  <app-shop-champions class="component" *ngIf="championsToggle"></app-shop-champions>
+  <app-shop-weapons class="component" *ngIf="weaponsToggle"></app-shop-weapons>
+  <app-shop-armour class="component" *ngIf="armourToggle"></app-shop-armour>
+  <app-shop-throwables class="component" *ngIf="throwablesToggle"></app-shop-throwables>
+  <app-shop-potions class="component" *ngIf="potionsToggle"></app-shop-potions>
+  <app-champion-preview class="preview" *ngIf="championPreview"></app-champion-preview>
+  <app-item-preview class="preview" *ngIf="itemPreview"></app-item-preview>
+</div>

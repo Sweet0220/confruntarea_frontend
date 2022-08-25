@@ -1,0 +1,10 @@
+<img src="../../assets/icons/{{user.picture}}" class="profilepic">
+<h1 class="profile_name">{{user.username}}</h1>
+<p class="profile_text"> Current_level: {{user.level}}</p>
+<p class="profile_text" style="color: #11e039">Exp: {{user.exp}} / 100</p>
+<div class="funds">
+  <img src="../../assets/icons/orbs.png" class="energy_shards" title="ORBS">
+  <p class="profile_funds">{{user.funds}}</p>
+</div>
+
+<p class="log_out" (click)="logout()">Log_out</p>

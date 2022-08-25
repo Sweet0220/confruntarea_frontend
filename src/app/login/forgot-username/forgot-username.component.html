@@ -1,0 +1,14 @@
+<div class="topbar">
+  <p class="toptext" style="float: left; margin-left: 0.2em; opacity: 1">mirceanealcos_</p>
+  <p class="toptext" style="float: right; margin-right: 0.2em">v1.0</p>
+</div>
+<h1 class="title">forgot_username</h1>
+<div class="form_content">
+  <p class="input_label">email_</p>
+  <input type="text" class="input" id="username_input" placeholder="enter_email"/>
+  <p class="submit" style="margin: 1.5em 0 0 0;" (click)="sendMail()">submit_</p>
+  <p class="submit" style="margin: 0.3em 0 0 0; padding: 0;" (click)="login()">back_to_login</p>
+  <img src="assets/animations/loading.gif" class="loading" *ngIf="loading">
+  <p class="info" id="info_text" *ngIf="text">An email has been sent to the address containing linked usernames!</p>
+</div>
+

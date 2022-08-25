@@ -1,0 +1,8 @@
+<div class="champion_preview" *ngFor="let ability of abilities" (click)="toggleAbilityView(ability.name)">
+  <img src="../../../../assets/sprites/abilities/{{ability.picture}}" class="profilepic">
+  <p class="name" style="color: white; text-decoration: underline white">{{ability.name}}</p>
+  <p class="price">Type: {{ability.type}}</p>
+  <p class="hp">Healing: {{ability.healing}}</p>
+  <p class="damage">Damage: {{ability.damage}}</p>
+  <p class="mana">Mana_Cost: {{ability.manaCost}}</p>
+</div>

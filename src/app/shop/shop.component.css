@@ -1,0 +1,124 @@
+.shoptitle {
+  color: #11e039;
+  font-size: 4em;
+  margin-bottom: 0;
+}
+
+.funds {
+  display: flex;
+  width: 100%;
+  height: 10%;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.energy_shards {
+  height: 50%;
+}
+
+.shop_content {
+  height: 75%;
+  width: 100%;
+  position: absolute;
+  border-style: solid;
+  border-top-width: 0.1em;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+  border-top-color: #1100ff;
+  bottom: 0;
+}
+
+.shop_funds {
+  font-size: 1.5em;
+  margin: 0 0 0 0.5em;
+  color: #00eeff;
+  text-align: center;
+}
+
+.shop_sidebar {
+  float: left;
+  text-align: center;
+  width: 20%;
+  height: 100%;
+  margin: 0;
+  border-style: solid;
+  border-right-color: #1100ff;
+  border-width: 0.1em;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.shop_sidebar_button {
+  padding: 0;
+  width: 100%;
+  height: 3em;
+  font-family: Pixel, serif;
+  font-size: 1.7em;
+  color: white;
+  margin: 0;
+  background: none;
+  border: none;
+  position: relative;
+  left: 0;
+}
+
+.shop_sidebar_button_pressed {
+  padding: 0;
+  width: 100%;
+  height: 3em;
+  font-family: Pixel, serif;
+  font-size: 1.7em;
+  color: white;
+  margin: 0;
+  border: none;
+  position: relative;
+  left: 0;
+  background: rgba(21,21,21,1);
+}
+
+.shop_sidebar_button_pressed:hover {
+  cursor: pointer;
+}
+
+.shop_sidebar_button:hover {
+  background: rgba(21,21,21,0.7);
+  cursor: pointer;
+}
+
+.shop_sidebar_button:active {
+  background: rgba(21,21,21,1);
+  cursor: pointer;
+}
+
+.component {
+  position: relative;
+  float: right;
+  width: 80%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 1em 0 0 1.5em;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  row-gap: 1.5em;
+  column-gap: 1.5em;
+  overflow: scroll;
+}
+
+.component::-webkit-scrollbar {
+  display: none;
+}
+
+.preview {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+

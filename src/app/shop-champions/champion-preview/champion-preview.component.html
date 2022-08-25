@@ -1,0 +1,101 @@
+<div class="preview">
+  <img class="back_button" src="assets/icons/close.svg" (click)="toggleChampions()">
+  <div class="overview">
+
+    <div class="overview_text">- OVERVIEW -</div>
+    <img class="champion_photo" src="assets/sprites/champions/{{fadePhoto}}">
+    <div class="name_container">
+      <div class="torches">
+        <p class="name" style="color: {{champion.nameColor}}">{{champion.name}}</p>
+      </div>
+      <p class="name" style="color: {{champion.nameColor}}; font-size: 1.5em; letter-spacing: 0.2em">{{champDesc}}</p>
+    </div>
+    <div class="stats_container" style="border-color: {{champion.nameColor}}">
+      <div class="stats">
+        <p class="stats_title">- STATS -</p>
+        <div class="stat_flexbox" title="HP">
+          <img src="assets/icons/Heart.png" style="height: 100%;">
+          <p style="font-size: 1.5em; color: red; margin: 0 0 0 0.5em;">: {{champion.hp}}</p>
+        </div>
+        <div class="stat_flexbox" title="DAMAGE">
+          <img src="assets/icons/Damage.png" style="height: 100%;">
+          <p style="font-size: 1.5em; color: gray; margin: 0 0 0 0.5em;">: {{champion.baseDamage}}</p>
+        </div>
+        <div class="stat_flexbox" title="MANA">
+          <img src="assets/icons/Mana.png" style="height: 100%;">
+          <p style="font-size: 1.5em; color: blue; margin: 0 0 0 0.5em;">: {{champion.mana}}</p>
+        </div>
+      </div>
+      <div class="separator" style="background: {{champion.nameColor}}">
+      </div>
+      <div class="lore">
+        <p class="lore-text">{{lore}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="overview" style="margin: 1.5em 0 0 0;">
+    <div class="overview_text">- ABILITIES -</div>
+    <div class="ability_contents">
+      <div class="ability">
+        <p class="no_ability" *ngIf="abilities.length == 0">- coming soon -</p>
+        <img class="ability_image" src="assets/sprites/abilities/{{abilities[0].picture}}" *ngIf="abilities.length >= 1">
+        <p class="ability_name" *ngIf="abilities.length >= 1">{{abilities[0].name}}</p>
+        <div class="stat_flexbox" style="height: 10%; position: absolute; top: 36%; left: 0; right: 0; margin: auto;" title="HEALING" *ngIf="abilities.length >= 1">
+          <img src="assets/icons/Heart.png" style="height: 75%;">
+          <p style="font-size: 1.5em; color: red; margin: 0 0 0 0.2em;">: +{{abilities[0].healing}}</p>
+        </div>
+        <div class="stat_flexbox" style="height: 10%; position: absolute; top: 46%; left: 0; right: 0; margin: auto;" title="DAMAGE DEALT" *ngIf="abilities.length >= 1">
+          <img src="assets/icons/Damage.png" style="height: 75%;">
+          <p style="font-size: 1.5em; color: gray; margin: 0 0 0 0.2em;">: {{abilities[0].damage}}</p>
+        </div>
+        <div class="stat_flexbox" style="height: 10%; position: absolute; top: 56%; left: 0; right: 0; margin: auto;" title="MANA COST" *ngIf="abilities.length >= 1">
+          <img src="assets/icons/Mana.png" style="height: 75%;">
+          <p style="font-size: 1.5em; color: blue; margin: 0 0 0 0.2em;">: -{{abilities[0].manaCost}}</p>
+        </div>
+        <div class="ability_description">
+          <p class="ability_text">{{abilityDesc1}}</p>
+        </div>
+      </div>
+      <div class="separator" style="background: {{champion.nameColor}}"></div>
+      <div class="ability">
+        <p class="no_ability" *ngIf="abilities.length <= 1">- coming soon -</p>
+        <img class="ability_image" src="assets/sprites/abilities/{{abilities[1].picture}}" *ngIf="abilities.length >= 2">
+        <p class="ability_name" *ngIf="abilities.length >= 2">{{abilities[1].name}}</p>
+        <div class="stat_flexbox" style="height: 10%; position: absolute; top: 36%; left: 0; right: 0; margin: auto;" title="HEALING" *ngIf="abilities.length >= 2">
+          <img src="assets/icons/Heart.png" style="height: 75%;">
+          <p style="font-size: 1.5em; color: red; margin: 0 0 0 0.2em;">: +{{abilities[1].healing}}</p>
+        </div>
+        <div class="stat_flexbox" style="height: 10%; position: absolute; top: 40%; left: 0; right: 0; margin: auto;" title="DAMAGE DEALT" *ngIf="abilities.length >= 2">
+          <img src="assets/icons/Heart.png" style="height: 75%;">
+          <p style="font-size: 1.5em; color: gray; margin: 0 0 0 0.2em;">: +{{abilities[1].damage}}</p>
+        </div>
+      </div>
+      <div class="separator" style="background: {{champion.nameColor}}"></div>
+      <div class="ability">
+        <p class="no_ability" *ngIf="abilities.length <= 2">- coming soon -</p>
+        <img class="ability_image" src="assets/sprites/abilities/{{abilities[2].picture}}" *ngIf="abilities.length == 3">
+        <p class="ability_name" *ngIf="abilities.length == 3">{{abilities[2].name}}</p>
+        <div class="stat_flexbox" style="height: 10%; position: absolute; top: 36%; left: 0; right: 0; margin: auto;" title="HEALING" *ngIf="abilities.length == 3">
+          <img src="assets/icons/Heart.png" style="height: 75%;">
+          <p style="font-size: 1.5em; color: red; margin: 0 0 0 0.2em;">: +{{abilities[2].healing}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="buy_container">
+    <div class="price">
+      <p class="price_text">Price: {{champion.price}}</p>
+      <img src="/assets/icons/orbs.png" title="ORBS" class="orbs">
+    </div>
+    <div class="insufficient" *ngIf="money < champion.price && bought1 == false && bought2 == false">
+      <p class="insufficient_text">NOT ENOUGH ORBS</p>
+    </div>
+    <div class="insufficient" *ngIf="bought2 == true">
+      <p class="insufficient_text">OWNED</p>
+    </div>
+    <div class="buy_button" *ngIf="money >= champion.price && bought2 == false && bought1 == false" (click)="buyChampion()">BUY</div>
+    <img class="loading" *ngIf="bought1" src="assets/animations/loading.gif">
+  </div>
+</div>

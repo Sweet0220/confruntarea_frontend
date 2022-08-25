@@ -1,0 +1,9 @@
+<div class="potion_preview" *ngFor="let potion of potions" (click)="toggleChampionPreview(potion)">
+  <img src="../../assets/sprites/items/{{potion.picture}}" class="potion_picture">
+  <p class="potion_preview_name" style="color: {{potion.nameColor}}">{{potion.name}}</p>
+  <div class="funds">
+    <img src="../../assets/icons/orbs.png" class="energy_shards" title="ORBS">
+    <p [ngClass]="user.funds >= potion.price ? 'price' : 'not_enough'">{{potion.price}}</p>
+  </div>
+  <p class="owned_count">Owned: {{getItemCount(potion)}}</p>
+</div>

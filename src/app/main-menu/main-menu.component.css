@@ -1,0 +1,96 @@
+.topbar {
+  width: 100%;
+  height: 2em;
+  background: rgba(21, 21, 21, 0.6);
+  margin-bottom: 5em;
+}
+.toptext {
+  margin-top: 0.3em;
+  font-size: 1.3em;
+  color: white;
+}
+
+.main_title {
+  margin: 0;
+  padding-top: 0.3em;
+  color: #FFFFFF;
+  font-size: 1.3em;
+  text-align: center;
+}
+
+.content {
+  align-self: center;
+  margin: 0 auto;
+  width: 70%;
+  height: 48em;
+  background: rgba(21,21,21,0.5);
+  border-radius: 0.2em;
+  border-style: solid;
+  border-color: #1100ff;
+  border-width: 0.1em;
+}
+
+.sidebar {
+  float: left;
+  text-align: center;
+  width: 15%;
+  height: 100%;
+  margin: 0;
+  border-style: solid;
+  border-right-color: #1100ff;
+  border-width: 0.1em;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.sidebar_button {
+  padding: 0;
+  width: 100%;
+  height: 3em;
+  font-family: Pixel, serif;
+  font-size: 1.7em;
+  color: #00eeff;
+  margin: 0;
+  background: none;
+  border: none;
+  position: relative;
+  left: 0;
+}
+
+.sidebar_button_pressed {
+  padding: 0;
+  width: 100%;
+  height: 3em;
+  font-family: Pixel, serif;
+  font-size: 1.7em;
+  color: #00eeff;
+  margin: 0;
+  background: rgba(21,21,21,1);
+  border: none;
+  position: relative;
+  left: 0;
+}
+
+.sidebar_button_pressed:hover {
+  cursor: pointer;
+}
+
+.sidebar_button:hover {
+  background: rgba(21,21,21,0.7);
+  cursor: pointer;
+}
+
+.sidebar_button:active {
+  background: rgba(21,21,21,1);
+  cursor: pointer;
+}
+
+.component {
+  position: relative;
+  float: right;
+  width: 85%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}

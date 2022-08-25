@@ -1,0 +1,19 @@
+<div class="topbar">
+  <p class="toptext" style="float: left; margin-left: 0.2em; opacity: 1">mirceanealcos_</p>
+  <p class="toptext" style="float: right; margin-right: 0.2em">v1.0</p>
+  <p class="main_title">project_confruntarea</p>
+</div>
+<div class="content" id="content">
+  <div class="sidebar" id="sidebar">
+    <button id="profile-button" style="color: #d501ff" (click)="toggleProfileComponent()" [ngClass]="profileToggle ? 'sidebar_button_pressed' : 'sidebar_button'">- PROFILE -</button>
+    <button id="shop-button" style="color: #fbff00;" (click)="toggleShopComponent()" [ngClass]="shopToggle ? 'sidebar_button_pressed' : 'sidebar_button'">- SHOP -</button>
+    <button id="almanac-button" style="color: #11e039" [ngClass]="almanacToggle ? 'sidebar_button_pressed' : 'sidebar_button'" (click)="toggleAlmanacComponent()">- ALMANAC -</button>
+    <button id="help-button" style="color: #FFFFFF" [ngClass]="helpToggle ? 'sidebar_button_pressed' : 'sidebar_button'">- HELP -</button>
+    <button id="about-button" [ngClass]="aboutToggle ? 'sidebar_button_pressed' : 'sidebar_button'">- ABOUT -</button>
+    <button id="prep-button" style="bottom: 0; position: absolute; margin-bottom: 3em; color: #f02f22" [ngClass]="prepToggle ? 'sidebar_button_pressed' : 'sidebar_button'">- PREP -</button>
+    <button id="to-battle-button" style="bottom: 0; position: absolute; color: #fbff00" [ngClass]="toBattleToggle ? 'sidebar_button_pressed' : 'sidebar_button'">TO BATTLE -></button>
+  </div>
+  <app-profile class="component" *ngIf="profileToggle"></app-profile>
+  <app-shop class="component" *ngIf="shopToggle"></app-shop>
+<!--  <app-almanac class="component" *ngIf="almanacToggle"></app-almanac>-->
+</div>

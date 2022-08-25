@@ -1,0 +1,25 @@
+<div class="back_button" (click)="toggleMainMenu()"><img src="../../../../assets/icons/arrow-back.svg"></div>
+<br><br><br>
+<p class="add_title" style="color: white; text-decoration: underline white">{{ability.name}}</p>
+<div class="inputs">
+  <label for="hp_input" class="hp_label">Healing: </label>
+  <input type="number" class="hp_input" id="hp_input" value="{{ability.healing}}">
+  <label for="damage_input" class="damage_label">Damage: </label>
+  <input type="number" class="damage_input" id="damage_input" value="{{ability.damage}}">
+  <br>
+  <label for="type_input" class="price_label">Type: </label>
+  <input type="text" class="price_input" id="type_input" value="{{ability.type}}">
+  <label for="manaCost_input" class="mana_label">Mana_Cost: </label>
+  <input type="text" class="mana_input" id="manaCost_input" value="{{ability.manaCost}}">
+  <br>
+  <label for="picture_input" class="picture_label">Picture: </label>
+  <input type="text" class="picture_input" id="picture_input" value="{{ability.picture}}">
+  <div class="save_button">
+    <div class="delete_champion" (click)="deleteAbility()">
+      <p class="delete_text">DELETE_ABILITY</p>
+    </div>
+    <div class="save_champion" (click)="updateAbility()">
+      <p class="save_text">SAVE_ABILITY</p>
+    </div>
+  </div>
+</div>

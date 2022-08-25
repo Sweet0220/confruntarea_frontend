@@ -1,0 +1,9 @@
+<div class="throwable_preview" id="chucky" *ngFor="let throwable of throwables" (click)="toggleChampionPreview(throwable)">
+  <img src="../../assets/sprites/items/{{throwable.picture}}" class="throwable_picture">
+  <p class="throwable_preview_name" style="color: {{throwable.nameColor}}">{{throwable.name}}</p>
+  <div class="funds">
+    <img src="../../assets/icons/orbs.png" title="ORBS" class="energy_shards">
+    <p [ngClass]="user.funds >= throwable.price ? 'price' : 'not_enough'">{{throwable.price}}</p>
+  </div>
+  <p class="owned_count">Owned: {{getItemCount(throwable)}}</p>
+</div>
