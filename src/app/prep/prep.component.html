@@ -1,0 +1,105 @@
+<div class="prep_container">
+  <p class="preparation_title">- PREPARATION MENU -</p>
+  <div class="overview_container">
+    <p class="overview_text">- OVERVIEW - </p>
+    <div class="selection_indicators">
+      <div class="champion_indicator" title="SELECTED CHAMPION">
+        <img src="{{champion_image}}" class="champion_image">
+      </div>
+      <div class="armor_indicator" title="SELECTED ARMOR">
+        <img src="{{armor_image}}" class="champion_image">
+      </div>
+      <div class="weapon_indicator" title="SELECTED WEAPON">
+        <img src="{{weapon_image}}" class="champion_image">
+      </div>
+    </div>
+    <div class="separator"></div>
+    <div class="stats">
+      <p class="stats_title">- STATS -</p>
+      <div class="stats_container">
+        <div class="base_stats">
+          <p class="small_stats_title">- BASE -</p>
+          <div class="stat_flexbox" title="HP" style="top: 2.5em;">
+            <img src="assets/icons/Heart.png" class="stat_image">
+            <p class="stat">: {{baseHp}}</p>
+          </div>
+          <div class="stat_flexbox" style="top: 4.5em;" title="DAMAGE">
+            <img src="assets/icons/Damage.png" class="stat_image">
+            <p class="stat">: {{baseDamage}}</p>
+          </div>
+          <div class="stat_flexbox" style="top: 6.5em" title="MANA">
+            <img src="assets/icons/Mana.png" class="stat_image">
+            <p class="stat">: {{baseMana}}</p>
+          </div>
+        </div>
+        <div class="separator"></div>
+        <div class="base_stats">
+          <p class="small_stats_title">- TOTAL -</p>
+          <div class="stat_flexbox" style="top: 1.2em" title="HP">
+            <img src="assets/icons/Heart.png" class="stat_image">
+            <p class="stat">: {{totalHp}}</p>
+          </div>
+          <div class="stat_flexbox" style="top: 3.2em" title="DAMAGE">
+            <img src="assets/icons/Damage.png" class="stat_image">
+            <p class="stat">: {{totalDamage}}</p>
+          </div>
+          <div class="stat_flexbox" style="top: 5.2em" title="MANA">
+            <img src="assets/icons/Mana.png" class="stat_image">
+            <p class="stat">: {{totalMana}}</p>
+          </div>
+          <div class="stat_flexbox" style="top: 7.2em" title="LIFESTEAL">
+            <img src="assets/icons/Lifesteal.png" class="stat_image">
+            <p class="stat">: {{totalLifesteal}}</p>
+          </div>
+          <div class="stat_flexbox" style="top: 9.2em" title="THORNS">
+            <img src="assets/icons/Thorns.png" class="stat_image">
+            <p class="stat">: {{totalThorns}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="champion_overview">
+    <p class="overview_text">- CHAMPIONS - </p>
+    <div class="champion_container" style="border-color: green">
+      <div class="champion_card" *ngFor="let champion of champions" (click)="chooseChampion(champion)">
+        <img src="assets/sprites/champions/{{champion.picture}}" class="champion_card_image">
+        <p class="champion_card_name" style="color: {{champion.nameColor}}">{{champion.name}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="champion_overview">
+    <p class="overview_text">- WEAPONS - </p>
+    <div class="champion_container" style="border-color: cornflowerblue" *ngIf="weaponTrigger" id="weapon_container">
+      <div class="champion_card" *ngFor="let weapon of weapons" (click)="chooseWeapon(weapon)">
+        <img src="assets/sprites/items/{{weapon.picture}}" class="item_card_image">
+        <p class="item_card_name" style="color: {{weapon.nameColor}}">{{weapon.name}}</p>
+        <p class="owned_count">Owned: {{getItemCount(weapon)}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="champion_overview">
+    <p class="overview_text">- ARMOUR - </p>
+    <div class="champion_container" style="border-color: darkorange" *ngIf="armorTrigger" id="armor_container">
+      <div class="champion_card" *ngFor="let armor of armor" (click)="chooseArmor(armor)">
+        <img src="assets/sprites/items/{{armor.picture}}" class="item_card_image">
+        <p class="item_card_name" style="color: {{armor.nameColor}}">{{armor.name}}</p>
+        <p class="owned_count">Owned: {{getItemCount(armor)}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="champion_overview" >
+    <p class="overview_text">- OTHERS - </p>
+    <div class="champion_container" style="border-color: mediumpurple" *ngIf="otherTrigger">
+      <div class="other_card" *ngFor="let other of others">
+        <img src="assets/sprites/items/{{other.picture}}" class="item_card_image">
+        <p class="item_card_name" style="color: {{other.nameColor}}">{{other.name}}</p>
+        <p class="owned_count">Owned: {{getItemCount(other)}}</p>
+      </div>
+    </div>
+  </div>
+</div>

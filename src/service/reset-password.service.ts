@@ -10,6 +10,7 @@ import {UserLogin} from "../entity/user-login";
 export class ResetPasswordService {
 
   path: string = "http://localhost:8080/reset-password";
+  validation: string = "http://localhost:8080/email-validation"
 
   constructor(private http: HttpClient, private userService: UserService) { }
 
@@ -23,5 +24,9 @@ export class ResetPasswordService {
 
   public changePassword(token: string, credentials: UserLogin): Observable<any> {
     return this.http.post(this.path + "/change?token=" + token, credentials, {responseType: "text"});
+  }
+
+  public validateAccount(token: string, username: string): Observable<any> {
+    return this.http.get(this.validation + "?token=" + token + "&username=" + username,{responseType: "text"});
   }
 }

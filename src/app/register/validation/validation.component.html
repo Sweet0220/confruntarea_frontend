@@ -1,0 +1,7 @@
+<div class="topbar">
+  <p class="toptext" style="float: left; margin-left: 0.2em; opacity: 1">mirceanealcos_</p>
+  <p class="toptext" style="float: right; margin-right: 0.2em">v1.0</p>
+</div>
+<p class="info" id="info_good" *ngIf="goodInfo">Account with username {{username}} validated successfully! You can now log in!</p>
+<p class="submit" style="margin: 0.3em 0 0 0; padding: 0;" (click)="login()" *ngIf="goodInfo">back_to_login</p>
+<p class="info" id="info_bad" *ngIf="badInfo">{{errorText}}</p>

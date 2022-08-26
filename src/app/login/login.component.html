@@ -13,6 +13,7 @@
     <p class="link" (click)="forgotPassword()">forgot_password</p>
     <p class="submit" (click)="logon()">submit_</p>
   </form>
+  <p class="info" *ngIf="info">Incorrect username/password combination or the account hasn't been validated!</p>
   <p class="other">new_here?</p>
   <p class="other_link" (click)="register()">BECOME_A_FIGHTER!</p>
 </div>

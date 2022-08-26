@@ -123,3 +123,22 @@ input::placeholder {
   font-size: 1.3em;
   color: white;
 }
+
+.loading {
+  height: 3em;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 4em;
+  margin: auto;
+}
+
+.info {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 4em;
+  margin: auto;
+  color: white;
+  font-size: 1.5em;
+}

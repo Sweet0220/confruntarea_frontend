@@ -14,6 +14,8 @@
     <p class="input_label" style="margin-top: 0.2em">retype_password_</p>
     <input class="input" type="password" placeholder="reenter_password" id="password_input2">
     <p class="submit" (click)="submit()">submit_</p>
-    <p class="submit" (click)="login()">back_to_login</p>
+    <p class="submit" (click)="login()" style="margin: 1em 0 0 0;">back_to_login</p>
   </form>
+  <img src="assets/animations/loading.gif" class="loading" *ngIf="loading">
+  <p class="info" id="info_good" *ngIf="info">An email has been sent to {{email}} ! Use the link to validate your account !</p>
 </div>

@@ -1,29 +1,19 @@
 .almanac_title {
+  font-family: Lore, sans-serif;
   color: #11e039;
-  font-size: 3em;
+  font-size: 1.5em;
+  margin: 2em 0 2em 0;
+  letter-spacing: 0.2em;
 }
 
-.monster_container {
-  width: 100%;
-  height: 80%;
+.container {
   position: absolute;
-  bottom: 0;
-  margin: 0;
-}
-
-.monster {
-  margin: 1em 0 0 5em;
-  float: left;
-  background: none;
-  border: none;
-  width: 10em;
-  height: 10em;
-  padding: 2em;
-}
-
-.monster_image {
-  padding: 1.5em;
-  display: inline-block;
-  width: 100%;
-  vertical-align: middle;
+  height: 80%;
+  width: 90%;
+  border: solid green 0.02em;
+  border-bottom: 0;
+  border-right: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
 }

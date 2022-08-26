@@ -40,6 +40,8 @@ import { ForgotUsernameComponent } from './login/forgot-username/forgot-username
 import { ItemPreviewComponent } from './shop/item-preview/item-preview.component';
 import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
 import { ResetFormComponent } from './login/forgot-password/reset-form/reset-form.component';
+import { ValidationComponent } from './register/validation/validation.component';
+import { PrepComponent } from './prep/prep.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +81,9 @@ import { ResetFormComponent } from './login/forgot-password/reset-form/reset-for
     ForgotUsernameComponent,
     ItemPreviewComponent,
     ForgotPasswordComponent,
-    ResetFormComponent
+    ResetFormComponent,
+    ValidationComponent,
+    PrepComponent
   ],
   imports: [
     BrowserModule,

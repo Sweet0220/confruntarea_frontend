@@ -18,7 +18,7 @@ export class UserService {
   constructor(private http: HttpClient, private jwtService: JwtService) { }
 
   registerUser(user: UserRegister): Observable<any> {
-    return this.http.post(this.getUsersURL + "/user-register", user);
+    return this.http.post(this.getUsersURL + "/user-register", user, {responseType: "text"});
   }
 
   getAllUsers(): Observable<any> {

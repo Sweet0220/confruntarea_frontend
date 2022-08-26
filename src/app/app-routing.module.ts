@@ -8,6 +8,7 @@ import {RegisterComponent} from "./register/register.component";
 import {ForgotUsernameComponent} from "./login/forgot-username/forgot-username.component";
 import {ForgotPasswordComponent} from "./login/forgot-password/forgot-password.component";
 import {ResetFormComponent} from "./login/forgot-password/reset-form/reset-form.component";
+import {ValidationComponent} from "./register/validation/validation.component";
 
 
 const routes: Routes = [
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'forgot-username', component: ForgotUsernameComponent},
   { path: 'forgot-password', component: ForgotPasswordComponent},
-  { path: 'forgot-password/reset-form', component: ResetFormComponent}
+  { path: 'forgot-password/reset-form', component: ResetFormComponent},
+  { path: 'validate', component: ValidationComponent}
 ]
 
 

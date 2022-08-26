@@ -12,6 +12,9 @@ import {Router} from "@angular/router";
 export class RegisterComponent implements OnInit {
 
   newUser: UserRegister = {} as UserRegister;
+  loading: boolean = false;
+  info: boolean = false;
+  email: string = "";
 
   constructor(private userService: UserService, private router: Router) { }
 
@@ -35,9 +38,12 @@ export class RegisterComponent implements OnInit {
       this.newUser.username = username;
       this.newUser.email = email;
       this.newUser.password = password1;
-      this.userService.registerUser(this.newUser).subscribe({error: _ => {
-        this.router.navigate(['/login']);
-      }});
+      this.email = email;
+      this.loading = true;
+      this.userService.registerUser(this.newUser).subscribe( _ => {
+        this.loading = false;
+        this.info = true;
+      });
     }
   }
 

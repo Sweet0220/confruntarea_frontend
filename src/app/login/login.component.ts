@@ -11,6 +11,8 @@ import jwt_decode from 'jwt-decode';
 })
 export class LoginComponent implements OnInit {
 
+  info: boolean = false;
+
   constructor(private userService: UserService, private router: Router, private jwtService: JwtService) { }
 
   ngOnInit(): void {
@@ -19,7 +21,8 @@ export class LoginComponent implements OnInit {
     localStorage.setItem("principal", "");
   }
 
-  logon() {
+  async logon() {
+    this.info = false;
     const usernameInput = <HTMLInputElement>document.getElementById("username_input");
     let username: string = usernameInput.value;
     const passwordInput = <HTMLInputElement>document.getElementById("password_input");
@@ -41,6 +44,8 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['/game']);
           }
         });
+      }, error => {
+        this.info = true;
       });
     }
   }

@@ -1,0 +1,256 @@
+.prep_container {
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
+}
+
+.prep_container::-webkit-scrollbar {
+  display: none;
+}
+
+.preparation_title {
+  color: red;
+  font-size: 1.5em;
+  margin: 1em 0 1em 0;
+
+}
+
+.overview_container {
+  width: 100%;
+  height: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  column-gap: 2.5em;
+  /*background: #797979;*/
+}
+
+.overview_text {
+  position: absolute;
+  height: auto;
+  width: auto;
+  transform: rotate(-90deg) translateY(-100%);
+  font-size: 1em;
+  letter-spacing: 0.15em;
+  color: #FFFFFF;
+  left: 0;
+  top: 50%;
+  margin: 0;
+  margin-block: 0;
+  margin-inline: 0;
+  font-family: Pixel, serif;
+  user-select: none;
+}
+
+.selection_indicators {
+  height: 80%;
+  width: 40%;
+  /*background: #fbff00;*/
+  position: relative;
+}
+
+.champion_indicator {
+  height: 100%;
+  width: 49%;
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid red 0.15em;
+  border-radius: 0.2em;
+  cursor: pointer;
+}
+
+.champion_image {
+  height: 80%;
+}
+
+.armor_indicator {
+  height: 48%;
+  width: 49%;
+  box-sizing: border-box;
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid red 0.15em;
+  border-radius: 0.2em;
+  cursor: pointer;
+}
+
+.weapon_indicator {
+  height: 48%;
+  width: 49%;
+  box-sizing: border-box;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid red 0.15em;
+  border-radius: 0.2em;
+  cursor: pointer;
+}
+
+.separator {
+  background: red;
+  width: 0.02em;
+  height: 75%;
+}
+
+.stats {
+  height: 80%;
+  width: 35%;
+  /*background: #fbff00;*/
+  border: solid red 0.15em;
+  border-bottom: 0;
+  position: relative;
+}
+
+.stats_title {
+  font-size: 1.3em;
+  margin: 0.6em 0 0 0;
+  color: white;
+}
+
+.stats_container {
+  width: 90%;
+  height: 80%;
+  /*background: #fbff00;*/
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.5em;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 0.5em;
+}
+
+.base_stats {
+  width: 47%;
+  height: 90%;
+  /*background: #d501ff;*/
+  position: relative;
+}
+
+.small_stats_title {
+  color: white;
+  margin: 0;
+  font-size: 1.05em;
+}
+
+.stat_flexbox {
+  height: 15%;
+  width: 50%;
+  /*background: #00eeff;*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 1.5em;
+  margin: auto;
+}
+
+.stat_image {
+  height: 100%;
+  margin: 0 0.5em 0 0;
+}
+
+.stat {
+  color: white;
+  font-size: 1.1em;
+}
+
+.champion_overview {
+  width: 100%;
+  height: 55%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  column-gap: 2.5em;
+  margin-top: 1.5em;
+  /*background: #1100ff;*/
+}
+
+.champion_container {
+  width: 75%;
+  height: 85%;
+  border: solid red 0.02em;
+  border-bottom: 0;
+  border-right: 0;
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
+  padding: 1.2em;
+  column-gap: 2em;
+  row-gap: 2em;
+  column-count: 4;
+  overflow: scroll;
+}
+
+.champion_container::-webkit-scrollbar {
+  display: none;
+}
+
+.champion_card {
+  height: 65%;
+  width: 22%;
+  /*border: solid green 0.005em;*/
+  border-radius: 0.2em;
+  background: rgba(0,0,0,0.3);
+  cursor: pointer;
+}
+
+.champion_card:hover {
+  background: rgba(0,0,0,0.5);
+}
+
+.champion_card:active {
+  background: rgba(0,0,0,0.7);
+}
+
+.champion_card_image {
+  height: 70%;
+  margin: 0.7em 0 0 0;
+}
+
+.champion_card_name {
+  color: white;
+  margin: 1em 0 0 0;
+  font-size: 1.3em;
+}
+
+.item_card_name {
+  color: white;
+  margin: 0.5em 0 0 0;
+  font-size: 1.3em;
+}
+
+.item_card_image {
+  height: 60%;
+  margin: 0.7em 0 0 0;
+}
+
+.owned_count {
+  color: #797979;
+  margin: 0.5em 0 0 0;
+}
+
+.other_card {
+  height: 65%;
+  width: 22%;
+  /*border: solid green 0.005em;*/
+  border-radius: 0.2em;
+  background: rgba(0,0,0,0.3);
+}

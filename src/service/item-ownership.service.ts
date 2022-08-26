@@ -28,4 +28,12 @@ export class ItemOwnershipService {
     return this.http.put(this.path + "/update/" + id, link, {headers: this.header, responseType: "text"});
   }
 
+  public increaseCount(id: number): Observable<any> {
+    return this.http.get(this.path + "/increase/" + id, {headers: this.header, responseType: "text"});
+  }
+
+  public decreaseCount(id: number): Observable<any> {
+    return this.http.get(this.path + "/decrease/" + id, {headers: this.header, responseType: "text"});
+  }
+
 }
