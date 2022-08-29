@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {User} from "../../entity/user";
 import {Router} from "@angular/router";
 import {UserService} from "../../service/user.service";
+import {GameEntity} from "../../game-logic/game-entity";
 
 @Component({
   selector: 'app-profile',
@@ -20,6 +21,8 @@ export class ProfileComponent implements OnInit {
       this.user = user;
       localStorage.setItem("principal", JSON.stringify(user));
     })
+    let gameEntity = JSON.parse(<any>localStorage.getItem("game_entity"));
+    console.log(gameEntity);
   }
 
   logout() {

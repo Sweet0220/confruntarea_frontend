@@ -19,6 +19,10 @@ export class PrepComponent implements OnInit {
   currentUser: User = JSON.parse(<any>localStorage.getItem("principal"));
   currentGameEntity: GameEntity = JSON.parse(<any>localStorage.getItem("game_entity"));
 
+  championTitle: string = "";
+  weaponTitle: string = "";
+  armorTitle: string = "";
+
   baseHp = 0;
   baseDamage = 0;
   baseMana = 0;
@@ -53,8 +57,12 @@ export class PrepComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.chosenChampion);
     this.loadAllOwnedChampions();
-    this.loadAllItems();
+    this.loadAllItems()
     console.log(this.currentGameEntity);
+    this.championTitle = "HP: 0\nDAMAGE: 0\nMANA: 0";
+    this.armorTitle = "RESILIENCE: 0\nTHORNS: 0";
+    this.weaponTitle = "LIFESTEAL: 0\nDAMAGE: 0";
+    this.loadSelectedEntity();
   }
 
   loadAllOwnedChampions() {
@@ -94,13 +102,6 @@ export class PrepComponent implements OnInit {
     }
   }
 
-  returnChampion() {
-    this.champion_image = "assets/icons/champion_placeholder.png";
-    this.weapon_image = "assets/icons/weapon_placeholder.png";
-    this.armor_image = "assets/icons/armor_placeholder.png";
-    // this.chosenChampion = {} as Champion;
-  }
-
   async chooseChampion(champion: Champion) {
     this.champion_image = "assets/sprites/champions/" + champion.picture;
     this.chosenChampion = champion;
@@ -128,42 +129,150 @@ export class PrepComponent implements OnInit {
     localStorage.setItem("game_entity", JSON.stringify(this.currentGameEntity));
   }
 
-  async chooseWeapon(weapon: Item) {
-    this.weapon_image = "assets/sprites/items/" + weapon.picture;
-    if(Object.keys(this.chosenWeapon).length != 0) {
-      this.increaseItemCount(this.chosenWeapon).subscribe();
+  async deselectChampion() {
+    if(Object.keys(this.chosenChampion).length != 0) {
+      this.champion_image = "assets/icons/champion_placeholder.png";
+      this.armor_image = "assets/icons/armor_placeholder.png";
+      this.weapon_image = "assets/icons/weapon_placeholder.png";
+      this.resetAllStats();
+      this.championTitle = "HP: 0\nDAMAGE: 0\nMANA: 0";
+      this.armorTitle = "RESILIENCE: 0\nTHORNS: 0";
+      this.weaponTitle = "LIFESTEAL: 0\nDAMAGE: 0";
+
+      if(Object.keys(this.chosenWeapon).length != 0) {
+        this.increaseItemCount(this.chosenWeapon).subscribe();
+      }
+
+      if(Object.keys(this.chosenArmor).length != 0) {
+        this.increaseItemCount(this.chosenArmor).subscribe();
+      }
+
+      await new Promise(f => setTimeout(f, 200));
+      let weaponContainer = <HTMLDivElement>document.getElementById("weapon_container");
+      let armorContainer = <HTMLDivElement>document.getElementById("armor_container");
+      this.removeChildrenFromContainer(weaponContainer);
+      this.removeChildrenFromContainer(armorContainer);
+      this.loadAllItems();
+      this.reloadContainers();
+
+      this.chosenChampion = {} as Champion;
+      this.chosenWeapon = {} as Item;
+      this.chosenArmor = {} as Item;
+
+      this.currentGameEntity.champion = {} as Champion;
+      this.currentGameEntity.weapon = {} as Item;
+      this.currentGameEntity.armor = {} as Item;
+
+      localStorage.setItem("game_entity", JSON.stringify(this.currentGameEntity));
     }
-    this.chosenWeapon = weapon;
-    this.currentGameEntity.weapon = weapon;
-    this.addWeaponStats(weapon);
-    this.decreaseItemCount(weapon).subscribe();
-    await new Promise(f => setTimeout(f, 200));
-    let weaponContainer = <HTMLDivElement>document.getElementById("weapon_container");
-    let armorContainer = <HTMLDivElement>document.getElementById("armor_container");
-    this.removeChildrenFromContainer(weaponContainer);
-    this.removeChildrenFromContainer(armorContainer);
-    this.loadAllItems();
-    this.reloadContainers();
-    localStorage.setItem("game_entity", JSON.stringify(this.currentGameEntity));
+  }
+
+  loadSelectedEntity() {
+    if(Object.keys(this.currentGameEntity.champion).length != 0) {
+      this.chosenChampion = this.currentGameEntity.champion;
+      this.champion_image = "assets/sprites/champions/" + this.chosenChampion.picture;
+      this.setBaseStats(this.chosenChampion);
+    }
+
+    if(Object.keys(this.currentGameEntity.weapon).length != 0) {
+      this.chosenWeapon = this.currentGameEntity.weapon;
+      this.weapon_image = "assets/sprites/items/" + this.chosenWeapon.picture;
+      this.addWeaponStats(this.chosenWeapon);
+    }
+
+    if(Object.keys(this.currentGameEntity.armor).length != 0) {
+      this.chosenArmor = this.currentGameEntity.armor;
+      this.armor_image = "assets/sprites/items/" + this.chosenArmor.picture;
+      this.addArmorStats(this.chosenArmor);
+    }
+  }
+
+  async chooseWeapon(weapon: Item) {
+    if(Object.keys(this.chosenChampion).length != 0) {
+      this.weapon_image = "assets/sprites/items/" + weapon.picture;
+      if(Object.keys(this.chosenWeapon).length != 0) {
+        this.increaseItemCount(this.chosenWeapon).subscribe();
+      }
+      this.chosenWeapon = weapon;
+      this.currentGameEntity.weapon = weapon;
+      this.addWeaponStats(weapon);
+      this.decreaseItemCount(weapon).subscribe();
+      await new Promise(f => setTimeout(f, 200));
+      let weaponContainer = <HTMLDivElement>document.getElementById("weapon_container");
+      let armorContainer = <HTMLDivElement>document.getElementById("armor_container");
+      this.removeChildrenFromContainer(weaponContainer);
+      this.removeChildrenFromContainer(armorContainer);
+      this.loadAllItems();
+      this.reloadContainers();
+      localStorage.setItem("game_entity", JSON.stringify(this.currentGameEntity));
+    }
+  }
+
+  async deselectWeapon() {
+    if(Object.keys(this.chosenWeapon).length != 0) {
+      this.weapon_image = "assets/icons/weapon_placeholder.png";
+      this.totalDamage -= this.chosenWeapon.bonusDamage;
+      this.totalLifesteal -= this.chosenWeapon.bonusHp;
+      this.weaponTitle = "LIFESTEAL: 0\nDAMAGE: 0";
+
+      this.increaseItemCount(this.chosenWeapon).subscribe();
+
+      await new Promise(f => setTimeout(f, 200));
+      let weaponContainer = <HTMLDivElement>document.getElementById("weapon_container");
+      let armorContainer = <HTMLDivElement>document.getElementById("armor_container");
+      this.removeChildrenFromContainer(weaponContainer);
+      this.removeChildrenFromContainer(armorContainer);
+      this.loadAllItems();
+      this.reloadContainers();
+
+      this.chosenWeapon = {} as Item;
+      this.currentGameEntity.weapon = {} as Item;
+      localStorage.setItem("game_entity", JSON.stringify(this.currentGameEntity));
+
+    }
+  }
+
+  async deselectArmor() {
+    if(Object.keys(this.chosenArmor).length != 0) {
+      this.armor_image = "assets/icons/armor_placeholder.png";
+      this.totalThorns = 0;
+      this.totalHp -= this.chosenArmor.bonusHp;
+      this.increaseItemCount(this.chosenArmor).subscribe();
+      this.armorTitle = "RESILIENCE: 0\nTHORNS: 0";
+
+      await new Promise(f => setTimeout(f, 200));
+      let weaponContainer = <HTMLDivElement>document.getElementById("weapon_container");
+      let armorContainer = <HTMLDivElement>document.getElementById("armor_container");
+      this.removeChildrenFromContainer(weaponContainer);
+      this.removeChildrenFromContainer(armorContainer);
+      this.loadAllItems();
+      this.reloadContainers();
+
+      this.chosenArmor = {} as Item;
+      this.currentGameEntity.armor = {} as Item;
+      localStorage.setItem("game_entity", JSON.stringify(this.currentGameEntity));
+    }
   }
 
   async chooseArmor(armor: Item) {
-    this.armor_image = "assets/sprites/items/" + armor.picture;
-    if(Object.keys(this.chosenArmor).length != 0) {
-      this.increaseItemCount(this.chosenArmor).subscribe();
+    if(Object.keys(this.chosenChampion).length != 0) {
+      this.armor_image = "assets/sprites/items/" + armor.picture;
+      if(Object.keys(this.chosenArmor).length != 0) {
+        this.increaseItemCount(this.chosenArmor).subscribe();
+      }
+      this.chosenArmor = armor;
+      this.currentGameEntity.armor = armor;
+      this.addArmorStats(armor);
+      this.decreaseItemCount(armor).subscribe();
+      await new Promise(f => setTimeout(f, 200));
+      let weaponContainer = <HTMLDivElement>document.getElementById("weapon_container");
+      let armorContainer = <HTMLDivElement>document.getElementById("armor_container");
+      this.removeChildrenFromContainer(weaponContainer);
+      this.removeChildrenFromContainer(armorContainer);
+      this.loadAllItems();
+      this.reloadContainers();
+      localStorage.setItem("game_entity", JSON.stringify(this.currentGameEntity));
     }
-    this.chosenArmor = armor;
-    this.currentGameEntity.armor = armor;
-    this.addArmorStats(armor);
-    this.decreaseItemCount(armor).subscribe();
-    await new Promise(f => setTimeout(f, 200));
-    let weaponContainer = <HTMLDivElement>document.getElementById("weapon_container");
-    let armorContainer = <HTMLDivElement>document.getElementById("armor_container");
-    this.removeChildrenFromContainer(weaponContainer);
-    this.removeChildrenFromContainer(armorContainer);
-    this.loadAllItems();
-    this.reloadContainers();
-    localStorage.setItem("game_entity", JSON.stringify(this.currentGameEntity));
   }
 
   removeChildrenFromContainer(container: HTMLDivElement) {
@@ -181,6 +290,17 @@ export class PrepComponent implements OnInit {
     })
   }
 
+  resetAllStats() {
+    this.baseHp = 0;
+    this.baseDamage = 0;
+    this.baseMana = 0;
+    this.totalHp = 0;
+    this.totalDamage = 0;
+    this.totalMana = 0;
+    this.totalLifesteal = 0;
+    this.totalThorns = 0;
+  }
+
   setBaseStats(champion: Champion) {
     this.baseHp = champion.hp;
     this.baseDamage = champion.baseDamage;
@@ -190,18 +310,23 @@ export class PrepComponent implements OnInit {
     this.totalMana = champion.mana;
     this.totalLifesteal = 0;
     this.totalThorns = 0;
+    this.championTitle = "HP: " + this.baseHp + "\nDAMAGE: " + this.baseDamage + "\nMANA: " + this.baseMana;
+    this.armorTitle = "RESILIENCE: 0\nTHORNS: 0";
+    this.weaponTitle = "LIFESTEAL: 0\nDAMAGE: 0";
   }
 
   addWeaponStats(weapon: Item) {
     this.totalDamage = this.chosenChampion.baseDamage;
     this.totalDamage += weapon.bonusDamage;
     this.totalLifesteal = weapon.bonusHp;
+    this.weaponTitle = "LIFESTEAL: " + this.totalLifesteal + "\nDAMAGE: " + weapon.bonusDamage;
   }
 
   addArmorStats(armor: Item) {
     this.totalThorns = armor.bonusDamage;
     this.totalHp = this.chosenChampion.hp;
     this.totalHp += armor.bonusHp;
+    this.armorTitle = "RESILIENCE: " + armor.bonusHp + "\nTHORNS: " + this.totalThorns;
   }
 
   increaseItemCount(item: Item): Observable<any> {

@@ -8,7 +8,6 @@ export class GameEntity {
   champion: Champion = {} as Champion;
   weapon: Item = {} as Item;
   armor: Item = {} as Item;
-  otherItems: Array<ItemOwnership> = [];
 
   totalHp: number = 0;
   totalDamage: number = 0;

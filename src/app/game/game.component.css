@@ -1,0 +1,5 @@
+.scene {
+  height: 75%;
+  background: url("../../assets/animations/fight_background.gif") no-repeat;
+  background-size: initial;
+}

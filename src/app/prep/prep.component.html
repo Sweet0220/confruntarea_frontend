@@ -1,15 +1,15 @@
 <div class="prep_container">
   <p class="preparation_title">- PREPARATION MENU -</p>
   <div class="overview_container">
-    <p class="overview_text">- OVERVIEW - </p>
+    <p class="overview_text">- LOADOUT - </p>
     <div class="selection_indicators">
-      <div class="champion_indicator" title="SELECTED CHAMPION">
+      <div class="champion_indicator" title="{{championTitle}}" (click)="deselectChampion()">
         <img src="{{champion_image}}" class="champion_image">
       </div>
-      <div class="armor_indicator" title="SELECTED ARMOR">
+      <div class="armor_indicator" title="{{armorTitle}}" (click)="deselectArmor()">
         <img src="{{armor_image}}" class="champion_image">
       </div>
-      <div class="weapon_indicator" title="SELECTED WEAPON">
+      <div class="weapon_indicator" title="{{weaponTitle}}" (click)="deselectWeapon()">
         <img src="{{weapon_image}}" class="champion_image">
       </div>
     </div>
@@ -63,7 +63,7 @@
   <div class="champion_overview">
     <p class="overview_text">- CHAMPIONS - </p>
     <div class="champion_container" style="border-color: green">
-      <div class="champion_card" *ngFor="let champion of champions" (click)="chooseChampion(champion)">
+      <div class="champion_card" *ngFor="let champion of champions" (click)="chooseChampion(champion)" title="HP: {{champion.hp}}&#013;DAMAGE: {{champion.baseDamage}}&#013;MANA: {{champion.mana}}">
         <img src="assets/sprites/champions/{{champion.picture}}" class="champion_card_image">
         <p class="champion_card_name" style="color: {{champion.nameColor}}">{{champion.name}}</p>
       </div>
@@ -73,7 +73,7 @@
   <div class="champion_overview">
     <p class="overview_text">- WEAPONS - </p>
     <div class="champion_container" style="border-color: cornflowerblue" *ngIf="weaponTrigger" id="weapon_container">
-      <div class="champion_card" *ngFor="let weapon of weapons" (click)="chooseWeapon(weapon)">
+      <div class="champion_card" *ngFor="let weapon of weapons" (click)="chooseWeapon(weapon)" title="LIFESTEAL: {{weapon.bonusHp}}&#013;DAMAGE: {{weapon.bonusDamage}}">
         <img src="assets/sprites/items/{{weapon.picture}}" class="item_card_image">
         <p class="item_card_name" style="color: {{weapon.nameColor}}">{{weapon.name}}</p>
         <p class="owned_count">Owned: {{getItemCount(weapon)}}</p>
@@ -84,7 +84,7 @@
   <div class="champion_overview">
     <p class="overview_text">- ARMOUR - </p>
     <div class="champion_container" style="border-color: darkorange" *ngIf="armorTrigger" id="armor_container">
-      <div class="champion_card" *ngFor="let armor of armor" (click)="chooseArmor(armor)">
+      <div class="champion_card" *ngFor="let armor of armor" (click)="chooseArmor(armor)" title="RESILIENCE: {{armor.bonusHp}}&#013;THORNS: {{armor.bonusDamage}}">
         <img src="assets/sprites/items/{{armor.picture}}" class="item_card_image">
         <p class="item_card_name" style="color: {{armor.nameColor}}">{{armor.name}}</p>
         <p class="owned_count">Owned: {{getItemCount(armor)}}</p>
