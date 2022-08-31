@@ -25,7 +25,7 @@ export class ShopPotionsComponent implements OnInit {
   }
 
   getPotions() {
-    this.itemService.getItemsByType("Potion").subscribe(potions => {
+    this.itemService.getItemsByType("POTION").subscribe(potions => {
       this.potions = potions;
     });
   }

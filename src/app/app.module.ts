@@ -43,6 +43,7 @@ import { ResetFormComponent } from './login/forgot-password/reset-form/reset-for
 import { ValidationComponent } from './register/validation/validation.component';
 import { PrepComponent } from './prep/prep.component';
 import { GameComponent } from './game/game.component';
+import { AdminExportComponent } from './admin-menu/admin-export/admin-export.component';
 
 @NgModule({
   declarations: [
@@ -85,7 +86,8 @@ import { GameComponent } from './game/game.component';
     ResetFormComponent,
     ValidationComponent,
     PrepComponent,
-    GameComponent
+    GameComponent,
+    AdminExportComponent
   ],
   imports: [
     BrowserModule,

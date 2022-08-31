@@ -10,12 +10,14 @@
     <button class="sidebar_button" (click)="toggleItems()" [ngClass]="getItemsToggle ? 'sidebar_button_pressed' : 'sidebar_button'">- ITEMS -</button>
     <button class="sidebar_button" (click)="toggleAbilities()" [ngClass]="getAbilitiesToggle ? 'sidebar_button_pressed' : 'sidebar_button'">- ABILITIES -</button>
     <button class="sidebar_button" (click)="toggleMonsters()" [ngClass]="getMonstersToggle ? 'sidebar_button_pressed' : 'sidebar_button'">- MONSTERS -</button>
+    <button class="sidebar_button" style="bottom: 0; position: absolute" (click)="toggleExcel()" [ngClass]="excelToggle ? 'sidebar_button_pressed' : 'sidebar_button'">- EXCEL -</button>
   </div>
   <app-admin-users class="component" *ngIf="getUsersToggle"></app-admin-users>
   <app-admin-champions class="component" *ngIf="getChampionsToggle"></app-admin-champions>
   <app-admin-items class="component" *ngIf="getItemsToggle"></app-admin-items>
   <app-admin-abilities class="component" *ngIf="getAbilitiesToggle"></app-admin-abilities>
   <app-admin-monsters class="component" *ngIf="getMonstersToggle"></app-admin-monsters>
+  <app-admin-export class="component" *ngIf="excelToggle"></app-admin-export>
 </div>
 <div class="bottom_bar" *ngIf="getBottomBar">
   <p class="console">></p>

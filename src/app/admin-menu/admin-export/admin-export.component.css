@@ -1,0 +1,64 @@
+.content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.container {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*background: #797979;*/
+  column-gap: 2em;
+}
+
+.export_container {
+  height: 100%;
+  width: 45%;
+  /*background: #1100ff;*/
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 1em;
+}
+
+.separator {
+  height: 100%;
+  width: 0.02em;
+  background: white;
+}
+
+.title {
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-size: 2em;
+  position: absolute;
+  top: 0;
+}
+
+.excel_button {
+  height: 10%;
+  width: 50%;
+  background: none;
+  border: solid white 0.2em;
+  color: white;
+  font-family: Pixel, serif;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+.excel_button:hover {
+  background: rgba(255,255,255, 0.1);
+}
+
+.excel_button:active {
+  background: rgba(255,255,255, 0.2);
+}

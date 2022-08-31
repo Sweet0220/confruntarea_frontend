@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
     localStorage.setItem("accessToken", "");
     localStorage.setItem("refreshToken", "");
     localStorage.setItem("principal", "");
+    localStorage.setItem("game_entity", "");
   }
 
   async logon() {

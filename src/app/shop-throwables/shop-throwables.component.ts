@@ -25,7 +25,7 @@ export class ShopThrowablesComponent implements OnInit {
   }
 
   getThrowables() {
-    this.itemService.getItemsByType("Throwable").subscribe(throwables => {
+    this.itemService.getItemsByType("THROWABLE").subscribe(throwables => {
       this.throwables = throwables;
     });
   }

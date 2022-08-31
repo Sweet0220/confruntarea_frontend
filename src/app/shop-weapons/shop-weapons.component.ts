@@ -29,7 +29,7 @@ export class ShopWeaponsComponent implements OnInit {
   }
 
   getWeapons() {
-    this.itemService.getItemsByType("Weapon").subscribe(weapons => {
+    this.itemService.getItemsByType("WEAPON").subscribe(weapons => {
       this.weapons = weapons;
     });
   }

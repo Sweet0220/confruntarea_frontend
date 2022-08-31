@@ -17,12 +17,12 @@ import {Observable} from "rxjs";
 export class PrepComponent implements OnInit {
 
   currentUser: User = JSON.parse(<any>localStorage.getItem("principal"));
-  currentGameEntity: GameEntity = JSON.parse(<any>localStorage.getItem("game_entity"));
+
 
   championTitle: string = "";
   weaponTitle: string = "";
   armorTitle: string = "";
-
+  currentGameEntity: GameEntity = {} as GameEntity;
   baseHp = 0;
   baseDamage = 0;
   baseMana = 0;
@@ -81,13 +81,13 @@ export class PrepComponent implements OnInit {
     this.itemLinkService.getByUsername(this.currentUser.username).subscribe(data => {
       this.itemLinks = data;
       for(let link of data) {
-        if(link.item.type == "Weapon" && link.itemCount > 0) {
+        if(link.item.type == "WEAPON" && link.itemCount > 0) {
           this.weapons.push(link.item);
         }
-        if(link.item.type == "Armour" && link.itemCount > 0) {
+        if(link.item.type == "ARMOR" && link.itemCount > 0) {
           this.armor.push(link.item);
         }
-        if((link.item.type == "Potion" || link.item.type == "Throwable") && link.itemCount > 0) {
+        if((link.item.type == "POTION" || link.item.type == "THROWABLE") && link.itemCount > 0) {
           this.others.push(link.item);
         }
       }

@@ -25,7 +25,7 @@ export class ShopArmourComponent implements OnInit {
   }
 
   getArmour() {
-    this.itemService.getItemsByType("Armour").subscribe(armour => {
+    this.itemService.getItemsByType("ARMOR").subscribe(armour => {
       this.armour = armour;
     })
   }
