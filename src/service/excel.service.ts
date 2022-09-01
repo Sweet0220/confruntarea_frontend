@@ -8,6 +8,7 @@ import {Observable} from "rxjs";
 export class ExcelService {
 
   path: string = "http://localhost:8080/export/excel";
+  importPath: string = "http://localhost:8080/import/excel";
   header = new HttpHeaders({
     responseType: "application/octet-stream",
     'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
@@ -37,6 +38,16 @@ export class ExcelService {
 
   public exportMonsters(): Observable<any> {
     return this.http.get(this.path + "/monsters", {headers: this.header, observe: "response",responseType: "blob"});
+  }
+
+  public importChampions(file: any): Observable<any> {
+    const formData = new FormData();
+    formData.append("file", file);
+    return this.http.post(this.importPath + "/champions", formData, {headers: this.header, observe: "response", responseType: "text"});
+  }
+
+  public exportFailedChampions(): Observable<any> {
+    return this.http.get(this.importPath + "/champions/failed", {headers: this.header, observe: "response", responseType: "blob"});
   }
 
 }

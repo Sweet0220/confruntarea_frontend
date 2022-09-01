@@ -12,10 +12,17 @@
     <div class="separator"></div>
     <div class="export_container">
       <p class="title">- IMPORT -</p>
-      <button class="excel_button">IMPORT CHAMPIONS</button>
+      <button class="excel_button" (click)="selectChampionFile()">IMPORT CHAMPIONS</button>
       <button class="excel_button">IMPORT ITEMS</button>
       <button class="excel_button">IMPORT ABILITIES</button>
       <button class="excel_button">IMPORT MONSTERS</button>
     </div>
   </div>
+  <div class="template_link_container">
+    <p class="template_link_text">Import template file: </p>
+    <p class="template_link" (click)="downloadTemplateFile()">import_template.xlsx</p>
+  </div>
 </div>
+<p class="message" style="margin: 0.5em 0 0 0;" id="message"></p>
+<p class="template_link" style="position: absolute; left: 0; right: 0; margin: auto; bottom: 2.2em;" id="link" (click)="downloadFailedChampions()"></p>
+
