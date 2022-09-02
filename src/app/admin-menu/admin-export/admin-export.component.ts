@@ -95,7 +95,10 @@ export class AdminExportComponent implements OnInit {
 
         if(data.status == 206) {
           message.innerHTML = data.body + " from " + name + " !";
-          link.innerHTML = "download failed imports"
+          link.innerHTML = "download failed imports";
+          this.renderer.listen(link, "click", (event) => {
+            this.downloadFailedChampions();
+          })
         }
 
       }, error => {
@@ -110,6 +113,132 @@ export class AdminExportComponent implements OnInit {
   downloadFailedChampions() {
     this.excelService.exportFailedChampions().subscribe(data => {
       this.downloadFile(data, "failed_champions_");
+    })
+  }
+
+  selectItemFile() {
+    let message = <HTMLParagraphElement>document.getElementById("message");
+    let link = <HTMLParagraphElement>document.getElementById("link");
+    let fileInput = document.createElement("input");
+    fileInput.setAttribute("type", "file");
+    this.renderer.listen(fileInput, 'change', (event) => {
+      // console.log(event.target.files[0].name);
+      let name = event.target.files[0].name;
+      this.excelService.importItems(event.target.files[0]).subscribe(data => {
+        if(data.status == 200) {
+          message.innerHTML = "Successfully added all rows from " + name + " !";
+          link.innerHTML = "";
+        }
+
+        if(data.status == 204) {
+          message.innerHTML = "Excel file contains only already existing items or invalid ones !";
+          link.innerHTML = "";
+        }
+
+        if(data.status == 206) {
+          message.innerHTML = data.body + " from " + name + " !";
+          link.innerHTML = "download failed imports";
+          this.renderer.listen(link, "click", (event) => {
+            this.downloadFailedItems();
+          })
+        }
+
+      }, error => {
+        message.innerHTML = error.error;
+        link.innerHTML = "";
+      });
+    });
+    fileInput.click();
+
+  }
+
+  downloadFailedItems() {
+    this.excelService.exportFailedItems().subscribe(data => {
+      this.downloadFile(data, "failed_items_");
+    })
+  }
+
+  selectAbilityFile() {
+    let message = <HTMLParagraphElement>document.getElementById("message");
+    let link = <HTMLParagraphElement>document.getElementById("link");
+    let fileInput = document.createElement("input");
+    fileInput.setAttribute("type", "file");
+    this.renderer.listen(fileInput, 'change', (event) => {
+      // console.log(event.target.files[0].name);
+      let name = event.target.files[0].name;
+      this.excelService.importAbilities(event.target.files[0]).subscribe(data => {
+        if(data.status == 200) {
+          message.innerHTML = "Successfully added all rows from " + name + " !";
+          link.innerHTML = "";
+        }
+
+        if(data.status == 204) {
+          message.innerHTML = "Excel file contains only already existing items or invalid ones !";
+          link.innerHTML = "";
+        }
+
+        if(data.status == 206) {
+          message.innerHTML = data.body + " from " + name + " !";
+          link.innerHTML = "download failed imports";
+          this.renderer.listen(link, "click", (event) => {
+            this.downloadFailedAbilities();
+          })
+        }
+
+      }, error => {
+        message.innerHTML = error.error;
+        link.innerHTML = "";
+      });
+    });
+    fileInput.click();
+
+  }
+
+  downloadFailedAbilities() {
+    this.excelService.exportFailedAbilities().subscribe(data => {
+      this.downloadFile(data, "failed_abilities_");
+    })
+  }
+
+  selectMonsterFile() {
+    let message = <HTMLParagraphElement>document.getElementById("message");
+    let link = <HTMLParagraphElement>document.getElementById("link");
+    let fileInput = document.createElement("input");
+    fileInput.setAttribute("type", "file");
+    this.renderer.listen(fileInput, 'change', (event) => {
+      // console.log(event.target.files[0].name);
+      let name = event.target.files[0].name;
+      this.excelService.importMonsters(event.target.files[0]).subscribe(data => {
+        if(data.status == 200) {
+          message.innerHTML = "Successfully added all rows from " + name + " !";
+          link.innerHTML = "";
+        }
+
+        if(data.status == 204) {
+          message.innerHTML = "Excel file contains only already existing monsters or invalid ones !";
+          link.innerHTML = "";
+        }
+
+        if(data.status == 206) {
+          message.innerHTML = data.body + " from " + name + " !";
+          link.innerHTML = "download failed imports";
+          this.renderer.listen(link, "click", (event) => {
+            this.downloadFailedMonsters();
+          })
+        }
+
+      }, error => {
+        message.innerHTML = error.error;
+        link.innerHTML = "";
+      });
+    });
+    fileInput.click();
+
+  }
+
+  downloadFailedMonsters() {
+    this.excelService.exportFailedMonsters().subscribe(data => {
+      this.downloadFile(data, "failed_monsters_");
     })
   }
 

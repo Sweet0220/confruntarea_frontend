@@ -2,18 +2,167 @@
   font-family: Lore, sans-serif;
   color: #11e039;
   font-size: 1.5em;
-  margin: 2em 0 2em 0;
+  margin: 2em 0 1em 0;
   letter-spacing: 0.2em;
 }
 
 .container {
   position: absolute;
-  height: 80%;
-  width: 90%;
-  border: solid green 0.02em;
-  border-bottom: 0;
-  border-right: 0;
+  height: 35%;
+  width: 80%;
+  border: 0 solid green;
+  border-top-width: 0.02em;
+  /*border-left-width: 0.02em;*/
   left: 0;
   right: 0;
   margin: auto;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  display: flex;
+  column-gap: 1.5em;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 0.5em 0 0.5em;
 }
+
+.container::-webkit-scrollbar {
+  display: none;
+}
+
+.monster_card {
+  flex-grow: 0;
+  flex-shrink: 0;
+  background: rgba(25,25,25,0.4);
+  height: 90%;
+  width: 25%;
+  cursor: pointer;
+  border-radius: 0.15em;
+}
+
+.monster_card:hover {
+  background: rgba(25,25,25,0.6);
+}
+
+.monster_card:active {
+  background: rgba(25,25,25,0.8);
+}
+
+.monster_image {
+  height: 60%;
+  margin: 0.7em 0 0 0;
+}
+
+.monster_name {
+  font-size: 1.2em;
+  margin: 0.5em 0 0 0;
+  /*font-family: CursivePixel, sans-serif;*/
+}
+
+.monster_low_level {
+  margin: 0.5em 0 0 0;
+  font-size: 1.2em;
+  color: limegreen;
+}
+
+.monster_mid_level {
+  margin: 0.5em 0 0 0;
+  font-size: 1.2em;
+  color: gold;
+}
+
+.monster_high_level {
+  margin: 0.5em 0 0 0;
+  font-size: 1.2em;
+  color: red;
+}
+
+.info_text {
+  text-align: right;
+  position: absolute;
+  color: white;
+  width: 80%;
+  height: auto;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 48.5%;
+  font-size: 0.9em;
+}
+
+.preview {
+  /*background: #797979;*/
+  width: 80%;
+  height: 45%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: 1em;
+  border: solid 0.02em;
+  border-bottom: 0;
+  display: flex;
+  column-gap: 1.1em;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  /*background: #797979;*/
+  width: 30%;
+  height: 90%;
+  overflow: scroll;
+}
+
+.content::-webkit-scrollbar{
+  display: none;
+}
+
+.stat_content {
+  width: 30%;
+  height: 90%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  row-gap: 0.7em;
+}
+
+.separator {
+  height: 85%;
+  width: 0.02em;
+  background: #1100ff;
+}
+
+.stats_title {
+  color: white;
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.stat_flexbox {
+  width: 30%;
+  height: 10%;
+  /*background: #1100ff;*/
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+
+.stat_image {
+  height: 80%;
+}
+
+.stat_text {
+  color: white;
+  font-size: 1.2em;
+  margin: 0;
+}
+
+.lore {
+  color: white;
+  text-align: left;
+  margin: 0;
+  font-size: 1.1em;
+}
+

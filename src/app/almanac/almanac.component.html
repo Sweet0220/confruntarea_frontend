@@ -1,4 +1,40 @@
 <p class="almanac_title">- MONSTER ALMANAC -</p>
 <div class="container">
-
+  <div class="monster_card" *ngFor="let monster of monsters" (click)="selectMonster(monster)">
+    <img src="assets/sprites/monsters/{{monster.picture}}" class="monster_image">
+    <p class="monster_name" style="color: {{monster.nameColor}}">{{monster.name}}</p>
+    <p [ngClass]="getLevelClass(monster)">Level: {{monster.level}}</p>
+  </div>
+</div>
+<p class="info_text">*you can scroll using shift + scrollwheel</p>
+<div class="preview" style="border-color: {{selectedMonster.nameColor}}" *ngIf="exists()">
+  <div class="content">
+    <img src="assets/sprites/monsters/{{selectedMonster.picture}}" class="monster_image">
+    <p class="monster_name" style="color: {{selectedMonster.nameColor}}; margin: 0.5em 0 0 0; font-size: 1.9em; font-family: CursivePixel, sans-serif">{{selectedMonster.name}}</p>
+    <p class="monster_name" style="color: {{selectedMonster.nameColor}}; margin: 0.5em 0 0 0; font-size: 1.3em; font-family: CursivePixel, sans-serif">{{description}}</p>
+  </div>
+  <div class="stat_content">
+    <p class="stats_title">- STATS -</p>
+    <div class="stat_flexbox" title="HP">
+      <img src="assets/icons/Heart.png" class="stat_image">
+      <p class="stat_text">: {{selectedMonster.hp}}</p>
+    </div>
+    <div class="stat_flexbox" title="DAMAGE">
+      <img src="assets/icons/Damage.png" class="stat_image">
+      <p class="stat_text">: {{selectedMonster.baseDamage}}</p>
+    </div>
+    <div class="stat_flexbox" title="ORBS REWARD">
+      <img src="assets/icons/orbs.png" class="stat_image">
+      <p class="stat_text" style="color: #00eeff">: {{selectedMonster.moneyReward}}</p>
+    </div>
+    <div class="stat_flexbox" title="EXP REWARD">
+      <img src="assets/icons/Exp.png" class="stat_image">
+      <p class="stat_text" style="color: gold">: {{selectedMonster.moneyReward}}</p>
+    </div>
+    <p [ngClass]="getLevelClass(selectedMonster)">Level: {{selectedMonster.level}}</p>
+  </div>
+  <div class="separator" style="background: {{selectedMonster.nameColor}}"></div>
+  <div class="content" style="height: 70%;">
+    <p class="lore">{{lore}}</p>
+  </div>
 </div>
