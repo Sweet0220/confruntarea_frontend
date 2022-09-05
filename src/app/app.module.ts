@@ -44,6 +44,7 @@ import { ValidationComponent } from './register/validation/validation.component'
 import { PrepComponent } from './prep/prep.component';
 import { GameComponent } from './game/game.component';
 import { AdminExportComponent } from './admin-menu/admin-export/admin-export.component';
+import { AdminPdfComponent } from './admin-menu/admin-pdf/admin-pdf.component';
 
 @NgModule({
   declarations: [
@@ -87,7 +88,8 @@ import { AdminExportComponent } from './admin-menu/admin-export/admin-export.com
     ValidationComponent,
     PrepComponent,
     GameComponent,
-    AdminExportComponent
+    AdminExportComponent,
+    AdminPdfComponent
   ],
   imports: [
     BrowserModule,

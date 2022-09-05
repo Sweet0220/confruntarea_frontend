@@ -13,9 +13,12 @@
     <button id="prep-button" style="bottom: 0; position: absolute; margin-bottom: 3em; color: #f02f22" (click)="togglePrepComponent()" [ngClass]="prepToggle ? 'sidebar_button_pressed' : 'sidebar_button'">- PREP -</button>
     <button id="to-battle-button" style="bottom: 0; position: absolute; color: #fbff00" (click)="toggleToBattleComponent()" [ngClass]="toBattleToggle ? 'sidebar_button_pressed' : 'sidebar_button'">TO BATTLE -></button>
   </div>
+  <div class="cover" *ngIf="cover"></div>
   <app-profile class="component" *ngIf="profileToggle"></app-profile>
   <app-shop class="component" *ngIf="shopToggle"></app-shop>
   <app-prep class="component" *ngIf="prepToggle"></app-prep>
   <app-almanac class="component" *ngIf="almanacToggle"></app-almanac>
   <app-game class="component" *ngIf="toBattleToggle"></app-game>
 </div>
+<audio src="{{song}}" autoplay="autoplay" loop="loop" autostart="true" *ngIf="audio"></audio>
+

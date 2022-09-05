@@ -1,0 +1,35 @@
+.content {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 2em;
+}
+
+.export_title {
+  color: white;
+  font-size: 2em;
+  margin: 0;
+}
+
+.pdf_button {
+  height: 8%;
+  width: 30%;
+  background: none;
+  border: solid white 0.2em;
+  color: white;
+  font-family: Pixel, serif;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+.pdf_button:hover {
+  background: rgba(255,255,255, 0.1);
+}
+
+.pdf_button:active {
+  background: rgba(255,255,255, 0.2);
+}

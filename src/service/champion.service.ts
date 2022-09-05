@@ -18,6 +18,7 @@ export class ChampionService {
   abilitiesToggle: boolean = false;
   monstersToggle: boolean = false;
   excelToggle: boolean = false;
+  pdfToggle: boolean = false;
 
   constructor(private http: HttpClient, private jwtService: JwtService) { }
 
@@ -72,6 +73,7 @@ export class ChampionService {
     this.abilitiesToggle = false;
     this.monstersToggle = false;
     this.excelToggle = false;
+    this.pdfToggle = false;
   }
 
   toggleChampions() {
@@ -81,6 +83,7 @@ export class ChampionService {
     this.abilitiesToggle = false;
     this.monstersToggle = false;
     this.excelToggle = false;
+    this.pdfToggle = false;
   }
 
   toggleItems() {
@@ -90,6 +93,8 @@ export class ChampionService {
     this.abilitiesToggle = false;
     this.monstersToggle = false;
     this.excelToggle = false;
+    this.pdfToggle = false;
+
   }
 
   toggleAbilities() {
@@ -99,6 +104,8 @@ export class ChampionService {
     this.abilitiesToggle = true;
     this.monstersToggle = false;
     this.excelToggle = false;
+    this.pdfToggle = false;
+
   }
 
   toggleMonsters() {
@@ -108,6 +115,8 @@ export class ChampionService {
     this.abilitiesToggle = false;
     this.monstersToggle = true;
     this.excelToggle = false;
+    this.pdfToggle = false;
+
   }
 
   toggleExcel() {
@@ -117,6 +126,19 @@ export class ChampionService {
     this.abilitiesToggle = false;
     this.monstersToggle = false;
     this.excelToggle = true;
+    this.pdfToggle = false;
+
+  }
+
+  togglePdf() {
+    this.usersToggle = false;
+    this.championsToggle = false;
+    this.itemsToggle = false;
+    this.abilitiesToggle = false;
+    this.monstersToggle = false;
+    this.excelToggle = false;
+    this.pdfToggle = true;
+
   }
 
 }

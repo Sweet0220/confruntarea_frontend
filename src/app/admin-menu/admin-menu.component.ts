@@ -70,6 +70,10 @@ export class AdminMenuComponent implements OnInit {
     this.championService.toggleExcel();
   }
 
+  togglePdf() {
+    this.championService.togglePdf();
+  }
+
   get getUsersToggle() {
     return this.championService.usersToggle;
   }
@@ -92,6 +96,10 @@ export class AdminMenuComponent implements OnInit {
 
   get excelToggle() {
     return this.championService.excelToggle;
+  }
+
+  get pdfToggle() {
+    return this.championService.pdfToggle;
   }
 
 }

@@ -1,3 +1,11 @@
 <div class="scene">
-<!--  <img src="assets/animations/fight_background.gif" class="background">-->
+  <div class="no_prep" *ngIf="!hasLoadout">
+    <p class="info">Prepare yourself first, warrior!</p>
+    <p class="info">Use the prep menu to choose your loadout.</p>
+  </div>
+  <div class="prep" *ngIf="hasLoadout">
+    <p class="ready_title">READY?</p>
+    <button class="ready_button" (click)="toggleFight()">FIGHT!</button>
+    <p class="info">Once you hit the button, you will have to carry this fight to the end, or you will lose all equipped items! You cannot travel between menus until you finish the battle. Good luck, warrior!</p>
+  </div>
 </div>

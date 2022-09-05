@@ -1,5 +1,68 @@
 .scene {
-  height: 75%;
-  background: url("../../assets/animations/fight_background.gif") no-repeat;
-  background-size: initial;
+  width: 100%;
+  height: 100%;
+  background: black;
+  position: relative;
 }
+
+.no_prep {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5em;
+  justify-content: center;
+  align-items: center;
+}
+
+.info {
+  color: white;
+  font-size: 1.3em;
+  margin: 0;
+}
+
+.prep {
+  height: 90%;
+  width: 70%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  /*background: #797979;*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 5em;
+}
+
+.ready_title {
+  color: white;
+  font-size: 2.5em;
+  margin: 0;
+}
+
+.ready_button {
+  height: 30%;
+  width: 40%;
+  background: none;
+  border: solid white 0.02em;
+  color: white;
+  font-size: 4em;
+  cursor: pointer;
+  font-family: Pixel, serif;
+}
+
+.ready_button:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.ready_button:active {
+  background: rgba(255,255,255,0.2);
+}
+

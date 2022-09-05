@@ -19,6 +19,7 @@
 }
 
 .content {
+  position: relative;
   align-self: center;
   margin: 0 auto;
   width: 70%;
@@ -93,4 +94,12 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+.cover {
+  width: 14.9%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  position: absolute;
+  left: 0;
 }

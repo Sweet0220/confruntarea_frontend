@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AudioService} from "../../service/audio.service";
+import {GameService} from "../../service/game.service";
 
 @Component({
   selector: 'app-main-menu',
@@ -15,9 +17,10 @@ export class MainMenuComponent implements OnInit {
   prepToggle: boolean = false;
   toBattleToggle: boolean = false;
 
-  constructor() { }
+  constructor(private audioService: AudioService, private gameService: GameService) { }
 
   ngOnInit(): void {
+    this.audioService.song = "assets/audio/main_theme.mp3";
   }
 
   toggleProfileComponent(): void {
@@ -28,6 +31,7 @@ export class MainMenuComponent implements OnInit {
     this.aboutToggle = false;
     this.prepToggle = false;
     this.toBattleToggle = false;
+    this.audioService.song = "assets/audio/main_theme.mp3";
   }
 
   toggleShopComponent(): void {
@@ -38,6 +42,7 @@ export class MainMenuComponent implements OnInit {
     this.aboutToggle = false;
     this.prepToggle = false;
     this.toBattleToggle = false;
+    this.audioService.song = "assets/audio/main_theme.mp3";
   }
 
   toggleAlmanacComponent(): void {
@@ -48,6 +53,7 @@ export class MainMenuComponent implements OnInit {
     this.aboutToggle = false;
     this.prepToggle = false;
     this.toBattleToggle = false;
+    this.audioService.song = "assets/audio/main_theme.mp3";
   }
 
   toggleHelpComponent(): void {
@@ -58,6 +64,7 @@ export class MainMenuComponent implements OnInit {
     this.aboutToggle = false;
     this.prepToggle = false;
     this.toBattleToggle = false;
+    this.audioService.song = "assets/audio/main_theme.mp3";
   }
 
   toggleAboutComponent(): void {
@@ -68,6 +75,7 @@ export class MainMenuComponent implements OnInit {
     this.aboutToggle = true;
     this.prepToggle = false;
     this.toBattleToggle = false;
+    this.audioService.song = "assets/audio/main_theme.mp3";
   }
 
   togglePrepComponent(): void {
@@ -78,6 +86,7 @@ export class MainMenuComponent implements OnInit {
     this.aboutToggle = false;
     this.prepToggle = true;
     this.toBattleToggle = false;
+    this.audioService.song = "assets/audio/prep_theme.mp3";
   }
 
   toggleToBattleComponent(): void {
@@ -88,6 +97,19 @@ export class MainMenuComponent implements OnInit {
     this.aboutToggle = false;
     this.prepToggle = false;
     this.toBattleToggle = true;
+    this.audioService.song = "assets/audio/to_battle_theme.mp3";
+  }
+
+  get audio() {
+    return this.audioService.audio;
+  }
+
+  get cover() {
+    return this.gameService.cover;
+  }
+
+  get song() {
+    return this.audioService.song;
   }
 
 }

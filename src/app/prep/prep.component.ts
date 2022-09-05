@@ -19,9 +19,9 @@ export class PrepComponent implements OnInit {
   currentUser: User = JSON.parse(<any>localStorage.getItem("principal"));
 
 
-  championTitle: string = "";
-  weaponTitle: string = "";
-  armorTitle: string = "";
+  championTitle: string = "HP: 0\nDAMAGE: 0\nMANA: 0";
+  weaponTitle: string = "RESILIENCE: 0\nTHORNS: 0";
+  armorTitle: string = "LIFESTEAL: 0\nDAMAGE: 0";
   currentGameEntity: GameEntity = {} as GameEntity;
   baseHp = 0;
   baseDamage = 0;
@@ -54,15 +54,17 @@ export class PrepComponent implements OnInit {
 
   constructor(private championLinkService: ChampionOwnershipService, private itemLinkService: ItemOwnershipService) { }
 
-  ngOnInit(): void {
-    console.log(this.chosenChampion);
+  async ngOnInit() {
+    let gameEntityString = localStorage.getItem("game_entity");
+    // console.log(gameEntityString);
+
+    if(gameEntityString != "") {
+      this.currentGameEntity = JSON.parse(<any>localStorage.getItem("game_entity"));
+      this.loadSelectedEntity();
+    }
+
     this.loadAllOwnedChampions();
-    this.loadAllItems()
-    console.log(this.currentGameEntity);
-    this.championTitle = "HP: 0\nDAMAGE: 0\nMANA: 0";
-    this.armorTitle = "RESILIENCE: 0\nTHORNS: 0";
-    this.weaponTitle = "LIFESTEAL: 0\nDAMAGE: 0";
-    this.loadSelectedEntity();
+    this.loadAllItems();
   }
 
   loadAllOwnedChampions() {
@@ -126,6 +128,31 @@ export class PrepComponent implements OnInit {
     this.reloadContainers();
     this.currentGameEntity.armor = {} as Item;
     this.currentGameEntity.weapon = {} as Item;
+    localStorage.setItem("game_entity", JSON.stringify(this.currentGameEntity));
+  }
+
+  async chooseChampionWithoutReset(champion: Champion) {
+    this.champion_image = "assets/sprites/champions/" + champion.picture;
+    this.chosenChampion = champion;
+    this.currentGameEntity.champion = champion;
+    this.setBaseStats(champion);
+    if(Object.keys(this.chosenWeapon).length != 0) {
+      this.increaseItemCount(this.chosenWeapon).subscribe();
+    }
+    if(Object.keys(this.chosenArmor).length != 0) {
+      this.increaseItemCount(this.chosenArmor).subscribe();
+    }
+    this.armor_image = "assets/icons/armor_placeholder.png";
+    this.weapon_image = "assets/icons/weapon_placeholder.png";
+    await new Promise(f => setTimeout(f, 250));
+    this.chosenWeapon = {} as Item;
+    this.chosenArmor = {} as Item;
+    let weaponContainer = <HTMLDivElement>document.getElementById("weapon_container");
+    let armorContainer = <HTMLDivElement>document.getElementById("armor_container");
+    this.removeChildrenFromContainer(weaponContainer);
+    this.removeChildrenFromContainer(armorContainer);
+    this.loadAllItems();
+    this.reloadContainers();
     localStorage.setItem("game_entity", JSON.stringify(this.currentGameEntity));
   }
 

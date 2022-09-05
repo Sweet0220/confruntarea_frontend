@@ -20,6 +20,10 @@ app-root {
   text-align: center;
 }
 
+button {
+  user-select: none;
+}
+
 body {
   background-image: url("/assets/images/Background.png");
   height: 100%;
