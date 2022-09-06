@@ -66,3 +66,116 @@
   background: rgba(255,255,255,0.2);
 }
 
+.epilepsy_white {
+  background: white;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.epilepsy_black {
+  background: black;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.epilepsy_text_white {
+  font-size: 4em;
+  margin: 0;
+  color: white;
+}
+
+.epilepsy_text_black {
+  font-size: 4em;
+  margin: 0;
+  color: black;
+}
+
+.game_container {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /*background: #797979;*/
+}
+
+.fight_scene {
+  width: 100%;
+  height: 59%;
+  margin-top: 1%;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fight_grounds {
+  height: 100%;
+  width: auto;
+  position: relative;
+}
+
+.fight_background {
+  height: 100%;
+  opacity: 0.7;
+}
+
+.interface_holder {
+  width: 100%;
+  height: 40%;
+  /*background: #797979;*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.interface {
+  height: 90%;
+  width: 60%;
+  border: solid white 0.3em;
+  border-bottom: 0;
+  cursor: crosshair;
+  box-sizing: border-box;
+  /*background: #00eeff;*/
+}
+
+.main_interface {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.champion {
+  height: 35%;
+  position: absolute;
+  left: 6em;
+  bottom: 1em;
+}
+
+.monster {
+  height: 60%;
+  position: absolute;
+  right: 6em;
+  bottom: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+

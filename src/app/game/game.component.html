@@ -1,11 +1,32 @@
 <div class="scene">
-  <div class="no_prep" *ngIf="!hasLoadout">
+  <div class="no_prep" *ngIf="!hasLoadout && !epilepsy && !game">
     <p class="info">Prepare yourself first, warrior!</p>
     <p class="info">Use the prep menu to choose your loadout.</p>
   </div>
-  <div class="prep" *ngIf="hasLoadout">
+  <div class="prep" *ngIf="hasLoadout && !epilepsy && !game">
     <p class="ready_title">READY?</p>
     <button class="ready_button" (click)="toggleFight()">FIGHT!</button>
     <p class="info">Once you hit the button, you will have to carry this fight to the end, or you will lose all equipped items! You cannot travel between menus until you finish the battle. Good luck, warrior!</p>
+  </div>
+  <div class="epilepsy_white" id="epilepsy" *ngIf="epilepsy && !game">
+    <p class="epilepsy_text_black" id="epilepsy_text">FIGHT!</p>
+  </div>
+  <div class="game_container" *ngIf="game">
+    <div class="fight_scene">
+      <div class="fight_grounds">
+        <img src="assets/animations/fight_background.gif" class="fight_background">
+        <div class="champion">
+          <img src="assets/sprites/champions/{{gameEntity.champion.picture}}" height="100%">
+        </div>
+        <div class="monster">
+          <img src="assets/sprites/monsters/{{currentMonster.picture}}" style="height: {{monsterHeight}}%">
+        </div>
+      </div>
+    </div>
+    <div class="interface_holder">
+      <div class="interface">
+        <app-main-interface class="main_interface" *ngIf="mainInterface"></app-main-interface>
+      </div>
+    </div>
   </div>
 </div>

@@ -20,5 +20,9 @@
   <app-almanac class="component" *ngIf="almanacToggle"></app-almanac>
   <app-game class="component" *ngIf="toBattleToggle"></app-game>
 </div>
-<audio src="{{song}}" autoplay="autoplay" loop="loop" autostart="true" *ngIf="audio"></audio>
+<audio src="{{song}}" autoplay="autoplay" loop="loop" autostart="true" *ngIf="audio" class="audio"></audio>
+<div class="audio_controller" (click)="toggleAudio()">
+  <img src="assets/icons/Audio_On.png" class="audio_image" *ngIf="audio">
+  <img src="assets/icons/Audio_Off.png" class="audio_image" *ngIf="!audio">
+</div>
 

@@ -45,6 +45,7 @@ import { PrepComponent } from './prep/prep.component';
 import { GameComponent } from './game/game.component';
 import { AdminExportComponent } from './admin-menu/admin-export/admin-export.component';
 import { AdminPdfComponent } from './admin-menu/admin-pdf/admin-pdf.component';
+import { MainInterfaceComponent } from './game/main-interface/main-interface.component';
 
 @NgModule({
   declarations: [
@@ -89,7 +90,8 @@ import { AdminPdfComponent } from './admin-menu/admin-pdf/admin-pdf.component';
     PrepComponent,
     GameComponent,
     AdminExportComponent,
-    AdminPdfComponent
+    AdminPdfComponent,
+    MainInterfaceComponent
   ],
   imports: [
     BrowserModule,

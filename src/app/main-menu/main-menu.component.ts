@@ -112,4 +112,8 @@ export class MainMenuComponent implements OnInit {
     return this.audioService.song;
   }
 
+  toggleAudio() {
+    this.audioService.audio = !this.audioService.audio;
+  }
+
 }

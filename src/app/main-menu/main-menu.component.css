@@ -103,3 +103,22 @@
   position: absolute;
   left: 0;
 }
+
+.audio_controller {
+  position: absolute;
+  height: 3em;
+  width: 3em;
+  padding: 1.5em;
+  left: 0;
+  bottom: 0;
+  cursor: pointer;
+}
+
+.audio_image {
+  height: 100%;
+}
+
+.audio {
+  position: absolute;
+  top: 0;
+}

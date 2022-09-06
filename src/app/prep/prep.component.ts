@@ -131,30 +131,6 @@ export class PrepComponent implements OnInit {
     localStorage.setItem("game_entity", JSON.stringify(this.currentGameEntity));
   }
 
-  async chooseChampionWithoutReset(champion: Champion) {
-    this.champion_image = "assets/sprites/champions/" + champion.picture;
-    this.chosenChampion = champion;
-    this.currentGameEntity.champion = champion;
-    this.setBaseStats(champion);
-    if(Object.keys(this.chosenWeapon).length != 0) {
-      this.increaseItemCount(this.chosenWeapon).subscribe();
-    }
-    if(Object.keys(this.chosenArmor).length != 0) {
-      this.increaseItemCount(this.chosenArmor).subscribe();
-    }
-    this.armor_image = "assets/icons/armor_placeholder.png";
-    this.weapon_image = "assets/icons/weapon_placeholder.png";
-    await new Promise(f => setTimeout(f, 250));
-    this.chosenWeapon = {} as Item;
-    this.chosenArmor = {} as Item;
-    let weaponContainer = <HTMLDivElement>document.getElementById("weapon_container");
-    let armorContainer = <HTMLDivElement>document.getElementById("armor_container");
-    this.removeChildrenFromContainer(weaponContainer);
-    this.removeChildrenFromContainer(armorContainer);
-    this.loadAllItems();
-    this.reloadContainers();
-    localStorage.setItem("game_entity", JSON.stringify(this.currentGameEntity));
-  }
 
   async deselectChampion() {
     if(Object.keys(this.chosenChampion).length != 0) {
@@ -326,6 +302,11 @@ export class PrepComponent implements OnInit {
     this.totalMana = 0;
     this.totalLifesteal = 0;
     this.totalThorns = 0;
+    this.currentGameEntity.totalHp = 0;
+    this.currentGameEntity.totalDamage = 0;
+    this.currentGameEntity.totalMana = 0;
+    this.currentGameEntity.totalLifesteal = 0;
+    this.currentGameEntity.totalThorns = 0;
   }
 
   setBaseStats(champion: Champion) {
@@ -337,6 +318,11 @@ export class PrepComponent implements OnInit {
     this.totalMana = champion.mana;
     this.totalLifesteal = 0;
     this.totalThorns = 0;
+    this.currentGameEntity.totalHp = this.totalHp;
+    this.currentGameEntity.totalDamage = this.totalDamage;
+    this.currentGameEntity.totalMana = this.totalMana;
+    this.currentGameEntity.totalLifesteal = this.totalLifesteal;
+    this.currentGameEntity.totalThorns = this.totalThorns;
     this.championTitle = "HP: " + this.baseHp + "\nDAMAGE: " + this.baseDamage + "\nMANA: " + this.baseMana;
     this.armorTitle = "RESILIENCE: 0\nTHORNS: 0";
     this.weaponTitle = "LIFESTEAL: 0\nDAMAGE: 0";
@@ -353,6 +339,11 @@ export class PrepComponent implements OnInit {
     this.totalThorns = armor.bonusDamage;
     this.totalHp = this.chosenChampion.hp;
     this.totalHp += armor.bonusHp;
+    this.currentGameEntity.totalHp = this.totalHp;
+    this.currentGameEntity.totalDamage = this.totalDamage;
+    this.currentGameEntity.totalMana = this.totalMana;
+    this.currentGameEntity.totalLifesteal = this.totalLifesteal;
+    this.currentGameEntity.totalThorns = this.totalThorns;
     this.armorTitle = "RESILIENCE: " + armor.bonusHp + "\nTHORNS: " + this.totalThorns;
   }
 

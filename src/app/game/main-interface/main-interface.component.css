@@ -1,0 +1,66 @@
+.stats {
+  width: 100%;
+  height: 14%;
+  margin-top: 1%;
+  /*background: #00eeff;*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 5em;
+}
+
+.stat_flexbox {
+  width: 30%;
+  height: 100%;
+  /*background: #d501ff;*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stat_image {
+  height: 50%;
+  margin-right: 0.7em;
+}
+
+.stat {
+  color: white;
+  font-size: 1.2em;
+}
+
+.controls {
+  width: 100%;
+  height: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 1em;
+}
+
+.action_button {
+  height: 3em;
+  width: 8em;
+  border: solid white 0.15em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 0.5em;
+}
+
+.action_button:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.action_button:active {
+  background: rgba(255,255,255,0.2);
+}
+
+.action {
+  color: white;
+  font-size: 1.3em;
+}
+
+.action_icon {
+  height: 60%;
+}
