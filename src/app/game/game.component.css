@@ -155,9 +155,10 @@
   width: 100%;
   box-sizing: border-box;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  column-gap: 1.5em;
+  position: relative;
 }
 
 .champion {
@@ -177,5 +178,130 @@
   align-items: center;
 }
 
+.champion_bars {
+  height: 30%;
+  width: 40%;
+  /*background: black;*/
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.champion_healthbar {
+  cursor: help;
+  margin: 0 0 0 0.5em;
+  width: 75%;
+  height: 12%;
+  color: white;
+  border: solid black 0.1em;
+  border-top-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+  position: relative;
+  background: black;
+}
+
+.champion_healthbar::-webkit-progress-bar {
+  background-color: black;
+  border-top-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+}
+
+.champion_healthbar::-webkit-progress-value {
+  /*height: 80%;*/
+  background: linear-gradient(90deg, #560804, #cb0000);
+  border-top-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+}
+
+.champion_manabar {
+  cursor: help;
+  margin: 0 0 0 0.5em;
+  width: 50%;
+  height: 12%;
+  color: white;
+  border: solid black 0.1em;
+  border-top: none;
+  border-top-right-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;
+  position: relative;
+  background: black;
+}
+
+.champion_manabar::-webkit-progress-bar {
+  background-color: black;
+  border-top-right-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;
+}
+
+.champion_manabar::-webkit-progress-value {
+  /*height: 80%;*/
+  /*position: absolute;*/
+  /*bottom: 0;*/
+  background: linear-gradient(90deg, #001d57, #1100ff);
+  border-top-right-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;
+}
 
 
+.champion_name {
+  margin: 0.5em 0 0 0.5em;
+  font-size: 1.4em;
+  color: white;
+  font-family: CursivePixel, sans-serif;
+}
+
+.stat_flexbox {
+  height: 13%;
+  width: 30%;
+
+}
+
+.monster_bars {
+  height: 30%;
+  width: 40%;
+  /*background: black;*/
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.monster_name {
+  margin: 0.5em 0.5em 0 0;
+  font-size: 1.4em;
+  color: white;
+  font-family: CursivePixel, sans-serif;
+}
+
+.monster_healthbar {
+  cursor: help;
+
+  margin: 0 0.5em 0 0;
+  width: 75%;
+  height: 12%;
+  color: white;
+  border: solid black 0.1em;
+  border-top-right-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;
+  position: relative;
+  background: black;
+}
+
+.monster_healthbar::-webkit-progress-bar {
+  background-color: black;
+  border-top-right-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;
+}
+
+.monster_healthbar::-webkit-progress-value {
+  /*height: 80%;*/
+  background: linear-gradient(90deg, #cb0000, #560804);
+  border-top-right-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;
+}

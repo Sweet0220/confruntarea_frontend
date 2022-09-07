@@ -21,6 +21,16 @@
         <div class="monster">
           <img src="assets/sprites/monsters/{{currentMonster.picture}}" style="height: {{monsterHeight}}%">
         </div>
+        <div class="champion_bars">
+          <p class="champion_name">{{gameEntity.champion.name}}</p>
+          <progress value="{{currentHp}}" max="{{gameEntity.totalHp}}" class="champion_healthbar" title="HP: {{currentHp}} / {{gameEntity.totalHp}}"></progress>
+          <progress value="{{currentMana}}" max="{{gameEntity.totalMana}}" class="champion_manabar" title="MANA: {{currentMana}} / {{gameEntity.totalMana}}"></progress>
+        </div>
+        <div class="monster_bars">
+          <p class="monster_name">{{currentMonster.name}}</p>
+          <progress value="{{currentHpMonster}}" max="{{currentMonster.hp}}" class="monster_healthbar" title="HP: {{currentHpMonster}} / {{currentMonster.hp}}"></progress>
+        </div>
+
       </div>
     </div>
     <div class="interface_holder">

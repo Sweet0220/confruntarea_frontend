@@ -15,6 +15,15 @@ export class GameEntity {
   totalLifesteal: number = 0;
   totalThorns: number = 0;
 
-  constructor(){}
+  constructor(){
+    this.champion = {} as Champion;
+    this.weapon = {} as Item;
+    this.armor = {} as Item;
+    this.totalHp = 0;
+    this.totalDamage = 0;
+    this.totalMana = 0;
+    this.totalLifesteal = 0;
+    this.totalThorns = 0;
+  }
 
 }

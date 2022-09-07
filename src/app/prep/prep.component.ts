@@ -61,6 +61,10 @@ export class PrepComponent implements OnInit {
     if(gameEntityString != "") {
       this.currentGameEntity = JSON.parse(<any>localStorage.getItem("game_entity"));
       this.loadSelectedEntity();
+    } else {
+      this.currentGameEntity = new GameEntity();
+      localStorage.setItem("game_entity", JSON.stringify(this.currentGameEntity));
+      this.loadSelectedEntity();
     }
 
     this.loadAllOwnedChampions();
@@ -193,13 +197,16 @@ export class PrepComponent implements OnInit {
   async chooseWeapon(weapon: Item) {
     if(Object.keys(this.chosenChampion).length != 0) {
       this.weapon_image = "assets/sprites/items/" + weapon.picture;
-      if(Object.keys(this.chosenWeapon).length != 0) {
+      if(Object.keys(this.chosenWeapon).length != 0 && this.chosenWeapon.name != weapon.name) {
         this.increaseItemCount(this.chosenWeapon).subscribe();
+        this.decreaseItemCount(weapon).subscribe();
+
+      } else if(Object.keys(this.chosenWeapon).length == 0) {
+        this.decreaseItemCount(weapon).subscribe();
       }
       this.chosenWeapon = weapon;
       this.currentGameEntity.weapon = weapon;
       this.addWeaponStats(weapon);
-      this.decreaseItemCount(weapon).subscribe();
       await new Promise(f => setTimeout(f, 200));
       let weaponContainer = <HTMLDivElement>document.getElementById("weapon_container");
       let armorContainer = <HTMLDivElement>document.getElementById("armor_container");
@@ -260,13 +267,15 @@ export class PrepComponent implements OnInit {
   async chooseArmor(armor: Item) {
     if(Object.keys(this.chosenChampion).length != 0) {
       this.armor_image = "assets/sprites/items/" + armor.picture;
-      if(Object.keys(this.chosenArmor).length != 0) {
+      if(Object.keys(this.chosenArmor).length != 0 && this.chosenArmor.name != armor.name) {
         this.increaseItemCount(this.chosenArmor).subscribe();
+        this.decreaseItemCount(armor).subscribe();
+      } else if(Object.keys(this.chosenArmor).length == 0) {
+        this.decreaseItemCount(armor).subscribe();
       }
       this.chosenArmor = armor;
       this.currentGameEntity.armor = armor;
       this.addArmorStats(armor);
-      this.decreaseItemCount(armor).subscribe();
       await new Promise(f => setTimeout(f, 200));
       let weaponContainer = <HTMLDivElement>document.getElementById("weapon_container");
       let armorContainer = <HTMLDivElement>document.getElementById("armor_container");

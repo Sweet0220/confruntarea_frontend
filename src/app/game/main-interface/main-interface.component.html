@@ -1,14 +1,3 @@
-<div class="stats">
-  <div class="stat_flexbox" title="HP">
-    <img src="assets/icons/Heart.png" class="stat_image">
-    <p class="stat">: {{currentHp}} / {{gameEntity.totalHp}}</p>
-  </div>
-  <div class="stat_flexbox" title="MANA">
-    <img src="assets/icons/Mana.png" class="stat_image">
-    <p class="stat">: {{currentMana}} / {{gameEntity.totalMana}}</p>
-  </div>
-</div>
-
 <div class="controls">
   <div class="action_button">
     <p class="action">ATTACK</p>
@@ -19,7 +8,35 @@
     <img src="assets/icons/ability_particles.png" class="action_icon">
   </div>
   <div class="action_button">
-    <p class="action">INVENTORY</p>
+    <p class="action">END TURN</p>
+  </div>
+</div>
+
+<div class="separator"></div>
+
+<div class="inventory">
+  <div class="inventory_title">
+    <p class="action" style="margin-right: 0.5em;">INVENTORY</p>
     <img src="assets/icons/inventory.png" class="action_icon">
+  </div>
+  <div class="inventory_grid">
+    <div class="inventory_section">
+      <p class="action" style="font-size: 0.9em; margin: 0.3em 0 0 0;">THROWABLES</p>
+      <div class="item_list">
+        <div class="item_box" *ngFor="let throwable of throwables" title="{{throwable.name}}">
+          <img src="assets/sprites/items/{{throwable.picture}}" class="item_image">
+          <p class="item_count">{{getItemCount(throwable)}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="inventory_section">
+      <p class="action" style="font-size: 0.9em; margin: 0.3em 0 0 0;">POTIONS</p>
+      <div class="item_list">
+        <div class="item_box" *ngFor="let potion of potions" title="{{potion.name}}">
+          <img src="assets/sprites/items/{{potion.picture}}" class="item_image">
+          <p class="item_count">{{getItemCount(potion)}}</p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

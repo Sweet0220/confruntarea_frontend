@@ -9,5 +9,7 @@ export class InterfaceService {
   currentHp: number = 0;
   currentMana: number = 0;
 
+  currentHpMonster: number = 0;
+
   constructor() { }
 }

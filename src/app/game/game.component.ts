@@ -72,6 +72,7 @@ export class GameComponent implements OnInit {
         let index = this.randomNumber(data.length) - 1;
         if((data[index].level <= this.currentUser.level) || (data[index].level > this.currentUser.level && data[index].level - this.currentUser.level <= 2)) {
           this.currentMonster = data[index];
+          this.interfaceService.currentHpMonster = data[index].hp;
           if(this.currentMonster.name == "Musca Tzetze") {
             this.monsterHeight = "45";
           }
@@ -87,6 +88,18 @@ export class GameComponent implements OnInit {
 
   get mainInterface() {
     return this.interfaceService.mainInterface;
+  }
+
+  get currentHp() {
+    return this.interfaceService.currentHp;
+  }
+
+  get currentMana() {
+    return this.interfaceService.currentMana;
+  }
+
+  get currentHpMonster() {
+    return this.interfaceService.currentHpMonster;
   }
 
 }
