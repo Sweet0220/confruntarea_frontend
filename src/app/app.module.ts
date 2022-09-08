@@ -46,6 +46,7 @@ import { GameComponent } from './game/game.component';
 import { AdminExportComponent } from './admin-menu/admin-export/admin-export.component';
 import { AdminPdfComponent } from './admin-menu/admin-pdf/admin-pdf.component';
 import { MainInterfaceComponent } from './game/main-interface/main-interface.component';
+import { AttackInterfaceComponent } from './game/attack-interface/attack-interface.component';
 
 @NgModule({
   declarations: [
@@ -91,7 +92,8 @@ import { MainInterfaceComponent } from './game/main-interface/main-interface.com
     GameComponent,
     AdminExportComponent,
     AdminPdfComponent,
-    MainInterfaceComponent
+    MainInterfaceComponent,
+    AttackInterfaceComponent
   ],
   imports: [
     BrowserModule,

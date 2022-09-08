@@ -1,0 +1,63 @@
+.attack_bar {
+  width: 65%;
+  height: 15%;
+  display: flex;
+  position: relative;
+}
+
+.bad_attack {
+  height: 100%;
+  flex-grow: 2;
+  background: darkred;
+}
+
+.medium_attack {
+  height: 100%;
+  flex-grow: 4;
+  background: goldenrod;
+}
+
+.good_attack {
+  height: 100%;
+  flex-grow: 1;
+  background: green;
+}
+
+@keyframes slider {
+  0% {left: 0;}
+  50% {left: 97%;}
+  100% {left: 0;}
+}
+
+.slider {
+  height: 100%;
+  width: 3%;
+  position: absolute;
+  background: aliceblue;
+  animation: linear;
+  animation-name: slider;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+}
+
+.info {
+  font-size: 1.2em;
+  color: white;
+  margin: 0;
+}
+
+.audio {
+  position: absolute;
+  top: 0;
+}
+
+.damage {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  color: white;
+  font-size: 2em;
+  bottom: 1em;
+}

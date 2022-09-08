@@ -1,9 +1,9 @@
 <div class="controls">
-  <div class="action_button">
+  <div [ngClass]="hasAttacked ? 'action_button_disabled' : 'action_button'" (click)="toggleAttackInterface()">
     <p class="action">ATTACK</p>
     <img src="assets/icons/attack.png" class="action_icon">
   </div>
-  <div class="action_button">
+  <div [ngClass]="hasUsedAbility ? 'action_button_disabled' : 'action_button'">
     <p class="action">ABILITIES</p>
     <img src="assets/icons/ability_particles.png" class="action_icon">
   </div>
@@ -14,7 +14,7 @@
 
 <div class="separator"></div>
 
-<div class="inventory">
+<div [ngClass]="hasUsedItem ? 'inventory_disabled' : 'inventory'">
   <div class="inventory_title">
     <p class="action" style="margin-right: 0.5em;">INVENTORY</p>
     <img src="assets/icons/inventory.png" class="action_icon">

@@ -33,6 +33,8 @@ export class GameComponent implements OnInit {
         this.hasLoadout = true;
     }
     }
+    this.interfaceService.currentHp = this.gameEntity.totalHp;
+    this.interfaceService.currentMana = this.gameEntity.totalMana;
   }
 
   async toggleFight() {
@@ -90,6 +92,10 @@ export class GameComponent implements OnInit {
     return this.interfaceService.mainInterface;
   }
 
+  get attackInterface() {
+    return this.interfaceService.attackInterface;
+  }
+
   get currentHp() {
     return this.interfaceService.currentHp;
   }
@@ -100,6 +106,14 @@ export class GameComponent implements OnInit {
 
   get currentHpMonster() {
     return this.interfaceService.currentHpMonster;
+  }
+
+  get hit() {
+    return this.gameService.hit;
+  }
+
+  get monsterHitEffect() {
+    return this.gameService.monsterHitEffect;
   }
 
 }

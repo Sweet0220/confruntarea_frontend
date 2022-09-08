@@ -1,0 +1,11 @@
+<div class="attack_bar">
+  <div class="bad_attack" id="bad_left"></div>
+  <div class="medium_attack" id="mid_left"></div>
+  <div class="good_attack" id="good"></div>
+  <div class="medium_attack" id="mid_right"></div>
+  <div class="bad_attack" id="bad_right"></div>
+  <div class="slider" id="attack_slider"></div>
+</div>
+<p class="info">Hit spacebar when the indicator is at the center for maximum damage!</p>
+<p class="damage" id="dealt_damage">{{damageDealt}}</p>
+<audio src="{{sfx}}" autoplay="autoplay" autostart="true" *ngIf="audio" class="audio"></audio>

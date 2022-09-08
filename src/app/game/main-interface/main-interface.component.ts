@@ -4,6 +4,7 @@ import {GameEntity} from "../../../game-logic/game-entity";
 import {ItemOwnership} from "../../../entity/item-ownership";
 import {Item} from "../../../entity/item";
 import {ItemOwnershipService} from "../../../service/item-ownership.service";
+import {GameService} from "../../../service/game.service";
 
 @Component({
   selector: 'app-main-interface',
@@ -18,12 +19,11 @@ export class MainInterfaceComponent implements OnInit {
   throwables: Array<Item> = [];
   potions: Array<Item> = [];
 
-  constructor(private interfaceService: InterfaceService, private itemLinkService: ItemOwnershipService) { }
+  constructor(private interfaceService: InterfaceService, private itemLinkService: ItemOwnershipService, private gameService: GameService) { }
 
   ngOnInit(): void {
     this.gameEntity = JSON.parse(<any>localStorage.getItem("game_entity"));
-    this.interfaceService.currentHp = this.gameEntity.totalHp;
-    this.interfaceService.currentMana = this.gameEntity.totalMana;
+
     this.loadAllItems();
   }
 
@@ -58,6 +58,25 @@ export class MainInterfaceComponent implements OnInit {
         return link.itemCount.toString();
       }
     }
+  }
+
+  toggleAttackInterface() {
+    if(!this.hasAttacked) {
+      this.interfaceService.attackInterface = true;
+      this.interfaceService.mainInterface = false;
+    }
+  }
+
+  get hasAttacked() {
+    return this.gameService.hasAttacked;
+  }
+
+  get hasUsedAbility() {
+    return this.gameService.hasUsedAbility;
+  }
+
+  get hasUsedItem() {
+    return this.gameService.hasUsedItem;
   }
 
 }

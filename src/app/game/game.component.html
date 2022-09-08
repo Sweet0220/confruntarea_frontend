@@ -18,8 +18,11 @@
         <div class="champion">
           <img src="assets/sprites/champions/{{gameEntity.champion.picture}}" height="100%">
         </div>
-        <div class="monster">
+        <div class="monster" *ngIf="monsterHitEffect">
           <img src="assets/sprites/monsters/{{currentMonster.picture}}" style="height: {{monsterHeight}}%">
+        </div>
+        <div class="hit_monster" *ngIf="hit">
+          <img src="assets/animations/hit.gif" style="height: 100%">
         </div>
         <div class="champion_bars">
           <p class="champion_name">{{gameEntity.champion.name}}</p>
@@ -28,7 +31,7 @@
         </div>
         <div class="monster_bars">
           <p class="monster_name">{{currentMonster.name}}</p>
-          <progress value="{{currentHpMonster}}" max="{{currentMonster.hp}}" class="monster_healthbar" title="HP: {{currentHpMonster}} / {{currentMonster.hp}}"></progress>
+          <progress style="display: block; float: left" value="{{currentHpMonster}}" max="{{currentMonster.hp}}" class="monster_healthbar" title="HP: {{currentHpMonster}} / {{currentMonster.hp}}"></progress>
         </div>
 
       </div>
@@ -36,6 +39,7 @@
     <div class="interface_holder">
       <div class="interface">
         <app-main-interface class="main_interface" *ngIf="mainInterface"></app-main-interface>
+        <app-attack-interface class="attack_interface" *ngIf="attackInterface"></app-attack-interface>
       </div>
     </div>
   </div>

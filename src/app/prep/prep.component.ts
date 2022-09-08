@@ -341,6 +341,11 @@ export class PrepComponent implements OnInit {
     this.totalDamage = this.chosenChampion.baseDamage;
     this.totalDamage += weapon.bonusDamage;
     this.totalLifesteal = weapon.bonusHp;
+    this.currentGameEntity.totalHp = this.totalHp;
+    this.currentGameEntity.totalDamage = this.totalDamage;
+    this.currentGameEntity.totalMana = this.totalMana;
+    this.currentGameEntity.totalLifesteal = this.totalLifesteal;
+    this.currentGameEntity.totalThorns = this.totalThorns;
     this.weaponTitle = "LIFESTEAL: " + this.totalLifesteal + "\nDAMAGE: " + weapon.bonusDamage;
   }
 
