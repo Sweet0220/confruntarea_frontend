@@ -5,6 +5,7 @@ import {ItemOwnership} from "../../../entity/item-ownership";
 import {Item} from "../../../entity/item";
 import {ItemOwnershipService} from "../../../service/item-ownership.service";
 import {GameService} from "../../../service/game.service";
+import {AudioService} from "../../../service/audio.service";
 
 @Component({
   selector: 'app-main-interface',
@@ -19,12 +20,19 @@ export class MainInterfaceComponent implements OnInit {
   throwables: Array<Item> = [];
   potions: Array<Item> = [];
 
-  constructor(private interfaceService: InterfaceService, private itemLinkService: ItemOwnershipService, private gameService: GameService) { }
+  constructor(private interfaceService: InterfaceService, private itemLinkService: ItemOwnershipService, private gameService: GameService, private audioService: AudioService) { }
 
   ngOnInit(): void {
     this.gameEntity = JSON.parse(<any>localStorage.getItem("game_entity"));
-
     this.loadAllItems();
+    if(this.hasWon()) {
+      this.audioService.song = "assets/audio/win_theme.mp3";
+      this.interfaceService.win = true;
+    }
+    if(this.hasLost()) {
+      this.audioService.song = "assets/audio/lose_theme.mp3";
+      this.interfaceService.lose = true;
+    }
   }
 
   get currentHp() {
@@ -67,6 +75,18 @@ export class MainInterfaceComponent implements OnInit {
     }
   }
 
+  toggleAbilityInterface() {
+    if(!this.hasUsedAbility) {
+      this.interfaceService.abilityInterface = true;
+      this.interfaceService.mainInterface = false;
+    }
+  }
+
+  toggleMonsterTurn() {
+    this.interfaceService.monsterTurnInterface = true;
+    this.interfaceService.mainInterface = false;
+  }
+
   get hasAttacked() {
     return this.gameService.hasAttacked;
   }
@@ -77,6 +97,14 @@ export class MainInterfaceComponent implements OnInit {
 
   get hasUsedItem() {
     return this.gameService.hasUsedItem;
+  }
+
+  hasWon() {
+    return this.interfaceService.currentHpMonster == 0;
+  }
+
+  hasLost() {
+    return this.interfaceService.currentHp == 0;
   }
 
 }

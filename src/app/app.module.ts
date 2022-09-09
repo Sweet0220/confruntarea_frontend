@@ -47,6 +47,10 @@ import { AdminExportComponent } from './admin-menu/admin-export/admin-export.com
 import { AdminPdfComponent } from './admin-menu/admin-pdf/admin-pdf.component';
 import { MainInterfaceComponent } from './game/main-interface/main-interface.component';
 import { AttackInterfaceComponent } from './game/attack-interface/attack-interface.component';
+import { AbilityInterfaceComponent } from './game/ability-interface/ability-interface.component';
+import { WinInterfaceComponent } from './game/win-interface/win-interface.component';
+import { LoseInterfaceComponent } from './game/lose-interface/lose-interface.component';
+import { MonsterTurnInterfaceComponent } from './game/monster-turn-interface/monster-turn-interface.component';
 
 @NgModule({
   declarations: [
@@ -93,7 +97,11 @@ import { AttackInterfaceComponent } from './game/attack-interface/attack-interfa
     AdminExportComponent,
     AdminPdfComponent,
     MainInterfaceComponent,
-    AttackInterfaceComponent
+    AttackInterfaceComponent,
+    AbilityInterfaceComponent,
+    WinInterfaceComponent,
+    LoseInterfaceComponent,
+    MonsterTurnInterfaceComponent
   ],
   imports: [
     BrowserModule,

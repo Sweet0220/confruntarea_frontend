@@ -1,27 +1,31 @@
 <div class="scene">
-  <div class="no_prep" *ngIf="!hasLoadout && !epilepsy && !game">
+  <div class="no_prep" *ngIf="!hasLoadout && !epilepsy && !game && !win && !lose">
     <p class="info">Prepare yourself first, warrior!</p>
     <p class="info">Use the prep menu to choose your loadout.</p>
   </div>
-  <div class="prep" *ngIf="hasLoadout && !epilepsy && !game">
+  <div class="prep" *ngIf="hasLoadout && !epilepsy && !game && !win && !lose">
     <p class="ready_title">READY?</p>
     <button class="ready_button" (click)="toggleFight()">FIGHT!</button>
     <p class="info">Once you hit the button, you will have to carry this fight to the end, or you will lose all equipped items! You cannot travel between menus until you finish the battle. Good luck, warrior!</p>
   </div>
-  <div class="epilepsy_white" id="epilepsy" *ngIf="epilepsy && !game">
+  <div class="epilepsy_white" id="epilepsy" *ngIf="epilepsy && !game && !win && !lose">
     <p class="epilepsy_text_black" id="epilepsy_text">FIGHT!</p>
   </div>
-  <div class="game_container" *ngIf="game">
+  <div class="game_container" *ngIf="game && !win && !lose">
     <div class="fight_scene">
       <div class="fight_grounds">
         <img src="assets/animations/fight_background.gif" class="fight_background">
-        <div class="champion">
+        <div class="champion" *ngIf="playerHitEffect">
           <img src="assets/sprites/champions/{{gameEntity.champion.picture}}" height="100%">
         </div>
         <div class="monster" *ngIf="monsterHitEffect">
           <img src="assets/sprites/monsters/{{currentMonster.picture}}" style="height: {{monsterHeight}}%">
         </div>
         <div class="hit_monster" *ngIf="hit">
+          <img src="assets/animations/hit.gif" style="height: 100%">
+        </div>
+
+        <div class="hit_player" *ngIf="monsterHit">
           <img src="assets/animations/hit.gif" style="height: 100%">
         </div>
         <div class="champion_bars">
@@ -34,13 +38,22 @@
           <progress style="display: block; float: left" value="{{currentHpMonster}}" max="{{currentMonster.hp}}" class="monster_healthbar" title="HP: {{currentHpMonster}} / {{currentMonster.hp}}"></progress>
         </div>
 
+        <div class="ability_animation">
+          <img src="{{ability}}" class="ability">
+        </div>
+
       </div>
     </div>
     <div class="interface_holder">
       <div class="interface">
         <app-main-interface class="main_interface" *ngIf="mainInterface"></app-main-interface>
         <app-attack-interface class="attack_interface" *ngIf="attackInterface"></app-attack-interface>
+        <app-ability-interface class="ability_interface" *ngIf="abilityInterface"></app-ability-interface>
+        <app-monster-turn-interface class="main_interface" *ngIf="monsterTurnInterface"></app-monster-turn-interface>
       </div>
     </div>
   </div>
+
+  <app-win-interface *ngIf="win" class="win_interface"></app-win-interface>
+  <app-lose-interface *ngIf="lose" class="lose_interface"></app-lose-interface>
 </div>

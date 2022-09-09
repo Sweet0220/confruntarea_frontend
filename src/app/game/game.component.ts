@@ -38,6 +38,7 @@ export class GameComponent implements OnInit {
   }
 
   async toggleFight() {
+    this.selectRandomMonster();
     this.gameService.cover = !this.gameService.cover;
     let random = this.randomNumber(4);
     this.audioService.song = "assets/audio/fight_theme_" + random + ".mp3";
@@ -64,16 +65,16 @@ export class GameComponent implements OnInit {
     await new Promise(f => setTimeout(f, 1250));
     this.epilepsy = false;
     this.game = true;
-    this.selectRandomMonster()
   }
 
-  private selectRandomMonster() {
+  async selectRandomMonster() {
     let go: boolean = true;
     this.monsterService.getAllMonsters().subscribe(data => {
       while(go) {
         let index = this.randomNumber(data.length) - 1;
         if((data[index].level <= this.currentUser.level) || (data[index].level > this.currentUser.level && data[index].level - this.currentUser.level <= 2)) {
           this.currentMonster = data[index];
+          localStorage.setItem("currentMonster", JSON.stringify(this.currentMonster));
           this.interfaceService.currentHpMonster = data[index].hp;
           if(this.currentMonster.name == "Musca Tzetze") {
             this.monsterHeight = "45";
@@ -82,6 +83,7 @@ export class GameComponent implements OnInit {
         }
       }
     });
+
   }
 
   private randomNumber(number: number): number {
@@ -94,6 +96,14 @@ export class GameComponent implements OnInit {
 
   get attackInterface() {
     return this.interfaceService.attackInterface;
+  }
+
+  get abilityInterface() {
+    return this.interfaceService.abilityInterface;
+  }
+
+  get monsterTurnInterface() {
+    return this.interfaceService.monsterTurnInterface;
   }
 
   get currentHp() {
@@ -112,8 +122,28 @@ export class GameComponent implements OnInit {
     return this.gameService.hit;
   }
 
+  get monsterHit() {
+    return this.gameService.monsterHit;
+  }
+
   get monsterHitEffect() {
     return this.gameService.monsterHitEffect;
+  }
+
+  get playerHitEffect() {
+    return this.gameService.playerHitEffect;
+  }
+
+  get ability() {
+    return this.interfaceService.ability;
+  }
+
+  get win() {
+    return this.interfaceService.win;
+  }
+
+  get lose() {
+    return this.interfaceService.lose;
   }
 
 }

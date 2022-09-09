@@ -108,7 +108,7 @@ export class AttackInterfaceComponent implements OnInit {
     if(this.interfaceService.currentHpMonster <= 0) {
       this.gameService.monsterHitEffect = false;
     }
-    await new Promise(f => setTimeout(f, 550));
+    await new Promise(f => setTimeout(f, 1000));
     this.interfaceService.attackInterface = false;
     this.interfaceService.mainInterface = true;
   }

@@ -1,0 +1,13 @@
+<p class="win_title">YOU WIN!</p>
+
+<div class="stat_flexbox" title="ORB REWARD" style="margin-top: 5em;" *ngIf="orbs">
+  <img src="assets/icons/orbs.png" class="stat_image">
+  <p class="stat" style="color: lightskyblue">: +{{currentMonster.moneyReward}}</p>
+</div>
+
+<div class="stat_flexbox" title="EXP REWARD" *ngIf="exp">
+  <img src="assets/icons/Exp.png" class="stat_image">
+  <p class="stat" style="color: goldenrod">: +{{currentMonster.expReward}}</p>
+</div>
+
+<div class="main_menu" *ngIf="back" (click)="refresh()">BACK TO MAIN MENU</div>

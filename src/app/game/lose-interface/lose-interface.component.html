@@ -1,0 +1,8 @@
+<p class="win_title">YOU LOST!</p>
+
+<div class="stat_flexbox" title="LOST EXP" style="margin-top: 5em;" *ngIf="exp">
+  <img src="assets/icons/Exp.png" class="stat_image">
+  <p class="stat" style="color: goldenrod">: -{{currentMonster.expReward/2}}</p>
+</div>
+
+<div class="main_menu" *ngIf="back" (click)="refresh()">BACK TO MAIN MENU</div>

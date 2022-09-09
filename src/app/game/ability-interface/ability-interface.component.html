@@ -1,0 +1,39 @@
+<div class="back_button" (click)="goBack()" *ngIf="!usedAbility">
+  <img src="assets/icons/close.svg" style="height: 100%">
+</div>
+
+<div class="ability" *ngIf="!usedAbility">
+  <img src="assets/sprites/abilities/{{abilities[0].picture}}" class="ability_picture">
+  <p class="ability_title">{{abilities[0].name}}</p>
+  <p class="ability_type">{{abilities[0].type}}</p>
+  <div class="stat_flexbox" title="HEALING">
+    <img src="assets/icons/Heart.png" style="height: 100%">
+    <p class="stat_text">: +{{abilities[0].healing}}</p>
+  </div>
+  <div class="stat_flexbox" title="DAMAGE">
+    <img src="assets/icons/Damage.png" style="height: 100%">
+    <p class="stat_text">: {{abilities[0].damage}}</p>
+  </div>
+  <div class="stat_flexbox" title="MANA COST">
+    <img src="assets/icons/Mana.png" style="height: 100%">
+    <p class="stat_text">: -{{abilities[0].manaCost}}</p>
+  </div>
+
+  <div class="use_button" (click)="useAbility(abilities[0])" *ngIf="mana >= abilities[0].manaCost">USE</div>
+  <p class="stat_text" *ngIf="mana < abilities[0].manaCost" style="margin-top: 0.4em;">NOT ENOUGH MANA</p>
+
+</div>
+
+<div class="separator" *ngIf="!usedAbility"></div>
+
+<div class="ability" *ngIf="!usedAbility">
+
+</div>
+
+<div class="separator" *ngIf="!usedAbility"></div>
+
+<div class="ability" *ngIf="!usedAbility">
+
+</div>
+
+<audio src="{{sfx}}" autoplay="autoplay" autostart="true" *ngIf="audio"></audio>

@@ -1,0 +1,74 @@
+.ability {
+  width: 30%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.separator {
+  height: 80%;
+  width: 0.02em;
+  background: white;
+}
+
+.ability_picture {
+  height: 30%;
+}
+
+.ability_title {
+  margin: 0.2em 0 0 0;
+  color: white;
+  font-size: 1.6em;
+}
+
+.ability_type {
+  margin: 0.1em 0 0 0;
+  color: gray;
+  font-size: 1em;
+}
+
+.stat_flexbox {
+  margin-top: 0.5em;
+  height: 7%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 0.4em;
+}
+
+.stat_text {
+  color: white;
+  font-size: 1em;
+  margin: 0;
+}
+
+.use_button {
+  height: 10%;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Pixel, sans-serif;
+  color: white;
+  font-size: 1.2em;
+  border: solid white 0.02em;
+  margin: 0.5em 0 0 0;
+}
+
+.use_button:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.use_button:active {
+  background: rgba(255,255,255,0.2);
+}
+
+.back_button {
+  position: absolute;
+  height: 2em;
+  right: 0;
+  top: 0;
+}

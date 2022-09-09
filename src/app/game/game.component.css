@@ -173,6 +173,17 @@
   position: relative;
 }
 
+.ability_interface {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 0.5em;
+  position: relative;
+}
+
 .champion {
   height: 35%;
   position: absolute;
@@ -198,6 +209,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.hit_player {
+  height: 30%;
+  position: absolute;
+  left: 12em;
+  bottom: 5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  rotate: 180deg;
 }
 
 .champion_bars {
@@ -326,4 +348,38 @@
   background: linear-gradient(90deg, #cb0000, #560804);
   border-top-right-radius: 0.5em;
   border-bottom-left-radius: 0.5em;
+}
+
+.ability_animation {
+  height: 40%;
+  width: 40%;
+  /*background: #797979;*/
+  position: absolute;
+  top: 30%;
+  right: 6em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ability {
+  height: 100%;
+}
+
+.win_interface {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.lose_interface {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

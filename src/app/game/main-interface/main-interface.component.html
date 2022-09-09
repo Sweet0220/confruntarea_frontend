@@ -3,11 +3,11 @@
     <p class="action">ATTACK</p>
     <img src="assets/icons/attack.png" class="action_icon">
   </div>
-  <div [ngClass]="hasUsedAbility ? 'action_button_disabled' : 'action_button'">
+  <div [ngClass]="hasUsedAbility ? 'action_button_disabled' : 'action_button'" (click)="toggleAbilityInterface()">
     <p class="action">ABILITIES</p>
     <img src="assets/icons/ability_particles.png" class="action_icon">
   </div>
-  <div class="action_button">
+  <div class="action_button"(click)="toggleMonsterTurn()">
     <p class="action">END TURN</p>
   </div>
 </div>
