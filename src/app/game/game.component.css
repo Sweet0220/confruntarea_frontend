@@ -184,6 +184,17 @@
   position: relative;
 }
 
+.item_interface {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
 .champion {
   height: 35%;
   position: absolute;
@@ -383,3 +394,42 @@
   justify-content: center;
   align-items: center;
 }
+
+@keyframes throwable {
+  0% {left: 27%}
+  100% {left: 67%}
+}
+
+.throwable_animation {
+  position: absolute;
+  height: 15%;
+  width: 7%;
+  /*background: #797979;*/
+  top: 60%;
+  left: 27%;
+  animation: linear;
+  animation-name: throwable;
+  animation-duration: 0.25s;
+  animation-fill-mode: forwards;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  rotate: 90deg;
+}
+
+
+
+.potion_animation {
+  position: absolute;
+  height: 15%;
+  width: 7%;
+  top: 50%;
+  left: 27%;
+  animation: linear;
+}
+
+.item {
+  height: 100%;
+}
+
+

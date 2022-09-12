@@ -6,6 +6,7 @@ import {InterfaceService} from "../../game-logic/interface.service";
 import {Monster} from "../../entity/monster";
 import {MonsterService} from "../../service/monster.service";
 import {User} from "../../entity/user";
+import {Item} from "../../entity/item";
 
 @Component({
   selector: 'app-game',
@@ -106,6 +107,10 @@ export class GameComponent implements OnInit {
     return this.interfaceService.monsterTurnInterface;
   }
 
+  get itemUseInterface() {
+    return this.interfaceService.itemUseInterface;
+  }
+
   get currentHp() {
     return this.interfaceService.currentHp;
   }
@@ -138,12 +143,24 @@ export class GameComponent implements OnInit {
     return this.interfaceService.ability;
   }
 
+  get item(): string {
+    return "assets/sprites/items/" + this.interfaceService.item.picture;
+  }
+
   get win() {
     return this.interfaceService.win;
   }
 
   get lose() {
     return this.interfaceService.lose;
+  }
+
+  get throw() {
+    return this.interfaceService.throw;
+  }
+
+  get drink() {
+    return this.interfaceService.drink;
   }
 
 }

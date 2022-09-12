@@ -3,6 +3,7 @@ import {GameService} from "../../../service/game.service";
 import {AudioService} from "../../../service/audio.service";
 import {InterfaceService} from "../../../game-logic/interface.service";
 import {Monster} from "../../../entity/monster";
+import {GameEntity} from "../../../game-logic/game-entity";
 
 @Component({
   selector: 'app-monster-turn-interface',
@@ -11,12 +12,15 @@ import {Monster} from "../../../entity/monster";
 })
 export class MonsterTurnInterfaceComponent implements OnInit {
 
+  damageGiven: string = "";
   currentMonster: Monster = JSON.parse(<any>localStorage.getItem("currentMonster"));
+  gameEntity: GameEntity = JSON.parse(<any>localStorage.getItem("game_entity"));
   sfx: string = "";
 
   constructor(private gameService: GameService, private audioService: AudioService, private interfaceService: InterfaceService) { }
 
   async ngOnInit() {
+
     await this.triggerHit();
   }
 
@@ -28,13 +32,21 @@ export class MonsterTurnInterfaceComponent implements OnInit {
     this.gameService.monsterHit = false;
 
     let percentage = this.randomNumberInInterval(1, 25);
-    let damageGiven = this.currentMonster.baseDamage - this.currentMonster.baseDamage * percentage / 100;
+    let damageGiven = Math.floor(this.currentMonster.baseDamage - this.currentMonster.baseDamage * percentage / 100);
+
+    this.damageGiven = damageGiven + " damage!";
 
 
     if(this.interfaceService.currentHp - damageGiven >= 0) {
       this.interfaceService.currentHp -= damageGiven;
     } else {
       this.interfaceService.currentHp = 0;
+    }
+
+    if(this.interfaceService.currentHpMonster - this.gameEntity.totalThorns >= 0) {
+      this.interfaceService.currentHpMonster -= this.gameEntity.totalThorns;
+    } else {
+      this.interfaceService.currentHpMonster = 0;
     }
 
 
@@ -52,6 +64,7 @@ export class MonsterTurnInterfaceComponent implements OnInit {
     this.gameService.hasAttacked = false;
     this.gameService.hasUsedItem = false;
     this.gameService.hasUsedAbility = false;
+    this.interfaceService.currentMana += 25;
     this.interfaceService.monsterTurnInterface = false;
     this.interfaceService.mainInterface = true;
   }

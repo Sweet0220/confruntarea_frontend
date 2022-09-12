@@ -23,7 +23,7 @@
     <div class="inventory_section">
       <p class="action" style="font-size: 0.9em; margin: 0.3em 0 0 0;">THROWABLES</p>
       <div class="item_list">
-        <div class="item_box" *ngFor="let throwable of throwables" title="{{throwable.name}}">
+        <div [ngClass]="hasUsedItem ? 'item_box_disabled' : 'item_box'" *ngFor="let throwable of throwables" title="{{throwable.name}}" (click)="selectItem(throwable)">
           <img src="assets/sprites/items/{{throwable.picture}}" class="item_image">
           <p class="item_count">{{getItemCount(throwable)}}</p>
         </div>
@@ -32,7 +32,7 @@
     <div class="inventory_section">
       <p class="action" style="font-size: 0.9em; margin: 0.3em 0 0 0;">POTIONS</p>
       <div class="item_list">
-        <div class="item_box" *ngFor="let potion of potions" title="{{potion.name}}">
+        <div [ngClass]="hasUsedItem ? 'item_box_disabled' : 'item_box'" *ngFor="let potion of potions" title="{{potion.name}}" (click)="selectItem(potion)">
           <img src="assets/sprites/items/{{potion.picture}}" class="item_image">
           <p class="item_count">{{getItemCount(potion)}}</p>
         </div>

@@ -42,6 +42,14 @@
           <img src="{{ability}}" class="ability">
         </div>
 
+        <div class="throwable_animation" *ngIf="throw">
+          <img src="{{item}}" class="item">
+        </div>
+
+        <div class="potion_animation" *ngIf="drink">
+          <img src="{{item}}" class="item">
+        </div>
+
       </div>
     </div>
     <div class="interface_holder">
@@ -50,6 +58,7 @@
         <app-attack-interface class="attack_interface" *ngIf="attackInterface"></app-attack-interface>
         <app-ability-interface class="ability_interface" *ngIf="abilityInterface"></app-ability-interface>
         <app-monster-turn-interface class="main_interface" *ngIf="monsterTurnInterface"></app-monster-turn-interface>
+        <app-item-use-interface class="item_interface" *ngIf="itemUseInterface"></app-item-use-interface>
       </div>
     </div>
   </div>

@@ -21,11 +21,11 @@ export class WinInterfaceComponent implements OnInit {
 
   async ngOnInit() {
     this.addRewards();
-    await new Promise(f => setTimeout(f, 1200));
+    await new Promise(f => setTimeout(f, 2500));
     this.orbs = true;
-    await new Promise(f => setTimeout(f, 600));
+    await new Promise(f => setTimeout(f, 1000));
     this.exp = true;
-    await new Promise(f => setTimeout(f, 1200));
+    await new Promise(f => setTimeout(f, 1500));
     this.back = true;
   }
 

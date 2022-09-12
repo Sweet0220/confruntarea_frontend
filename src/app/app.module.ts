@@ -51,6 +51,7 @@ import { AbilityInterfaceComponent } from './game/ability-interface/ability-inte
 import { WinInterfaceComponent } from './game/win-interface/win-interface.component';
 import { LoseInterfaceComponent } from './game/lose-interface/lose-interface.component';
 import { MonsterTurnInterfaceComponent } from './game/monster-turn-interface/monster-turn-interface.component';
+import { ItemUseInterfaceComponent } from './game/item-use-interface/item-use-interface.component';
 
 @NgModule({
   declarations: [
@@ -101,7 +102,8 @@ import { MonsterTurnInterfaceComponent } from './game/monster-turn-interface/mon
     AbilityInterfaceComponent,
     WinInterfaceComponent,
     LoseInterfaceComponent,
-    MonsterTurnInterfaceComponent
+    MonsterTurnInterfaceComponent,
+    ItemUseInterfaceComponent
   ],
   imports: [
     BrowserModule,

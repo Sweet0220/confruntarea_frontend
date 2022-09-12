@@ -169,6 +169,19 @@
   background: rgba(255,255,255,0.2);
 }
 
+.item_box_disabled {
+  height: 3.5em;
+  width: 3.5em;
+  flex-grow: 0;
+  flex-shrink: 0;
+  /*background: white;*/
+  border: solid white 0.2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
 
 .item_image {
   height: 75%;

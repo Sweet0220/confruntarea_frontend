@@ -20,9 +20,9 @@ export class LoseInterfaceComponent implements OnInit {
 
   async ngOnInit() {
     this.subtractRewards();
-    await new Promise(f => setTimeout(f, 1200));
+    await new Promise(f => setTimeout(f, 2500));
     this.exp = true;
-    await new Promise(f => setTimeout(f, 1200));
+    await new Promise(f => setTimeout(f, 1500));
     this.back = true;
   }
 
@@ -31,7 +31,7 @@ export class LoseInterfaceComponent implements OnInit {
       this.principal.exp -= this.currentMonster.expReward/2;
     }else {
       this.principal.level --;
-      this.principal.exp = 1000 - this.principal.exp + this.currentMonster.expReward/2;
+      this.principal.exp = -(this.principal.exp - 1000 + this.currentMonster.expReward/2);
     }
 
     this.userService.updateUser(this.principal).subscribe();

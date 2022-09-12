@@ -23,7 +23,13 @@ export class AdminUserViewComponent implements OnInit {
   ngOnInit(): void {
     this.user = {} as User;
     this.userService.getUserByUsername(this.adminUserService.username).subscribe(user => {
-      this.user = user;
+      this.user.username = user.username;
+      this.user.email = user.email;
+      this.user.role = user.role;
+      this.user.funds = user.funds;
+      this.user.picture = user.picture;
+      this.user.level = user.level;
+      this.user.exp = user.exp;
     });
   }
 

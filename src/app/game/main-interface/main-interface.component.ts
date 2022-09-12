@@ -68,6 +68,14 @@ export class MainInterfaceComponent implements OnInit {
     }
   }
 
+  selectItem(item: Item) {
+    if(!this.hasUsedItem) {
+      this.interfaceService.chosenItem = item;
+      this.interfaceService.itemUseInterface = true;
+      this.interfaceService.mainInterface = false;
+    }
+  }
+
   toggleAttackInterface() {
     if(!this.hasAttacked) {
       this.interfaceService.attackInterface = true;

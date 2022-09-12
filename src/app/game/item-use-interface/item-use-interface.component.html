@@ -1,0 +1,27 @@
+<div class="item_interface" *ngIf="showInterface">
+
+  <div class="back_button" (click)="goBack()">
+    <img src="assets/icons/close.svg" style="height: 100%">
+  </div>
+  <img src="assets/sprites/items/{{item.picture}}" class="item_image">
+  <p class="use_query">Use {{item.name}}?</p>
+  <div class="stat_flexbox" title="DAMAGE" *ngIf="item.type == 'THROWABLE'">
+    <img src="assets/icons/Damage.png" style="height: 90%">
+    <p class="stat_text">: {{item.bonusDamage}}</p>
+  </div>
+  <div class="stat_flexbox" title="LIFESTEAL" *ngIf="item.type == 'THROWABLE'">
+    <img src="assets/icons/Lifesteal.png" style="height: 90%">
+    <p class="stat_text">: {{item.bonusHp}}</p>
+  </div>
+  <div class="stat_flexbox" title="HEALING" *ngIf="item.type == 'POTION'">
+    <img src="assets/icons/Heart.png" style="height: 90%">
+    <p class="stat_text">: {{item.bonusHp}}</p>
+  </div>
+  <div class="stat_flexbox" title="MANA REGEN" *ngIf="item.type == 'POTION'">
+    <img src="assets/icons/Mana.png" style="height: 90%">
+    <p class="stat_text">: {{item.bonusDamage}}</p>
+  </div>
+  <div class="use_button" style="width: 10%; margin: 0.5em 0 0 0;" (click)="useItem()">USE</div>
+
+</div>
+<audio src="{{sfx}}" autoplay="autoplay" autostart="true" *ngIf="audio"></audio>
