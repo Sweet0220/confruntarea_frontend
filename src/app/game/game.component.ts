@@ -21,7 +21,6 @@ export class GameComponent implements OnInit {
   currentMonster: Monster = {} as Monster;
   gameEntity: GameEntity = {} as GameEntity;
   currentUser: User = JSON.parse(<any>localStorage.getItem("principal"));
-  monsterHeight: string = "100";
 
   constructor(private gameService: GameService, private audioService: AudioService, private interfaceService: InterfaceService, private monsterService: MonsterService) { }
 
@@ -77,8 +76,9 @@ export class GameComponent implements OnInit {
           this.currentMonster = data[index];
           localStorage.setItem("currentMonster", JSON.stringify(this.currentMonster));
           this.interfaceService.currentHpMonster = data[index].hp;
+          this.interfaceService.monsterPicture = "assets/sprites/monsters/" + this.currentMonster.picture;
           if(this.currentMonster.name == "Musca Tzetze") {
-            this.monsterHeight = "45";
+            this.interfaceService.monsterHeight = "45";
           }
           go = false;
         }
@@ -161,6 +161,14 @@ export class GameComponent implements OnInit {
 
   get drink() {
     return this.interfaceService.drink;
+  }
+
+  get monsterPicture() {
+    return this.interfaceService.monsterPicture;
+  }
+
+  get monsterHeight() {
+    return this.interfaceService.monsterHeight;
   }
 
 }

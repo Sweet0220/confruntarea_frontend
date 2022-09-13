@@ -18,4 +18,5 @@
   </form>
   <img src="assets/animations/loading.gif" class="loading" *ngIf="loading">
   <p class="info" id="info_good" *ngIf="info">An email has been sent to {{email}} ! Use the link to validate your account !</p>
+  <p class="info" id="info_bad" *ngIf="badInfo">{{message}}</p>
 </div>

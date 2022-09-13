@@ -34,6 +34,7 @@ export class LoseInterfaceComponent implements OnInit {
       this.principal.exp = -(this.principal.exp - 1000 + this.currentMonster.expReward/2);
     }
 
+    this.principal.password = "";
     this.userService.updateUser(this.principal).subscribe();
     localStorage.setItem("principal", JSON.stringify(this.principal));
   }

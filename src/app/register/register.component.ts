@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {UserRegister} from "../../entity/user-register";
 import {User} from "../../entity/user";
 import {UserService} from "../../service/user.service";
@@ -14,9 +14,18 @@ export class RegisterComponent implements OnInit {
   newUser: UserRegister = {} as UserRegister;
   loading: boolean = false;
   info: boolean = false;
+  badInfo: boolean = false;
+  message: string = "";
   email: string = "";
 
   constructor(private userService: UserService, private router: Router) { }
+
+  @HostListener('document:keydown', ['$event'])
+  async attemptLogin(event: KeyboardEvent) {
+    if(event.key == 'Enter') {
+      await this.submit();
+    }
+  }
 
   ngOnInit(): void {
   }
@@ -39,10 +48,15 @@ export class RegisterComponent implements OnInit {
       this.newUser.email = email;
       this.newUser.password = password1;
       this.email = email;
+      this.badInfo = false;
       this.loading = true;
-      this.userService.registerUser(this.newUser).subscribe( _ => {
+      this.userService.registerUser(this.newUser).subscribe( data => {
         this.loading = false;
         this.info = true;
+      }, error => {
+        this.message = error.error;
+        this.loading = false;
+        this.badInfo = true;
       });
     }
   }
@@ -50,5 +64,6 @@ export class RegisterComponent implements OnInit {
   login() {
     this.router.navigate(['/login']);
   }
+
 
 }

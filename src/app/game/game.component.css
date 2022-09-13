@@ -417,15 +417,25 @@
   rotate: 90deg;
 }
 
-
+@keyframes potion {
+  0% {left: 30%; top: 70%}
+  100%{left: 20%; top: 62%; rotate: -75deg}
+}
 
 .potion_animation {
   position: absolute;
-  height: 15%;
-  width: 7%;
+  height: 10%;
+  width: 5%;
   top: 50%;
   left: 27%;
   animation: linear;
+  animation-name: potion;
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*background: #797979;*/
 }
 
 .item {

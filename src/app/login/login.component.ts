@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import {UserService} from "../../service/user.service";
 import {Router} from "@angular/router";
 import {JwtService} from "../../jwt/service/jwt.service";
@@ -14,6 +14,15 @@ export class LoginComponent implements OnInit {
   info: boolean = false;
 
   constructor(private userService: UserService, private router: Router, private jwtService: JwtService) { }
+
+
+  @HostListener('document:keydown', ['$event'])
+  async attemptLogin(event: KeyboardEvent) {
+    if(event.key == 'Enter') {
+      await this.logon();
+    }
+  }
+
 
   ngOnInit(): void {
     localStorage.setItem("accessToken", "");

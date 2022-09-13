@@ -81,6 +81,36 @@ export class ItemUseInterfaceComponent implements OnInit {
     this.interfaceService.itemUseInterface = false;
   }
 
+  async drinkPotion() {
+    this.showInterface = false;
+    this.gameService.hasUsedItem = true;
+    this.interfaceService.item = this.item;
+    this.interfaceService.drink = true;
+    await new Promise(f => setTimeout(f, 500));
+    this.sfx = "assets/audio/drink.mp3";
+    await new Promise(f => setTimeout(f, 1500));
+
+    if(this.interfaceService.currentHp + this.item.bonusHp <= this.gameEntity.totalHp) {
+      this.interfaceService.currentHp += this.item.bonusHp;
+    } else {
+      this.interfaceService.currentHp = this.gameEntity.totalHp;
+    }
+
+    if(this.interfaceService.currentMana + this.item.bonusDamage <= this.gameEntity.totalMana) {
+      this.interfaceService.currentMana += this.item.bonusDamage;
+    } else {
+      this.interfaceService.currentMana = this.gameEntity.totalMana;
+    }
+
+    await new Promise(f => setTimeout(f, 500));
+    this.interfaceService.drink = false;
+    this.sfx = "";
+    await new Promise(f => setTimeout(f, 1000));
+    this.interfaceService.mainInterface = true;
+    this.interfaceService.itemUseInterface = false;
+
+  }
+
   async useItem() {
 
     if(this.item.type == "THROWABLE") {
@@ -88,7 +118,7 @@ export class ItemUseInterfaceComponent implements OnInit {
     }
 
     if(this.item.type == "POTION") {
-
+      await this.drinkPotion();
     }
 
   }

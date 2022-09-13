@@ -27,5 +27,8 @@ export class InterfaceService {
 
   chosenItem: Item = {} as Item;
 
+  monsterPicture: string = "";
+  monsterHeight: string = "100";
+
   constructor() { }
 }

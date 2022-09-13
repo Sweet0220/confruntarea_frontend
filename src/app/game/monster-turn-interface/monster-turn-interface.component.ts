@@ -59,14 +59,24 @@ export class MonsterTurnInterfaceComponent implements OnInit {
     }
     if(this.interfaceService.currentHp <= 0) {
       this.gameService.playerHitEffect = false;
+      let chance = this.randomNumberInInterval(0, 100);
+      if (chance <= 100) {
+        await this.easterEgg();
+      }
     }
-    await new Promise(f => setTimeout(f, 1000));
     this.gameService.hasAttacked = false;
     this.gameService.hasUsedItem = false;
     this.gameService.hasUsedAbility = false;
     this.interfaceService.currentMana += 25;
     this.interfaceService.monsterTurnInterface = false;
     this.interfaceService.mainInterface = true;
+  }
+
+  async easterEgg() {
+    this.interfaceService.monsterPicture = "assets/animations/easter-egg.gif";
+    this.interfaceService.monsterHeight = "100";
+    this.audioService.song = "assets/audio/easter-egg.mp3";
+    await new Promise(f => setTimeout(f, 5000));
   }
 
   get audio() {

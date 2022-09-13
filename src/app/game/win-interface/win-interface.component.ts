@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Monster} from "../../../entity/monster";
 import {User} from "../../../entity/user";
 import {UserService} from "../../../service/user.service";
+import {ItemOwnershipService} from "../../../service/item-ownership.service";
+import {GameEntity} from "../../../game-logic/game-entity";
 
 @Component({
   selector: 'app-win-interface',
@@ -12,12 +14,13 @@ export class WinInterfaceComponent implements OnInit {
 
   currentMonster: Monster = JSON.parse(<any>localStorage.getItem("currentMonster"));
   principal: User = JSON.parse(<any>localStorage.getItem("principal"));
+  gameEntity: GameEntity = JSON.parse(<any>localStorage.getItem("game_entity"));
 
   orbs: boolean = false;
   exp: boolean = false;
   back: boolean = false;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private itemLinkService: ItemOwnershipService) { }
 
   async ngOnInit() {
     this.addRewards();
@@ -38,6 +41,17 @@ export class WinInterfaceComponent implements OnInit {
     }
 
     this.principal.funds += this.currentMonster.moneyReward;
+
+    this.itemLinkService.getByUsername(this.principal.username).subscribe(data => {
+      for(let link of data) {
+        if(link.item.name == this.gameEntity.weapon.name || link.item.name == this.gameEntity.armor.name) {
+          this.itemLinkService.increaseCount(link.id).subscribe();
+        }
+      }
+
+    });
+
+    this.principal.password = "";
 
     this.userService.updateUser(this.principal).subscribe();
     localStorage.setItem("principal", JSON.stringify(this.principal));
