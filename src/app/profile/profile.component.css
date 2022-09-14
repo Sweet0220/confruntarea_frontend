@@ -1,60 +1,207 @@
-.profilepic {
-  margin-top: 7em;
-  border-radius: 50%;
-  width: 15em;
-  height: 15em;
-}
-
-.funds {
-  display: flex;
+.profile_container {
+  height: 100%;
   width: 100%;
-  height: 10%;
-  align-items: center;
-  align-content: center;
+  /*background: #797979;*/
+  position: relative;
+}
+
+.profile_contents {
+  height: 65%;
+  width: 100%;
+  /*background: rgba(79,79,79,0.3);*/
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  text-align: center;
+  align-items: center;
 }
 
-.energy_shards {
-  height: 70%;
+.profile_image {
+  height: 10rem;
+  width: 10rem;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 1;
 }
 
-.profile_name {
-  margin-bottom: 0;
-  font-size: 2em;
-  color: #d501ff;
-  text-align: center;
+.profile_image:hover {
+  opacity: 0.5;
 }
 
-.profile_text {
-  margin-bottom: 0;
-  margin-top: 0.7em;
-  font-size: 1.5em;
-  color: #fbff00;
-  text-align: center;
-}
-
-.profile_funds {
-  margin: 0 0 0 0.5em;
-  font-size: 1.5em;
-  color: #00eeff;
-  text-align: center;
-}
-
-.log_out {
-  color: #f02f22;
-  margin-top: 2em;
+.username {
+  margin: 0.4em 0 0 0;
   font-size: 2.5em;
-  text-decoration:underline #66140e;
-}
-
-.log_out:hover {
-  text-decoration:underline #f02f22;
-  cursor: pointer;
-}
-
-.log_out:active {
   color: #d501ff;
-  text-decoration:underline #d501ff;
+  /*text-decoration: underline #d501ff 0.05em;*/
+  /*font-family: CursivePixel, sans-serif;*/
+}
+
+.email {
+  margin: 0.4em 0 0 0;
+  font-size: 1.4em;
+  color: limegreen;
   cursor: pointer;
 }
+
+.email:hover {
+  text-decoration: underline limegreen;
+}
+
+.orb_flexbox{
+  height: 4%;
+  width: 100%;
+  margin: 0.7rem 0 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*background: #d501ff;*/
+}
+
+.orbs {
+  font-size: 1.4em;
+  color: #34c3a7;
+  margin: 0 0 0 0.5em;
+}
+
+.orb_image {
+  height: 100%;
+}
+
+.level {
+  margin: 0;
+  font-size: 1em;
+  height: 0.9em;
+  color: white;
+}
+
+.exp_progress_background {
+  width: 70%;
+  height: 1.4em;
+  background: #261c00;
+  margin: 0.4em 0 0 0;
+  border-radius: 0.2em;
+  position: relative;
+  cursor: help;
+}
+
+.exp_progress {
+  height: 100%;
+  position: absolute;
+  border-radius: 0.2em;
+  left: 0;
+  background: goldenrod;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress {
+  margin: 0;
+  color: white;
+  font-size: 1.2em;
+}
+
+.level_container {
+  width: 55%;
+  height: 30%;
+  margin: 1rem 0 0 0;
+  background: rgba(0,0,0,0.7);
+  border-radius: 0.3rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 0.2em;
+}
+
+.level_stats_container {
+  width: 100%;
+  height: 30%;
+  /*background: #1100ff;*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.level_text {
+  margin: 0;
+  color: white;
+  font-size: 1.8em;
+}
+
+.level_circle {
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  color: white;
+  font-family: Pixel, sans-serif;
+  font-size: 1.6em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0.7rem;
+}
+
+.champion_container {
+  position: absolute;
+  bottom: 0;
+  height: 35%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /*background: #d501ff;*/
+}
+
+.champion_list {
+  height: 70%;
+  width: 90%;
+  border-top: solid #d501ff 0.02em;
+  margin: 0.5rem 0 0 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  column-gap: 1em;
+}
+
+.champion_list::-webkit-scrollbar {
+  display: none;
+}
+
+.champion_card {
+  flex-grow: 0;
+  flex-shrink: 0;
+  height: 85%;
+  width: 25%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logout {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 7%;
+  height: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid white 0.1em;
+  cursor: pointer;
+}
+
+.logout:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.logout:active {
+  background: rgba(255,255,255,0.2);
+}
+

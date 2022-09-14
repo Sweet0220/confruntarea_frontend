@@ -86,6 +86,13 @@ export class ItemUseInterfaceComponent implements OnInit {
     this.gameService.hasUsedItem = true;
     this.interfaceService.item = this.item;
     this.interfaceService.drink = true;
+    this.itemLinkService.getByUsername(this.principal.username).subscribe(data => {
+      for(let link of data) {
+        if(link.item.name == this.item.name) {
+          this.itemLinkService.decreaseCount(link.id).subscribe();
+        }
+      }
+    });
     await new Promise(f => setTimeout(f, 500));
     this.sfx = "assets/audio/drink.mp3";
     await new Promise(f => setTimeout(f, 1500));
@@ -106,6 +113,7 @@ export class ItemUseInterfaceComponent implements OnInit {
     this.interfaceService.drink = false;
     this.sfx = "";
     await new Promise(f => setTimeout(f, 1000));
+
     this.interfaceService.mainInterface = true;
     this.interfaceService.itemUseInterface = false;
 

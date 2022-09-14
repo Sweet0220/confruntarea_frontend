@@ -27,12 +27,23 @@ export class LoseInterfaceComponent implements OnInit {
   }
 
   subtractRewards() {
-    if(this.principal.exp - this.currentMonster.expReward/2 >= 0) {
-      this.principal.exp -= this.currentMonster.expReward/2;
-    }else {
-      this.principal.level --;
-      this.principal.exp = -(this.principal.exp - 1000 + this.currentMonster.expReward/2);
+    if(this.principal.level > 1) {
+
+      if(this.principal.exp - this.currentMonster.expReward/2 >= 0) {
+        this.principal.exp -= this.currentMonster.expReward/2;
+      }else {
+        this.principal.level --;
+        this.principal.exp = -(this.principal.exp - 1000 + this.currentMonster.expReward/2);
+      }
+
+    } else {
+      if(this.principal.exp - this.currentMonster.expReward/2 >= 0) {
+        this.principal.exp -= this.currentMonster.expReward/2;
+      } else {
+        this.principal.exp = 0;
+      }
     }
+
 
     this.principal.password = "";
     this.userService.updateUser(this.principal).subscribe();

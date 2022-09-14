@@ -60,7 +60,7 @@ export class MonsterTurnInterfaceComponent implements OnInit {
     if(this.interfaceService.currentHp <= 0) {
       this.gameService.playerHitEffect = false;
       let chance = this.randomNumberInInterval(0, 100);
-      if (chance <= 100) {
+      if (chance <= 20) {
         await this.easterEgg();
       }
     }

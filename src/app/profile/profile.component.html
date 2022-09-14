@@ -1,10 +1,48 @@
-<img src="../../assets/icons/{{user.picture}}" class="profilepic">
-<h1 class="profile_name">{{user.username}}</h1>
-<p class="profile_text"> Current_level: {{user.level}}</p>
-<p class="profile_text" style="color: #11e039">Exp: {{user.exp}} / 1000</p>
-<div class="funds">
-  <img src="../../assets/icons/orbs.png" class="energy_shards" title="ORBS">
-  <p class="profile_funds">{{user.funds}}</p>
-</div>
+<div class="profile_container">
+  <div class="profile_contents">
+    <img src="assets/icons/{{user.picture}}" class="profile_image" title="CLICK TO EDIT">
+    <p class="username">{{user.username}}</p>
+    <p class="email" title="CLICK TO CHANGE">{{user.email}}</p>
+    <div class="orb_flexbox" title="ORBS">
+      <img src="assets/icons/orbs.png" class="orb_image">
+      <p class="orbs">: {{user.funds}}</p>
+    </div>
+    <div class="level_container">
+      <div class="level_stats_container">
+        <p class="level_text">Level</p>
+        <div class="level_circle" style="border: solid {{levelBorder}} 0.15em">
+          <p class="level">{{user.level}}</p>
+        </div>
+        <p class="level_text" style="margin-left: 1.5em">EXP {{user.exp}}</p>
+        <p class="level_text" style="margin-left: 1.5em">Rank</p>
+        <p class="level_text" style="margin-left: 0.4em; color: {{levelBorder}}">{{rank}}</p>
+      </div>
+      <p class="level_text" style="font-size: 1.3em; margin: 0.5em 0 0 0">{{1000 - user.exp}} EXP until level {{user.level + 1}}</p>
+      <div class="exp_progress_background" title="{{user.exp}}/1000">
+        <div class="exp_progress" style="width: {{expBarWidth}}">
+        </div>
+      </div>
+    </div>
+  </div>
 
-<p class="log_out" (click)="logout()">Log_out</p>
+  <div class=champion_container>
+    <p class="level_text" style="font-size: 1.3em;">YOUR CHAMPIONS</p>
+    <div class="champion_list">
+      <div class="champion_card"></div>
+      <div class="champion_card"></div>
+      <div class="champion_card"></div>
+      <div class="champion_card"></div>
+      <div class="champion_card"></div>
+      <div class="champion_card"></div>
+      <div class="champion_card"></div>
+      <div class="champion_card"></div>
+      <div class="champion_card"></div>
+    </div>
+    <p class="level_text" style="font-size: 0.9em">*you can scroll using shift + scrollwheel</p>
+  </div>
+
+
+  <div class="logout" (click)="logout()">
+    <p class="level_text" style="font-size: 1.2em">LOG OUT</p>
+  </div>
+</div>
