@@ -31,6 +31,10 @@ export class AdminMenuComponent implements OnInit {
     }
   }
 
+  toGame() {
+    this.router.navigate(["/game"]);
+  }
+
   get getBottomBar() {
     return this.adminUserService.bottomBar;
   }

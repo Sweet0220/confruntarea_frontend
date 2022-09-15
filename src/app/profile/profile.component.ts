@@ -3,6 +3,9 @@ import {User} from "../../entity/user";
 import {Router} from "@angular/router";
 import {UserService} from "../../service/user.service";
 import {GameEntity} from "../../game-logic/game-entity";
+import {ChampionOwnershipService} from "../../service/champion-ownership.service";
+import {Champion} from "../../entity/champion";
+import {ChampionOwnership} from "../../entity/champion-ownership";
 
 @Component({
   selector: 'app-profile',
@@ -15,17 +18,29 @@ export class ProfileComponent implements OnInit {
   expBarWidth: string = "";
   levelBorder: string = "";
   rank: string = "";
+  champions: Array<ChampionOwnership> = [];
 
-  constructor(private router: Router, private userService: UserService) { }
+  constructor(private router: Router, private userService: UserService, private championLinkService: ChampionOwnershipService) { }
 
   ngOnInit(): void {
     let savedUser = JSON.parse(<any>localStorage.getItem("principal"));
     this.userService.getUserByUsername(savedUser.username).subscribe(user => {
       this.user = user;
+      this.getOwnedChampions();
       this.calculateProgressBarWidth();
       this.setLevelBorder();
       localStorage.setItem("principal", JSON.stringify(user));
     })
+  }
+
+  getOwnedChampions() {
+    this.championLinkService.getChampionOwnershipsByUsername(this.user.username).subscribe(data => {
+      this.champions = data;
+    });
+  }
+
+  toAdmin() {
+    this.router.navigate(["/admin"]);
   }
 
   logout() {

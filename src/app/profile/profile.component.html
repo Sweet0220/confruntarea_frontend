@@ -28,15 +28,16 @@
   <div class=champion_container>
     <p class="level_text" style="font-size: 1.3em;">YOUR CHAMPIONS</p>
     <div class="champion_list">
-      <div class="champion_card"></div>
-      <div class="champion_card"></div>
-      <div class="champion_card"></div>
-      <div class="champion_card"></div>
-      <div class="champion_card"></div>
-      <div class="champion_card"></div>
-      <div class="champion_card"></div>
-      <div class="champion_card"></div>
-      <div class="champion_card"></div>
+      <div class="champion_card" *ngFor="let champion of champions">
+        <div class="image_part">
+          <img src="assets/sprites/champions/{{champion.champion.picture}}" class="champion_image">
+          <p class="champion_name" style="color: {{champion.champion.nameColor}}">{{champion.champion.name}}</p>
+        </div>
+        <div class="separator"></div>
+        <div class="image_part">
+          <p class="champ_level">Level {{champion.level}}</p>
+        </div>
+      </div>
     </div>
     <p class="level_text" style="font-size: 0.9em">*you can scroll using shift + scrollwheel</p>
   </div>
@@ -44,5 +45,8 @@
 
   <div class="logout" (click)="logout()">
     <p class="level_text" style="font-size: 1.2em">LOG OUT</p>
+  </div>
+  <div class="logout" style="top: 4em;" *ngIf="user.role == 'admin'" (click)="toAdmin()">
+    <p class="level_text" style="font-size: 1.2em">TO ADMIN</p>
   </div>
 </div>

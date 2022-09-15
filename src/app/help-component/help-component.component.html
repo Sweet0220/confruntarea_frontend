@@ -1,0 +1,31 @@
+<div class="help-container">
+  <div class="top-container">
+    <p class="help-title">- HELP MENU -</p>
+    <div class="menu_bar">
+      <div [ngClass]="orbs ? 'menu_button_pressed' : 'menu_button'" (click)="toggleOrbs()">
+        <p [ngClass]="orbs ? 'button_pressed' : 'button_unpressed'">ORBS</p>
+      </div>
+      <div [ngClass]="champions ? 'menu_button_pressed' : 'menu_button'" (click)="toggleChampions()">
+        <p [ngClass]="champions ? 'button_pressed' : 'button_unpressed'">CHAMPIONS</p>
+      </div>
+      <div [ngClass]="items ? 'menu_button_pressed' : 'menu_button'" (click)="toggleItems()">
+        <p [ngClass]="items ? 'button_pressed' : 'button_unpressed'">ITEMS</p>
+      </div>
+      <div [ngClass]="monsters ? 'menu_button_pressed' : 'menu_button'" (click)="toggleMonsters()">
+        <p [ngClass]="monsters ? 'button_pressed' : 'button_unpressed'">MONSTERS</p>
+      </div>
+      <div [ngClass]="ranks ? 'menu_button_pressed' : 'menu_button'" (click)="toggleRanks()">
+        <p [ngClass]="ranks ? 'button_pressed' : 'button_unpressed'">RANKS</p>
+      </div>
+      <div [ngClass]="howToPlay ? 'menu_button_pressed' : 'menu_button'" (click)="toggleHowToPlay()">
+        <p [ngClass]="howToPlay ? 'button_pressed' : 'button_unpressed'">HOW TO PLAY</p>
+      </div>
+    </div>
+  </div>
+  <app-orbs-help *ngIf="orbs" class="help_interface"></app-orbs-help>
+  <app-champions-help *ngIf="champions" class="help_interface"></app-champions-help>
+  <app-items-help *ngIf="items" class="help_interface"></app-items-help>
+  <app-monsters-help *ngIf="monsters" class="help_interface"></app-monsters-help>
+  <app-ranks-help *ngIf="ranks" class="help_interface"></app-ranks-help>
+  <app-how-to-play *ngIf="howToPlay" class="help_interface"></app-how-to-play>
+</div>

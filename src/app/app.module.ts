@@ -52,6 +52,13 @@ import { WinInterfaceComponent } from './game/win-interface/win-interface.compon
 import { LoseInterfaceComponent } from './game/lose-interface/lose-interface.component';
 import { MonsterTurnInterfaceComponent } from './game/monster-turn-interface/monster-turn-interface.component';
 import { ItemUseInterfaceComponent } from './game/item-use-interface/item-use-interface.component';
+import { HelpComponentComponent } from './help-component/help-component.component';
+import { OrbsHelpComponent } from './help-component/orbs-help/orbs-help.component';
+import { ChampionsHelpComponent } from './help-component/champions-help/champions-help.component';
+import { ItemsHelpComponent } from './help-component/items-help/items-help.component';
+import { MonstersHelpComponent } from './help-component/monsters-help/monsters-help.component';
+import { RanksHelpComponent } from './help-component/ranks-help/ranks-help.component';
+import { HowToPlayComponent } from './help-component/how-to-play/how-to-play.component';
 
 @NgModule({
   declarations: [
@@ -103,7 +110,14 @@ import { ItemUseInterfaceComponent } from './game/item-use-interface/item-use-in
     WinInterfaceComponent,
     LoseInterfaceComponent,
     MonsterTurnInterfaceComponent,
-    ItemUseInterfaceComponent
+    ItemUseInterfaceComponent,
+    HelpComponentComponent,
+    OrbsHelpComponent,
+    ChampionsHelpComponent,
+    ItemsHelpComponent,
+    MonstersHelpComponent,
+    RanksHelpComponent,
+    HowToPlayComponent
   ],
   imports: [
     BrowserModule,

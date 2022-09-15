@@ -151,3 +151,29 @@
 .sidebar_button_pressed:hover {
   cursor: pointer;
 }
+
+.toGame {
+  position: absolute;
+  height: 2.5em;
+  width: 5em;
+  border: solid white 0.15em;
+  bottom: 2em;
+  right: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.toGame:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.toGame:active {
+  background: rgba(255,255,255,0.2);
+}
+
+.toGameText {
+  color: white;
+  font-size: 1.2em;
+}
