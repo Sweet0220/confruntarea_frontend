@@ -1,0 +1,63 @@
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info-container {
+  width: 90%;
+  height: 90%;
+  border: solid goldenrod 0.02em;
+  border-bottom: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 2.5em;
+}
+
+.champ_title {
+  color: goldenrod;
+  font-size: 2em;
+  margin: 0;
+}
+
+.info-image-container {
+  height: 57%;
+  width: 85%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 2em;
+}
+
+.small_container {
+  height: 95%;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 1em;
+}
+
+.info-image {
+  width: 100%;
+  object-fit: contain;
+  border: solid white 0.02em;
+}
+
+.separator {
+  height: 100%;
+  width: 0.02em;
+  background: white;
+}
+
+.rank-text {
+  font-size: 1.2em;
+  margin: 0;
+}
+
+

@@ -9,7 +9,7 @@
     <button id="shop-button" style="color: #fbff00;" (click)="toggleShopComponent()" [ngClass]="shopToggle ? 'sidebar_button_pressed' : 'sidebar_button'">- SHOP -</button>
     <button id="almanac-button" style="color: #11e039" [ngClass]="almanacToggle ? 'sidebar_button_pressed' : 'sidebar_button'" (click)="toggleAlmanacComponent()">- ALMANAC -</button>
     <button id="help-button" style="color: #FFFFFF" [ngClass]="helpToggle ? 'sidebar_button_pressed' : 'sidebar_button'" (click)="toggleHelpComponent()">- HELP -</button>
-    <button id="about-button" [ngClass]="aboutToggle ? 'sidebar_button_pressed' : 'sidebar_button'">- ABOUT -</button>
+    <button id="about-button" [ngClass]="aboutToggle ? 'sidebar_button_pressed' : 'sidebar_button'" (click)="toggleAboutComponent()">- ABOUT -</button>
     <button id="prep-button" style="bottom: 0; position: absolute; margin-bottom: 3em; color: #f02f22" (click)="togglePrepComponent()" [ngClass]="prepToggle ? 'sidebar_button_pressed' : 'sidebar_button'">- PREP -</button>
     <button id="to-battle-button" style="bottom: 0; position: absolute; color: #fbff00" (click)="toggleToBattleComponent()" [ngClass]="toBattleToggle ? 'sidebar_button_pressed' : 'sidebar_button'">TO BATTLE -></button>
   </div>
@@ -20,6 +20,7 @@
   <app-almanac class="component" *ngIf="almanacToggle"></app-almanac>
   <app-game class="component" *ngIf="toBattleToggle"></app-game>
   <app-help-component class="component" *ngIf="helpToggle"></app-help-component>
+  <app-about class="component" *ngIf="aboutToggle"></app-about>
 </div>
 <audio src="{{song}}" autoplay="autoplay" loop="loop" autostart="true" *ngIf="audio" class="audio"></audio>
 <div class="audio_controller" (click)="toggleAudio()">

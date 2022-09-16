@@ -42,7 +42,7 @@ div {
 p {
   font-family: Pixel, serif;
   user-select: none;
-  margin: 0;
+  /*margin: 0;*/
 }
 
 h1 {

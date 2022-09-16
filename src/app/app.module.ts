@@ -59,6 +59,7 @@ import { ItemsHelpComponent } from './help-component/items-help/items-help.compo
 import { MonstersHelpComponent } from './help-component/monsters-help/monsters-help.component';
 import { RanksHelpComponent } from './help-component/ranks-help/ranks-help.component';
 import { HowToPlayComponent } from './help-component/how-to-play/how-to-play.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -117,7 +118,8 @@ import { HowToPlayComponent } from './help-component/how-to-play/how-to-play.com
     ItemsHelpComponent,
     MonstersHelpComponent,
     RanksHelpComponent,
-    HowToPlayComponent
+    HowToPlayComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
