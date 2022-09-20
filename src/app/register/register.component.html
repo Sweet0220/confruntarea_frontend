@@ -17,6 +17,6 @@
     <p class="submit" (click)="login()" style="margin: 1em 0 0 0;">back_to_login</p>
   </form>
   <img src="assets/animations/loading.gif" class="loading" *ngIf="loading">
-  <p class="info" id="info_good" *ngIf="info">An email has been sent to {{email}} ! Use the link to validate your account !</p>
-  <p class="info" id="info_bad" *ngIf="badInfo">{{message}}</p>
+  <p class="info-text" id="info_good" *ngIf="info">An email has been sent to {{email}} ! Use the link to validate your account !</p>
+  <p class="info-text" id="info_bad" *ngIf="badInfo">{{message}}</p>
 </div>

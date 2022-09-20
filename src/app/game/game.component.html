@@ -19,7 +19,7 @@
           <img src="assets/sprites/champions/{{gameEntity.champion.picture}}" height="100%">
         </div>
         <div class="monster" *ngIf="monsterHitEffect">
-          <img src="{{monsterPicture}}" style="height: {{monsterHeight}}%">
+          <img src="{{monsterPicture}}" style="height: {{monsterHeight}}%; bottom: {{monsterBottom}}; position: absolute; left: 0; right: 0; margin: auto;">
         </div>
         <div class="hit_monster" *ngIf="hit">
           <img src="assets/animations/hit.gif" style="height: 100%">

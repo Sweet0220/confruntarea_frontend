@@ -79,6 +79,15 @@ export class GameComponent implements OnInit {
           this.interfaceService.monsterPicture = "assets/sprites/monsters/" + this.currentMonster.picture;
           if(this.currentMonster.name == "Musca Tzetze") {
             this.interfaceService.monsterHeight = "45";
+            this.interfaceService.monsterBottom = "4em";
+          }
+          if(this.currentMonster.name == "Limbric") {
+            this.interfaceService.monsterHeight = "50";
+            this.interfaceService.monsterBottom = "0";
+          }
+          if(this.currentMonster.name == "Fanel Puternic") {
+            this.interfaceService.monsterHeight = "100";
+            this.interfaceService.monsterBottom = "0";
           }
           go = false;
         }
@@ -169,6 +178,10 @@ export class GameComponent implements OnInit {
 
   get monsterHeight() {
     return this.interfaceService.monsterHeight;
+  }
+
+  get monsterBottom() {
+    return this.interfaceService.monsterBottom;
   }
 
 }

@@ -204,6 +204,7 @@
 
 .monster {
   height: 60%;
+  width: 20%;
   position: absolute;
   right: 6em;
   bottom: 1em;

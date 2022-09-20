@@ -29,6 +29,7 @@ export class InterfaceService {
 
   monsterPicture: string = "";
   monsterHeight: string = "100";
+  monsterBottom: string = "0";
 
   constructor() { }
 }
