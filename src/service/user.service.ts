@@ -53,11 +53,12 @@ export class UserService {
                    funds: user.funds,
                    picture: user.picture,
                    level: user.level,
-                   exp: user.exp };
+                   exp: user.exp,
+                   role: user.role};
     const header = new HttpHeaders({
       'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
     });
-    return this.http.put<User>(`${this.getUsersURL}` + "/update/" + user.username, body, {headers: header});
+    return this.http.put(`${this.getUsersURL}` + "/update/" + user.username, body, {headers: header ,responseType: "text"});
   }
 
   loginUser(username: string, password: string): Observable<any> {

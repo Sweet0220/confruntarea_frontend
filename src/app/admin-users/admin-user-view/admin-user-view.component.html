@@ -1,22 +1,41 @@
-<div *ngIf="!chooseImage">
-  <div class="back_button" (click)="adminUserService.toggleUserMenu()"><img src="../../../assets/icons/arrow-back.svg"></div>
-  <div class="profile_main">
-    <img src="../../../assets/icons/{{user.picture}}" class="profile_picture" (click)="chooseImage=true">
-    <p class="profile_username">{{user.username}}</p>
+<div class="user_view" *ngIf="!chooseImage">
+  <div class="back_button" (click)="adminUserService.toggleUserMenu()"><img style="object-fit: contain; height: 2.5em;" src="../../../assets/icons/close.svg"></div>
+  <div class="top-div">
+    <img src="assets/icons/{{user.picture}}" style="" class="profile-pic" (click)="chooseImage=true">
+    <p class="username">{{user.username}}</p>
   </div>
-  <div class="inputs">
-    <label for="email_input" class="email_label">email: </label>
-    <input type="text" id="email_input" class="email_input" value="{{user.email}}">
-    <label for="password_input" class="password_label">password: </label>
-    <input type="text" id="password_input" class="password_input">
-    <br>
-    <label for="funds_input" class="funds_label">funds: </label>
-    <input type="number" id="funds_input" class="funds_input" value="{{user.funds}}">
-    <label for="level_input" class="level_label">level: </label>
-    <input type="number" id="level_input" class="level_input" value="{{user.level}}">
-    <br>
-    <label for="exp_input" class="exp_label">exp: </label>
-    <input type="number" max="999" id="exp_input" class="exp_input" value="{{user.exp}}">
+  <div class="input-div">
+    <div class="input-section">
+      <div class="input-flex">
+        <p class="input-label" style="color: lime">email: </p>
+        <input id="email_input" type="email" class="input" style="border-color: lime; color: lime;" value="{{user.email}}">
+      </div>
+      <div class="input-flex">
+        <p class="input-label" style="color: red">password: </p>
+        <input id="password_input" type="text" class="input" style="border-color: red; color: red;">
+      </div>
+      <div class="input-flex">
+        <p class="input-label" style="color: lightskyblue">role: </p>
+        <select name="roles" id="role_select" class="select" value="{{user.role}}">
+          <option id="player-option" class="option" value="player">PLAYER</option>
+          <option id="admin-option" class="option" value="admin">ADMIN</option>
+        </select>
+      </div>
+    </div>
+    <div class="input-section">
+      <div class="input-flex">
+        <p class="input-label" style="color: goldenrod">orbs: </p>
+        <input id="orbs_input" type="number" class="input" style="border-color: goldenrod; color: goldenrod;" value="{{user.funds}}" min="0">
+      </div>
+      <div class="input-flex">
+        <p class="input-label" style="color: deeppink">level: </p>
+        <input id="level_input" type="number" class="input" style="border-color: deeppink; color: deeppink;" value="{{user.level}}" min="1">
+      </div>
+      <div class="input-flex">
+        <p class="input-label" style="color: orangered">exp: </p>
+        <input id="exp_input" type="number" class="input" style="border-color: orangered; color: orangered;" value="{{user.exp}}" min="0">
+      </div>
+    </div>
   </div>
   <div class="buttons">
     <button class="delete_user" (click)="deleteUser()">DELETE_USER</button>
@@ -25,7 +44,7 @@
 </div>
 
 <div *ngIf="chooseImage">
-  <p class="choose">CHOOSE_NEW_PICTURE</p>
+  <p class="choose">CHOOSE NEW PICTURE</p>
   <div class="picture_table" >
     <img src="../../../assets/icons/img1.webp" class="p1" (click)="setImage1()">
     <img src="../../../assets/icons/img2.webp" class="p2" (click)="setImage2()">

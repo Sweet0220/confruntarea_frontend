@@ -33,6 +33,7 @@ export class AdminUserViewComponent implements OnInit {
     });
   }
 
+
   deleteUser() {
     this.userService.deleteUser(this.user.username).subscribe({error: _ => {
         this.adminUserService.toggleUserMenu();
@@ -47,7 +48,7 @@ export class AdminUserViewComponent implements OnInit {
     const password_input = <HTMLInputElement>document.getElementById("password_input");
     const password: string = password_input.value;
 
-    const funds_input = <HTMLInputElement>document.getElementById("funds_input");
+    const funds_input = <HTMLInputElement>document.getElementById("orbs_input");
     const funds: number = funds_input.valueAsNumber;
 
     const level_input = <HTMLInputElement>document.getElementById("level_input");
@@ -55,6 +56,9 @@ export class AdminUserViewComponent implements OnInit {
 
     const exp_input = <HTMLInputElement>document.getElementById("exp_input");
     const exp: number = exp_input.valueAsNumber;
+
+    const role_select = <HTMLSelectElement>document.getElementById("role_select");
+    const role: string = role_select.value;
 
     if(email != "") {
       this.user.email = email;
@@ -76,9 +80,11 @@ export class AdminUserViewComponent implements OnInit {
       this.user.exp = exp;
     }
 
-    this.userService.updateUser(this.user).subscribe({error: _ => {
+    this.user.role = role;
+
+    this.userService.updateUser(this.user).subscribe(_ => {
         this.adminUserService.toggleUserMenu();
-      }});
+      });
   }
 
   setImage1() {
